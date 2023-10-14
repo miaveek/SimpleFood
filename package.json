@@ -1,0 +1,45 @@
+{
+  "name": "simplefood",
+  "version": "1.0.0",
+  "description": "\"\"\u001b[DSimplefood \u0016Лучший сервис доставки еды | Заказ еды и продуктов\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miaveek/SimpleFood.git"
+  },
+  "keywords": [
+    "fast",
+    "delivery",
+    "food",
+    "24/7",
+    "best",
+    "buy",
+    "mobile",
+    "app"
+  ],
+  "author": "Vitaliy Makeiev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/miaveek/SimpleFood/issues"
+  },
+  "homepage": "https://github.com/miaveek/SimpleFood#readme",
+  "devDependencies": {
+    "browser-sync": "^2.29.3",
+    "del": "^6.1.1",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-real-favicon": "^0.3.2",
+    "gulp-sass": "^5.1.0",
+    "gulp-uglify": "^3.0.2",
+    "jquery": "^3.7.1",
+    "sass": "^1.69.2"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1"
+  }
+}

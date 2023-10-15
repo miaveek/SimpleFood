@@ -18,7 +18,7 @@
 
   &__list {
     display: flex;
-    margin-right: 6.9rem;
+    margin-right: 5.4rem;
     &-item {
       font-size: 1.8rem;
       margin-right: 4.5rem;
@@ -26,16 +26,27 @@
         margin-right: 0;
       }
     }
-    &-link--active {
-      color: $orange-900;
+    &-link {
+      border-radius: 5px;
+      transition: color 0.4s, background-color 0.4s, border 0.4s;
+      &:focus {
+        @extend %orange-box-shadow;
+      }
+      &:active {
+        text-shadow: 2px 2px 5px rgba(49, 53, 43, 0.5);
+      }
+      &:hover,
+      &--active {
+        color: $orange-900;
+      }
     }
   }
 
   &__btns {
     display: flex;
-    margin-right: -2.3rem;
+    margin-right: -1.2rem;
     &-item {
-      margin-right: 3.5rem;
+      margin-right: 1.5rem;
       &:last-child {
         margin-right: 0;
       }
@@ -43,21 +54,65 @@
   }
 
   &__btn {
+    position: relative;
     display: block;
-    width: 1.9rem;
-    height: 1.9rem;
+    width: 3.9rem;
+    height: 3.9rem;
     background-color: transparent;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 1.9rem 1.9rem;
+    border-radius: 5px;
+    transition: background 0.4s, color 0.4s;
     &--search {
       background-image: url("../images/Search.svg");
+      &:hover {
+        background-image: url("../images/Search_hover.svg");
+      }
     }
     &--cart {
       background-image: url("../images/Cart.svg");
+      &:hover {
+        background-image: url("../images/Cart_hover.svg");
+      }
     }
     &--mmenu {
       display: none;
+    }
+    &-count {
+      position: absolute;
+      right: 0.2rem;
+      top: 0.5rem;
+      font-size: 1rem;
+      display: block;
+      width: 1.3rem;
+      height: 1.3rem;
+      padding-top: 0.2rem;
+      background-color: $orange-900;
+      color: #fff;
+      border-radius: 100%;
+    }
+    &:active,
+    &:focus {
+      background-color: rgba(255, 122, 80, 0.1);
+    }
+
+    &:active &-count {
+      background-color: $orange-900;
+      color: #fff;
+    }
+
+    &:focus {
+      @extend %orange-box-shadow;
+    }
+
+    &:hover {
+      background-color: $orange-900;
+    }
+
+    &:hover &-count {
+      background-color: #fff;
+      color: $orange-900;
     }
   }
 
@@ -71,7 +126,6 @@
     transition: transform 0.4s;
     &:before,
     &:after {
-      position: relative;
       width: 3rem;
       height: 0.2rem;
       background-color: #363853;
@@ -100,7 +154,7 @@
     align-items: center;
   }
   &__content {
-    max-width: 44rem;
+    max-width: 48rem;
   }
   &__title,
   &__text {
@@ -122,6 +176,7 @@
   &__image {
     display: flex;
     justify-content: center;
+    margin-right: -2rem;
   }
 }
 /*CATEGORIES*/
@@ -152,8 +207,9 @@
       text-decoration: none;
       background-repeat: no-repeat;
       fill: $darkblue-900;
+      color: $darkblue-900;
       & svg {
-        margin-right: 10px;
+        margin-right: 0.7rem;
       }
 
       &--active {
@@ -175,12 +231,14 @@
     font-size: 1.5rem;
     display: flex;
     flex-direction: column;
-
     padding: 2rem 1.5rem;
     align-items: center;
     box-shadow: 0 0 0 1px #ececec;
     background-color: #fff;
-
+    transition: box-shadow 0.4s;
+    &:hover {
+      @extend %orange-box-shadow;
+    }
     &-image,
     &-title,
     &-price {
@@ -193,13 +251,15 @@
 
     &-title {
       font-size: 1.5rem;
+      line-height: 1.2;
       font-weight: 400;
       margin: auto 0;
     }
 
     &-price {
-      @extend %Rubik-500;
-      font-weight: 700;
+      font-weight: 500;
+      line-height: 1.4;
+      color: $darkblue-900;
     }
   }
 
@@ -215,5 +275,137 @@
   }
 }
 
+.footer {
+  font-size: 1.8rem;
+  letter-spacing: 0.18px;
+  color: $dark;
+  & .logo {
+    display: inline-block;
+    margin-bottom: 2.2rem;
+  }
+  &__form {
+    max-width: 20rem;
+  }
+  & .form__input {
+    margin-bottom: 1.2rem;
+  }
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+    justify-items: center;
+  }
+  &__inner {
+    padding-bottom: 6rem;
+  }
+  &__item {
+    margin-bottom: 2rem;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    background-repeat: no-repeat;
+    margin-bottom: 2.5rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &--location,
+    &--phone,
+    &--mail {
+      &:before {
+        display: block;
+        content: "";
+        width: 2rem;
+        height: 2rem;
+        margin-right: 0.7rem;
+        background-repeat: no-repeat;
+      }
+    }
+    &--location {
+      background-image: url("../images/Location.png");
+    }
+    &--phone {
+      background-image: url("../images/Calling.png");
+    }
+    &--mail {
+      background-image: url("../images/Message.png");
+    }
+  }
+
+  &__social-list {
+    display: flex;
+    font-size: 1.6rem;
+    line-height: 2;
+  }
+
+  &__social-item {
+    margin-right: 1.5rem;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__social-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.9rem;
+    height: 3.9rem;
+    border-radius: 100%;
+    background-color: $silver-200;
+    transition: color 0.4s, background-color 0.4s, border 0.4s;
+
+    & svg {
+      width: 2rem;
+      height: 2rem;
+      fill: $dark;
+      transition: fill 0.4s;
+    }
+
+    &:focus,
+    &:active {
+      background-color: #fff2ed;
+    }
+    &:focus {
+      @extend %orange-box-shadow;
+    }
+    &:active svg {
+      fill: $orange-900;
+    }
+    &:hover {
+      background-color: $orange-900;
+    }
+    &:hover svg {
+      fill: #fff;
+    }
+  }
+
+  &__rights {
+    text-align: center;
+    padding: 3rem 0;
+    font-size: 1.4rem;
+    line-height: 1;
+    border-top: 1px solid rgba(194, 194, 194, 0.2);
+  }
+}
+
+.footer .btn {
+  & svg {
+    margin-right: 1rem;
+    fill: #fff;
+  }
+  &:hover svg,
+  &:active svg,
+  &:focus svg {
+    fill: $orange-900;
+  }
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-position: left 3.7rem center;
+  font-size: 1.5rem;
+}
 /*MEDIA*/
 @import "media";

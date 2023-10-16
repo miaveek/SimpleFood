@@ -129,9 +129,12 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-.DS_Store
+..DS_Store
 .idea/
 .idea/*
 .vscode
 *.sublime*
 build/
+dist/
+package-lock.json
+app/css/*

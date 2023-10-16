@@ -34,7 +34,7 @@ function images() {
     .pipe(dest("dist/images"));
 }
 
-function build() {
+function buildRepo() {
   return src(["app/**/*html", "app/css/style.min.css", "app/js/main.min.js"], {
     base: "app",
   }).pipe(dest("dist"));
@@ -170,5 +170,5 @@ exports.browsersync = browsersync;
 exports.watching = watching;
 exports.images = images;
 exports.cleanDist = cleanDist;
-exports.build = series(cleanDist, images, build);
+exports.buildRepo = series(cleanDist, images, buildRepo);
 exports.default = parallel(styles, scripts, browsersync, watching);

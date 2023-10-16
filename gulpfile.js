@@ -1,4 +1,4 @@
-const { src, dest, watch, parallel, series, task } = require("gulp");
+const { src, dest, watch, parallel, series } = require("gulp");
 const autoPrefixer = require("gulp-autoprefixer");
 const concat = require("gulp-concat");
 const imagemin = require("gulp-imagemin");
@@ -35,7 +35,9 @@ function images() {
 }
 
 function build() {
-  return src(["app/**/*html", "app/css/style.min.css", "app/js/main.min.js"], { base: "app" }).pipe(dest("dist"));
+  return src(["app/**/*html", "app/css/style.min.css", "app/js/main.min.js"], {
+    base: "app",
+  }).pipe(dest("dist"));
 }
 
 function watching() {
@@ -64,7 +66,7 @@ function cleanDist() {
   return del("dist");
 }
 
-task("generate-favicon", function (done) {
+function genFavicon(done) {
   realFavicon.generateFavicon(
     {
       masterPicture: "app/images/Favicon.svg",
@@ -131,30 +133,37 @@ task("generate-favicon", function (done) {
       done();
     }
   );
-});
+}
 
-task("inject-favicon-markups", function () {
+function injectFaviconMarkups() {
   return src(["app/*.html"])
-    .pipe(realFavicon.injectFaviconMarkups(JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).favicon.html_code))
+    .pipe(
+      realFavicon.injectFaviconMarkups(
+        JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).favicon.html_code
+      )
+    )
     .pipe(dest("app"));
-});
+}
 
-task("check-for-favicon-update", function (done) {
+function checkForFaviconUpdate(done) {
   var currentVersion = JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).version;
   realFavicon.checkForUpdates(currentVersion, function (err) {
     if (err) {
       throw err;
     }
   });
-});
+}
 
-task("normalize", function () {
+function normalize() {
   return src("node_modules/normalize.css/normalize.css")
-    .pipe(concat("normalize.scss"))
     .pipe(dest("app/sass"))
     .pipe(browserSync.reload({ stream: true }));
-});
+}
 
+exports.genFavicon = genFavicon;
+exports.injectFaviconMarkups = injectFaviconMarkups;
+exports.checkForFaviconUpdate = checkForFaviconUpdate;
+exports.normalize = normalize;
 exports.styles = styles;
 exports.scripts = scripts;
 exports.browsersync = browsersync;

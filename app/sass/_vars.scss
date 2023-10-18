@@ -1,21 +1,35 @@
 $orange-900: #ff6838;
 $silver-100: #f9faff;
 $silver-200: #ececec;
+$silver-300: #fff2ed;
 $gray: #c2c2c2;
 $darkblue-900: #363853;
 $dark: #31352b;
+$white: #fff;
+$bg-color: #f9faff;
+$text-shadow: 2px 2px 5px rgba(49, 53, 43, 0.5);
 
 %Rubik-300 {
-  font-family: "Rubik-Light", sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 300;
 }
 
 %Rubik-400 {
-  font-family: "Rubik-Medium", sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
 }
 
 %Rubik-500 {
-  font-family: "Rubik-Regular", sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
 }
+
 %orange-box-shadow {
-  box-shadow: 0 0 0 0.1rem $orange-900;
+  box-shadow: 0 0 0 0.2rem $orange-900;
+}
+
+%flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

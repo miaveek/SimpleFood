@@ -37,3 +37,22 @@ $text-shadow: 2px 2px 5px rgba(49, 53, 43, 0.5);
 %section-padding {
   padding-bottom: 12rem;
 }
+
+%anivation {
+  background-position: center center;
+  transition: background 0.4s, color 0.4s;
+  border-radius: 5px;
+
+  &:active,
+  &:focus {
+    background-color: rgba(255, 122, 80, 0.1);
+  }
+
+  &:focus {
+    @extend %orange-box-shadow;
+  }
+
+  &:hover {
+    background-color: $orange-900;
+  }
+}

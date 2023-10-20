@@ -100,12 +100,7 @@ body {
   width: 20rem;
   height: 3.9rem;
   overflow: hidden;
-  &:hover {
-    opacity: 0.8;
-  }
-  &:active {
-    opacity: 0.4;
-  }
+  @extend %image-animation;
 }
 
 .form {

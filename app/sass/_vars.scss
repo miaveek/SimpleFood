@@ -39,21 +39,27 @@ $text-shadow: 2px 2px 5px rgba(49, 53, 43, 0.5);
   padding-bottom: 12rem;
 }
 
-%anivation {
-  background-position: center center;
-  transition: background 0.4s, color 0.4s;
+%animation {
   border-radius: 5px;
-
-  &:active,
-  &:focus {
-    background-color: rgba(255, 122, 80, 0.1);
-  }
+  transition: color 0.4s, background-color 0.4s, border 0.4s;
 
   &:focus {
     @extend %orange-box-shadow;
   }
+  &:active {
+    text-shadow: $text-shadow;
+  }
+  &:hover,
+  &--active {
+    color: $orange-900;
+  }
+}
 
+%image-animation {
   &:hover {
-    background-color: $orange-900;
+    opacity: 0.8;
+  }
+  &:active {
+    opacity: 0.4;
   }
 }

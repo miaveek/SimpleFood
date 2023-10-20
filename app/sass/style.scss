@@ -34,19 +34,7 @@
     }
   }
   &__list-link {
-    border-radius: 5px;
-    transition: color 0.4s, background-color 0.4s, border 0.4s;
-
-    &:focus {
-      @extend %orange-box-shadow;
-    }
-    &:active {
-      text-shadow: $text-shadow;
-    }
-    &:hover,
-    &--active {
-      color: $orange-900;
-    }
+    @extend %animation;
   }
 
   &__btns {
@@ -87,7 +75,7 @@
 
     &:active,
     &:focus {
-      background-color: rgba(255, 122, 80, 0.1);
+      background-color: $light-orange;
     }
 
     &:active &-count {
@@ -119,7 +107,7 @@
     height: 1.3rem;
     padding-top: 0.2rem;
     background-color: $orange-900;
-    color: #fff;
+    color: $white;
     border-radius: 100%;
     transition: color 0.4s, background-color 0.4s;
   }
@@ -129,7 +117,7 @@
     position: relative;
     width: 3rem;
     height: 0.2rem;
-    background-color: #363853;
+    background-color: $darkblue-900;
     cursor: pointer;
     transition: transform 0.4s;
 
@@ -257,7 +245,7 @@
     }
     &:focus,
     &:active {
-      background-color: rgba(255, 122, 80, 0.1);
+      background-color: $light-orange;
     }
     &:active {
       color: $orange-900;
@@ -278,16 +266,19 @@
   &:hover {
     box-shadow: 0 3px 15px 0 rgba(255, 104, 56, 0.5);
   }
+
   &__face {
     max-width: 37rem;
     max-height: 30rem;
     margin-bottom: 1.7rem;
   }
+
   &__name {
     font-weight: 400;
     margin-left: 2rem;
     font-size: 2.4rem;
   }
+
   &__inner {
     width: 100%;
     padding: 2rem;
@@ -295,6 +286,7 @@
     justify-content: space-between;
     align-items: center;
   }
+
   &__link {
     border-radius: 20px;
     padding: 1rem 3.3rem;
@@ -303,32 +295,32 @@
     & svg {
       width: 1.4rem;
       height: 1.2rem;
+      fill: $white;
+      transition: transform 0.4s, color 0.4s;
     }
+
     &:active,
     &:focus {
-      background-color: rgba(255, 122, 80, 0.1);
+      background-color: $light-orange;
     }
 
     &:focus,
     &:hover {
       @extend %orange-box-shadow;
-      background-color: #fff2ed;
     }
 
-    &:hover {
-      color: $orange-900;
+    &:focus svg,
+    &:active svg,
+    &:hover svg {
+      fill: $orange-900;
     }
     &:active {
       box-shadow: none;
+      transform: translateX(0);
     }
 
-    & svg {
-      fill: $white;
-      transition: transform 0.4s, color 0.4s;
-    }
     &:hover svg {
       transform: translateX(50%);
-      fill: $orange-900;
     }
   }
 
@@ -432,161 +424,7 @@
     text-decoration: underline;
   }
 }
-/*FOOTER*/
-.footer {
-  font-size: 1.8rem;
-  letter-spacing: 0.18px;
-  color: $dark;
 
-  & .logo {
-    display: inline-block;
-    margin-bottom: 2.2rem;
-  }
-
-  &__form {
-    max-width: 20rem;
-  }
-
-  & .form__input {
-    margin-bottom: 1.2rem;
-  }
-
-  &__inner {
-    display: grid;
-    justify-items: center;
-    grid-template-columns: repeat(3, auto);
-    gap: 2rem;
-  }
-
-  &__inner {
-    padding-bottom: 6rem;
-  }
-  &__list {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    column-gap: 7rem;
-  }
-  &__item {
-    margin-bottom: 2rem;
-  }
-
-  &__link {
-    display: flex;
-    align-items: center;
-    margin-bottom: 2.5rem;
-    background-repeat: no-repeat;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-
-    &--location,
-    &--phone,
-    &--mail {
-      &:before {
-        content: '';
-        display: block;
-        width: 2rem;
-        height: 2rem;
-        margin-right: 0.7rem;
-        background-repeat: no-repeat;
-        padding-left: 7rem;
-      }
-    }
-
-    &--location {
-      background-image: url('../images/sprite.svg#icon-location');
-    }
-    &--phone {
-      background-image: url('../images/sprite.svg#icon-calling');
-    }
-    &--mail {
-      background-image: url('../images/sprite.svg#icon-message');
-    }
-  }
-
-  &__social-list {
-    display: flex;
-    font-size: 1.6rem;
-    line-height: 2;
-    margin-left: 3.5rem;
-  }
-
-  &__social-item {
-    margin-right: 1.5rem;
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-
-  &__social-link {
-    @extend %flex-center;
-    width: 3.9rem;
-    height: 3.9rem;
-    border-radius: 100%;
-    background-color: $silver-200;
-    transition: color 0.4s, background-color 0.4s, border 0.4s;
-
-    & svg {
-      width: 2rem;
-      height: 2rem;
-      fill: $dark;
-      transition: fill 0.4s;
-    }
-
-    &:focus,
-    &:active {
-      background-color: $silver-300;
-    }
-
-    &:focus {
-      @extend %orange-box-shadow;
-    }
-
-    &:active svg {
-      fill: $orange-900;
-    }
-
-    &:hover {
-      background-color: $orange-900;
-    }
-
-    &:hover svg {
-      fill: $white;
-    }
-  }
-
-  &__btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    font-size: 1.5rem;
-    background-position: left 3.7rem center;
-
-    & svg {
-      width: 1.4rem;
-      height: 1.4rem;
-      margin-right: 1rem;
-      fill: $white;
-    }
-
-    &:hover svg,
-    &:active svg,
-    &:focus svg {
-      fill: $orange-900;
-    }
-  }
-
-  &__rights {
-    text-align: center;
-    padding: 3rem 0;
-    font-size: 1.4rem;
-    line-height: 1;
-    border-top: 1px solid rgba(194, 194, 194, 0.2);
-  }
-}
 /*FEATURES*/
 .features {
   @extend %section-padding;
@@ -646,7 +484,7 @@
     }
   }
 }
-/*RESTIRANS*/
+/*RESTORANS*/
 .restorans {
   @extend %section-padding;
 
@@ -763,7 +601,7 @@
     display: flex;
     width: 3.8rem;
     height: 3.8rem;
-    border: 2px solid $gray;
+    border: 3px solid $gray;
     border-radius: 100%;
     align-items: center;
     justify-content: center;
@@ -776,11 +614,11 @@
     }
 
     &:hover {
-      border-color: rgba(255, 122, 80, 0.1);
+      border-color: $light-orange;
     }
 
     &:hover svg {
-      fill: rgba(255, 122, 80, 0.1);
+      fill: $light-orange;
     }
     &:focus {
       @extend %orange-box-shadow;
@@ -836,8 +674,166 @@
   &__link {
     display: inline-block;
     margin-right: 2.4rem;
+    @extend %image-animation;
     &:last-child {
       margin-right: 0;
     }
+  }
+}
+
+/*FOOTER*/
+.footer {
+  font-size: 1.8rem;
+  letter-spacing: 0.18px;
+  color: $dark;
+
+  & .logo {
+    display: inline-block;
+    margin-bottom: 2.2rem;
+  }
+
+  &__form {
+    max-width: 20rem;
+  }
+
+  & .form__input {
+    margin-bottom: 1.2rem;
+  }
+
+  &__inner {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(3, auto);
+    gap: 2rem;
+  }
+
+  &__inner {
+    padding-bottom: 6rem;
+  }
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    column-gap: 7rem;
+  }
+  &__item {
+    margin-bottom: 2rem;
+  }
+
+  &__link {
+    @extend %animation;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    background-repeat: no-repeat;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &--location,
+    &--phone,
+    &--mail {
+      &:before {
+        content: '';
+        display: block;
+        width: 2rem;
+        height: 2rem;
+        margin-right: 0.7rem;
+        background-repeat: no-repeat;
+        padding-left: 7rem;
+      }
+    }
+
+    &--location {
+      background-image: url('../images/sprite.svg#icon-location');
+    }
+    &--phone {
+      background-image: url('../images/sprite.svg#icon-calling');
+    }
+    &--mail {
+      background-image: url('../images/sprite.svg#icon-message');
+    }
+  }
+
+  &__social-list {
+    display: flex;
+    font-size: 1.6rem;
+    line-height: 2;
+    margin-left: 3.5rem;
+  }
+
+  &__social-item {
+    margin-right: 1.5rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__social-link {
+    @extend %flex-center;
+    width: 3.9rem;
+    height: 3.9rem;
+    border-radius: 100%;
+    background-color: $silver-200;
+    transition: color 0.4s, background-color 0.4s, border 0.4s;
+
+    & svg {
+      width: 2rem;
+      height: 2rem;
+      fill: $dark;
+      transition: fill 0.4s;
+    }
+
+    &:focus,
+    &:active {
+      background-color: $silver-300;
+    }
+
+    &:focus {
+      @extend %orange-box-shadow;
+    }
+
+    &:active svg {
+      fill: $orange-900;
+    }
+
+    &:hover {
+      background-color: $orange-900;
+    }
+
+    &:hover svg {
+      fill: $white;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 1.5rem;
+    background-position: left 3.7rem center;
+
+    & svg {
+      width: 1.4rem;
+      height: 1.4rem;
+      margin-right: 1rem;
+      fill: $white;
+    }
+
+    &:hover svg,
+    &:active svg,
+    &:focus svg {
+      fill: $orange-900;
+    }
+  }
+
+  &__rights {
+    text-align: center;
+    padding: 3rem 0;
+    font-size: 1.4rem;
+    line-height: 1;
+    border-top: 1px solid rgba(194, 194, 194, 0.2);
   }
 }

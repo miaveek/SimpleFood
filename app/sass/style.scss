@@ -385,10 +385,32 @@
     font-size: 2rem;
     color: $darkblue-900;
     background-repeat: no-repeat;
-    transition: color 0.4s, background-color 0.4s;
+    transition: color 0.4s, background-color 0.4s, box-shadow 0.4s;
 
     & svg {
       margin-right: 0.7rem;
+    }
+
+    &:focus,
+    &:hover {
+      @extend %orange-box-shadow;
+    }
+
+    &:hover {
+      background-color: $light-orange;
+      color: $orange-900;
+    }
+    &:hover svg {
+      fill: $orange-900;
+    }
+
+    &:active {
+      color: $darkblue-900;
+      box-shadow: 0 -5px 12px 0 rgba(255, 104, 56, 0.2) inset;
+    }
+
+    &:active svg {
+      fill: $darkblue-900;
     }
 
     &--active {
@@ -650,17 +672,22 @@
   }
 
   &__slider {
+    position: relative;
     display: flex;
-    overflow: hidden;
     margin-bottom: 4.8rem;
+    height: 30rem;
+    overflow: hidden;
   }
 
   &__slide {
+    position: absolute;
+    top: 0;
     width: 120rem;
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: center;
     column-gap: 8rem;
+    transition: transform 1s;
   }
 
   &__image {

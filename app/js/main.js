@@ -33,11 +33,12 @@ if (document.querySelector('.categories__product-list')) {
 
 //Slider
 const slider = function () {
-  const btnLeft = document.querySelector('.slider__btn--left');
-  const btnRight = document.querySelector('.slider__btn--right');
-  const slides = document.querySelectorAll('.slide');
-  const slider = document.querySelector('.slider');
-  const dotContainer = document.querySelector('.dots');
+  //vars
+  const btnLeft = document.querySelector('.testimonials__prev');
+  const btnRight = document.querySelector('.testimonials__next');
+  const slides = document.querySelectorAll('.testimonials__slide');
+  const slider = document.querySelector('.testimonials');
+  const dotContainer = document.querySelector('.testimonials__dots');
   let curSlide = 0;
   const maxSlide = slides.length;
   //Functions
@@ -45,18 +46,21 @@ const slider = function () {
     slides.forEach((_, i) => {
       dotContainer.insertAdjacentHTML(
         'beforeend',
-        `<button class="dots__dot" data-slide="${i}"></button>`
+        `
+        <li class="testimonials__dot" data-slide="${i}"></li>
+
+        `
       );
     });
   };
 
   const activetaDot = function (slide) {
     document
-      .querySelectorAll('.dots__dot')
-      .forEach(dot => dot.classList.remove('dots__dot--active'));
+      .querySelectorAll('.testimonials__dot')
+      .forEach(dot => dot.classList.remove('testimonials__dot--active'));
     document
-      .querySelector(`.dots__dot[data-slide="${slide}"]`)
-      .classList.add('dots__dot--active');
+      .querySelector(`.testimonials__dot[data-slide="${slide}"]`)
+      .classList.add('testimonials__dot--active');
   };
   const goToSlide = function (slide) {
     slides.forEach(
@@ -95,22 +99,22 @@ const slider = function () {
 
   document.addEventListener('keydown', function (e) {
     if (e.key === 'ArrowLeft') {
-      e.prevSlide();
+      prevSlide();
     }
     if (e.key === 'ArrowRight') {
       nextSlide();
     }
   });
   dotContainer.addEventListener('click', function (e) {
-    if (e.target.classList.contains('dots__dot')) {
+    if (e.target.classList.contains('testimonials__dot')) {
       const { slide } = e.target.dataset;
       goToSlide(slide);
       activetaDot(slide);
     }
   });
 };
-//Slider call
-slider();
+
 //////////////////////////////////////////////////
+slider();
 scrollTo('.nav');
 scrollTo('.logo');

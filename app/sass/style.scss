@@ -25,6 +25,7 @@
     display: flex;
     margin-right: 5.4rem;
   }
+
   &__list-item {
     font-size: 1.8rem;
     margin-right: 4.5rem;
@@ -33,6 +34,7 @@
       margin-right: 0;
     }
   }
+
   &__list-link {
     @extend %animation;
   }
@@ -40,6 +42,7 @@
   &__btns {
     display: flex;
   }
+
   &__btns-item {
     margin-right: 1.5rem;
 
@@ -51,8 +54,8 @@
   &__btn {
     position: relative;
     display: block;
-    width: 3.9rem;
-    height: 3.9rem;
+    width: 4.2rem;
+    height: 4.2rem;
     border-radius: 5px;
     background-color: transparent;
     background-repeat: no-repeat;
@@ -190,8 +193,8 @@
 /*card-product*/
 
 .card-product {
-  width: 21rem;
-  height: 30rem;
+  max-width: 21rem;
+  max-height: 30rem;
   display: flex;
   padding: 2rem 1.5rem;
   border-radius: 5px;
@@ -214,13 +217,16 @@
   &__image {
     max-width: 14rem;
     max-height: 14rem;
+    margin-bottom: 1rem;
+    object-fit: cover;
   }
 
   &__title {
     font-weight: 400;
     font-size: 1.5rem;
     line-height: 1.2;
-    margin: auto 0;
+    margin-bottom: auto;
+    min-height: 4.6rem;
   }
 
   &__price {
@@ -257,31 +263,33 @@
 }
 /*shop*/
 .shop {
-  width: 37rem;
-  min-height: 41rem;
+  max-width: 37rem;
   border-radius: 10px;
-  background: $white;
+  background-color: $white;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 10px 10px 0 0;
 
   &:hover {
     box-shadow: 0 3px 15px 0 rgba(255, 104, 56, 0.5);
   }
 
+  &__content {
+    padding: 1.5rem 2rem;
+  }
+
   &__face {
     max-width: 37rem;
     max-height: 30rem;
-    margin-bottom: 1.7rem;
   }
 
   &__name {
     font-weight: 400;
-    margin-left: 2rem;
     font-size: 2.4rem;
+    margin-bottom: 2rem;
   }
 
   &__inner {
     width: 100%;
-    padding: 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -314,6 +322,7 @@
     &:hover svg {
       fill: $orange-900;
     }
+
     &:active {
       box-shadow: none;
       transform: translateX(0);
@@ -328,13 +337,16 @@
     display: flex;
     align-items: center;
   }
+
   &__time:before {
     content: '';
+    margin-right: 1.2rem;
     width: 2.4rem;
     height: 2.5rem;
     background-image: url('../images/sprite.svg#icon-open_time');
     background-repeat: no-repeat;
     background-position: center center;
+    background-size: cover;
   }
 }
 
@@ -350,7 +362,7 @@
   &__navigation {
     margin: 0 auto;
     display: flex;
-    flex-wrap: wrap;
+    overflow-block: scroll;
 
     & svg {
       width: 4.4rem;
@@ -436,11 +448,10 @@
   &__image {
     background-position: center center;
     background-repeat: no-repeat;
-
     min-height: 58.5rem;
   }
   &__content {
-    max-width: 50rem;
+    max-width: 52rem;
     margin: 0 auto;
   }
 
@@ -485,7 +496,7 @@
   }
 }
 /*RESTORANS*/
-.restorans {
+.restaurants {
   @extend %section-padding;
 
   & .title {
@@ -747,9 +758,11 @@
     &--location {
       background-image: url('../images/sprite.svg#icon-location');
     }
+
     &--phone {
       background-image: url('../images/sprite.svg#icon-calling');
     }
+
     &--mail {
       background-image: url('../images/sprite.svg#icon-message');
     }

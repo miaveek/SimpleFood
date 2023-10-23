@@ -39,14 +39,13 @@
         <div class="container">
           <nav class="nav">
             <a class="nav__logo logo" href="#top">
-              <svg>
-                <use
-                  class="logo__image"
-                  xlink:href="images/sprite.svg#logo"
-                  width="200"
-                  height="39"
-                ></use>
-              </svg>
+              <img
+                class="logo__img"
+                src="./images/logo.jpg"
+                alt="Логотип"
+                width="197"
+                height="31"
+              />
             </a>
             <ul class="nav__list">
               <li class="nav__list-item">
@@ -225,7 +224,7 @@
               <li class="categories__product-item mix category-burger">
                 <article class="card-product">
                   <img
-                    class="__image"
+                  class="card-product__image"
                     src="images/burgers/item2.jpg"
                     alt="Бифбургер"
                     width="140"
@@ -242,7 +241,7 @@
               <li class="categories__product-item mix category-burger">
                 <article class="card-product">
                   <img
-                    class="categories__item-image"
+                  class="card-product__image"
                     src="images/burgers/item3.jpg"
                     alt="Королевский чизбургер"
                     width="140"
@@ -311,7 +310,7 @@
               <li class="categories__product-item mix category-burger">
                 <article class="card-product">
                   <img
-                    class="__image"
+                  class="card-product__image"
                     src="images/burgers/item2.jpg"
                     alt="Бифбургер"
                     width="140"
@@ -328,7 +327,7 @@
               <li class="categories__product-item mix category-burger">
                 <article class="card-product">
                   <img
-                    class="categories__item-image"
+                  class="card-product__image"
                     src="images/burgers/item3.jpg"
                     alt="Королевский чизбургер"
                     width="140"
@@ -380,7 +379,7 @@
             <button class="categories__btn" type="button">Показать еще</button>
           </div>
         </section>
-      </main>
+    
     </div>
     <!--FEATURES-->
     <section class="features">
@@ -391,9 +390,9 @@
             style="background-image: url('./images/food-delivery-4.png')"
           ></div>
           <div class="features__content">
-            <h3 class="features__title">
-              Оставайтесь дома,а мы позаботимся о еде
-            </h3>
+            <h2 class="features__title">
+              Оставайтесь дома,а</br> мы позаботимся о еде
+            </h2>
             <p class="features__text">
               У нас есть вкусная еда и мы готовы доставить её к вам домой!
               Воспользуйтесь нашей доставкой прямо сейчас и получите скиидку!
@@ -415,39 +414,46 @@
         </div>
       </div>
     </section>
-    <!--restorans-->
+    <!--restaurants-->
 
-    <section class="restorans">
+    <section class="restaurants">
       <div class="container">
-        <h3 class="title">Лучшие рестораны</h3>
-
-        <ul class="restorans__list">
-          <li class="restorans__item">
+        <h2 class="title">Лучшие рестораны</h2>
+        <ul class="restaurants__list">
+          <li class="restaurants__item">
             <article class="shop">
               <img
                 class="shop__face"
                 src="./images/restorans/restorans1.jpg"
                 alt=" изображение  из Blaze Pizza"
+                width="370"
+                height="300"
               />
-              <h1 class="shop__name">Blaze Pizza</h1>
-              <div class="shop__inner">
-                <span class="shop__time">11:00 - 22:00</span>
-                <a class="shop__link btn--fill" href="">
-                  <svg>
-                    <use xlink:href="images/sprite.svg#icon-arrow_btn"></use>
-                  </svg>
-                </a>
+              <div class="shop__content">
+
+                <h1 class="shop__name">Blaze Pizza</h1>
+                <div class="shop__inner">
+                  <span class="shop__time">11:00 - 22:00</span>
+                  <a class="shop__link btn--fill" href="">
+                    <svg>
+                      <use xlink:href="images/sprite.svg#icon-arrow_btn"></use>
+                    </svg>
+                  </a>
+                </div>
               </div>
             </article>
           </li>
 
-          <li class="restorans__item">
+          <li class="restaurants__item">
             <article class="shop">
               <img
                 class="shop__face"
                 src="./images/restorans/restorans2.jpg"
                 alt=" изображение из Pizza Runcho"
+                width="370"
+                height="300"
               />
+              <div class="shop__content">
               <h1 class="shop__name">Pizza Runcho</h1>
               <div class="shop__inner">
                 <span class="shop__time">12:00 - 21:00</span>
@@ -457,16 +463,20 @@
                   </svg>
                 </a>
               </div>
+              </div>
             </article>
           </li>
 
-          <li class="restorans__item">
+          <li class="restaurants__item">
             <article class="shop">
               <img
                 class="shop__face"
                 src="./images/restorans/restorans3.jpg"
-                alt=""
+                alt="Pizza Hut"
+                width="370"
+                height="300"
               />
+              <div class="shop__content">
               <h1 class="shop__name">Pizza Hut</h1>
               <div class="shop__inner">
                 <span class="shop__time">11:00 - 22:00</span>
@@ -476,16 +486,20 @@
                   </svg>
                 </a>
               </div>
+              </div>
             </article>
           </li>
 
-          <li class="restorans__item">
+          <li class="restaurants__item">
             <article class="shop">
               <img
                 class="shop__face"
                 src="./images/restorans/restorans4.jpg"
                 alt=" изображение  из McDonald`s"
+                width="370"
+                height="300"
               />
+              <div class="shop__content">
               <h1 class="shop__name">McDonald`s</h1>
               <div class="shop__inner">
                 <span class="shop__time">06:00 - 23:00</span>
@@ -494,17 +508,21 @@
                     <use xlink:href="images/sprite.svg#icon-arrow_btn"></use>
                   </svg>
                 </a>
+                </div>
               </div>
             </article>
           </li>
 
-          <li class="restorans__item">
+          <li class="restaurants__item">
             <article class="shop">
               <img
                 class="shop__face"
                 src="./images/restorans/restorans5.jpg"
                 alt=" изображение из KFC"
+                width="370"
+                height="300"
               />
+              <div class="shop__content">
               <h1 class="shop__name">KFC</h1>
               <div class="shop__inner">
                 <span class="shop__time">12:00 - 21:00</span>
@@ -514,16 +532,20 @@
                   </svg>
                 </a>
               </div>
+              </div>
             </article>
           </li>
 
-          <li class="restorans__item">
+          <li class="restaurants__item">
             <article class="shop">
               <img
                 class="shop__face"
                 src="./images/restorans/restorans6.jpg"
-                alt=""
+                alt="Star Burgers"
+                width="370"
+                height="300"
               />
+              <div class="shop__content">
               <h1 class="shop__name">Star Burgers</h1>
               <div class="shop__inner">
                 <span class="shop__time">09:00 - 21:00</span>
@@ -533,6 +555,7 @@
                   </svg>
                 </a>
               </div>
+              </div>
             </article>
           </li>
         </ul>
@@ -541,7 +564,7 @@
     <!--TESTIMONIALS-->
     <section class="testimonials">
       <div class="container">
-        <h3 class="title">Отзывы клиентов</h3>
+        <h2 class="title">Отзывы клиентов</h2>
         <ul class="testimonials__slider">
           <li>
             <div class="testimonials__slide slide--1">
@@ -678,20 +701,23 @@
               Рестораны, которые вы любите - в ваших руках. Устанавливайте
               приложение и заказывайте еду в любом удобном месте.
             </p>
-            <a class="mobileApp__link" href="">
-              <img
-                class="mobileApp__link-image"
-                src="./images/appstore.svg"
-                alt="ссылка на App Store"
-              />
-            </a>
-            <a class="mobileApp__link" href="">
-              <img
-                class="mobileApp__link-image"
-                src="./images/googlePlay.svg"
-                alt="Google Play"
-              />
-            </a>
+            <div class="mobileApp__links">
+              <a class="mobileApp__link" href="">
+                <img
+                  class="mobileApp__link-image"
+                  src="./images/appstore.svg"
+                  alt="ссылка на App Store"
+                />
+              </a>
+
+              <a class="mobileApp__link" href="">
+                <img
+                  class="mobileApp__link-image"
+                  src="./images/googlePlay.svg"
+                  alt="Google Play"
+                />
+              </a>
+            </div>
           </div>
 
           <div
@@ -705,20 +731,19 @@
         </div>
       </div>
     </section>
-
+  </main>
     <footer class="footer" id="contacts">
       <div class="container">
         <div class="footer__inner">
           <div class="footer_form">
             <a class="footer_logo logo" href="#top">
-              <svg>
-                <use
-                  class="logo__image"
-                  xlink:href="images/sprite.svg#logo"
-                  width="200"
-                  height="39"
-                ></use>
-              </svg>
+              <img
+                class="logo__img"
+                src="./images/logo.jpg"
+                alt="Логотип"
+                width="197"
+                height="31"
+              />
             </a>
 
             <form class="form">
@@ -729,7 +754,7 @@
                 name="email"
                 required
               />
-              <button class="btn--fill footer__btn" type="button">
+              <button class="btn--fill footer__btn" type="submit">
                 <svg>
                   <use xlink:href="images/sprite.svg#icon-telegram"></use>
                 </svg>
@@ -830,7 +855,7 @@
       </div>
 
       <div class="footer__rights">
-        <span class="footer__rights-link" href="#">© 2022 Simple Food</span>
+        <span class="footer__rights-link">© 2022 Simple Food</span>
       </div>
     </footer>
   </body>

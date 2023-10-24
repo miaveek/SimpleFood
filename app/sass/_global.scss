@@ -20,6 +20,12 @@ body {
   margin: 0 auto;
 }
 
+.logo {
+  padding-left: 6px;
+  @extend %image-animation;
+  transition: opacity 0.4s;
+}
+
 .title {
   @extend %Rubik-500;
   color: $darkblue-900;
@@ -43,19 +49,19 @@ body {
 
 /*Buttons style*/
 
-.btn,
-.btn--fill {
+.primary-btn,
+.secondary-btn {
   display: inline-flex;
   padding: 1.2rem 3.2rem;
   border-radius: 6px;
   font-size: 1.8rem;
   line-height: 1.3;
   letter-spacing: 0.54px;
-  transition: color 0.4s, background-color 0.4s, border 0.4s;
   color: $darkblue-900;
+  transition: color 0.4s, background-color 0.4s, border 0.4s;
 }
 
-.btn {
+.primary-btn {
   text-decoration: underline;
   &:active {
     text-shadow: $text-shadow;
@@ -64,6 +70,7 @@ body {
   &:hover {
     color: $orange-900;
   }
+
   &:focus {
     @extend %orange-box-shadow;
     padding: 0;
@@ -74,7 +81,7 @@ body {
   }
 }
 
-.btn--fill {
+.secondary-btn {
   color: $white;
   background: $orange-900;
 
@@ -95,14 +102,6 @@ body {
   }
 }
 
-.logo {
-  transition: opacity 0.4s;
-  width: 20rem;
-  height: 3.9rem;
-  overflow: hidden;
-  @extend %image-animation;
-}
-
 .form {
   &__input {
     max-width: 20rem;
@@ -110,6 +109,7 @@ body {
     border-radius: 5px;
     border: 1px solid rgba(49, 53, 43, 0.2);
     transition: color 0.4s, background-color 0.4s, border 0.4s;
+
     &::placeholder {
       color: $gray;
       border-color: $orange-900;
@@ -117,9 +117,11 @@ body {
       line-height: 1.3;
       opacity: 0.9;
     }
+
     &:focus {
       @extend %orange-box-shadow;
     }
+
     &:hover::placeholder {
       color: $darkblue-900;
       opacity: 1;

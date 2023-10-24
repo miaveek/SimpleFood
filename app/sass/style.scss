@@ -15,7 +15,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 6rem 0 3rem 0;
+  padding: 6rem 0;
 
   & .logo {
     margin-right: auto;
@@ -67,6 +67,7 @@
       width: 1.9rem;
       height: 1.9rem;
       stroke: $darkblue-900;
+      stroke-width: 2px;
     }
     &:hover svg {
       stroke: $white;
@@ -233,6 +234,7 @@
     font-weight: 500;
     line-height: 1.4;
   }
+
   &__btn {
     padding: 0.7rem 1.6rem;
     font-size: 1.4rem;
@@ -429,7 +431,7 @@
     grid-template-columns: repeat(5, 1fr);
     row-gap: 3rem;
     column-gap: 3rem;
-    padding: 2.5rem 0 6rem 0;
+    padding: 2.5rem 0 5.2rem 0;
   }
 
   &__btn {
@@ -445,20 +447,25 @@
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
   }
+
   &__image {
     background-position: center center;
     background-repeat: no-repeat;
     min-height: 58.5rem;
   }
+
   &__content {
-    max-width: 52rem;
+    max-width: 53rem;
     margin: 0 auto;
+    padding-left: 1.4rem;
+    margin-top: -1rem;
   }
 
   &__title,
   &__text {
     margin-bottom: 2.6rem;
   }
+
   &__title,
   &__benefit {
     color: $darkblue-900;
@@ -474,13 +481,17 @@
     font-size: 2rem;
   }
 
+  &__benefits {
+    margin-bottom: 2.9rem;
+  }
+
   &__benefit {
     padding-left: 6.5rem;
     font-size: 2.4rem;
     line-height: 1.5;
     margin-bottom: 2.2rem;
     background-repeat: no-repeat;
-    background-position: -5rem center;
+    background-position: -4rem center;
 
     &--time {
       background-image: url('../images/sprite.svg#icon-delivery-time');
@@ -495,6 +506,7 @@
     }
   }
 }
+
 /*RESTORANS*/
 .restaurants {
   @extend %section-padding;
@@ -634,10 +646,12 @@
     &:focus {
       @extend %orange-box-shadow;
     }
+
     &:focus svg,
     &:active svg {
       fill: $orange-900;
     }
+
     &:active {
       border-color: transparent;
     }
@@ -677,6 +691,7 @@
     background-repeat: no-repeat;
     background-position: center center;
   }
+
   &__description {
     margin-bottom: 2.5rem;
     line-height: 1.5;
@@ -701,6 +716,7 @@
   & .logo {
     display: inline-block;
     margin-bottom: 2.2rem;
+    padding: 0;
   }
 
   &__form {
@@ -721,18 +737,20 @@
   &__inner {
     padding-bottom: 6rem;
   }
+
   &__list {
     display: grid;
     grid-template-columns: repeat(3, auto);
     column-gap: 7rem;
   }
+
   &__item {
     margin-bottom: 2rem;
   }
 
   &__link {
     @extend %animation;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     margin-bottom: 2.5rem;
     background-repeat: no-repeat;
@@ -768,58 +786,6 @@
     }
   }
 
-  &__social-list {
-    display: flex;
-    font-size: 1.6rem;
-    line-height: 2;
-    margin-left: 3.5rem;
-  }
-
-  &__social-item {
-    margin-right: 1.5rem;
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-
-  &__social-link {
-    @extend %flex-center;
-    width: 3.9rem;
-    height: 3.9rem;
-    border-radius: 100%;
-    background-color: $silver-200;
-    transition: color 0.4s, background-color 0.4s, border 0.4s;
-
-    & svg {
-      width: 2rem;
-      height: 2rem;
-      fill: $dark;
-      transition: fill 0.4s;
-    }
-
-    &:focus,
-    &:active {
-      background-color: $silver-300;
-    }
-
-    &:focus {
-      @extend %orange-box-shadow;
-    }
-
-    &:active svg {
-      fill: $orange-900;
-    }
-
-    &:hover {
-      background-color: $orange-900;
-    }
-
-    &:hover svg {
-      fill: $white;
-    }
-  }
-
   &__btn {
     display: flex;
     align-items: center;
@@ -848,5 +814,107 @@
     font-size: 1.4rem;
     line-height: 1;
     border-top: 1px solid rgba(194, 194, 194, 0.2);
+  }
+}
+
+/*Contacts*/
+.contacts {
+  &__item {
+    margin-bottom: 2rem;
+  }
+
+  &__link {
+    @extend %animation;
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    background-repeat: no-repeat;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &--location,
+    &--phone,
+    &--mail {
+      &:before {
+        content: '';
+        display: block;
+        width: 2rem;
+        height: 2rem;
+        margin-right: 0.7rem;
+        background-repeat: no-repeat;
+        padding-left: 7rem;
+      }
+    }
+
+    &--location {
+      background-image: url('../images/sprite.svg#icon-location');
+    }
+
+    &--phone {
+      background-image: url('../images/sprite.svg#icon-calling');
+    }
+
+    &--mail {
+      background-image: url('../images/sprite.svg#icon-message');
+    }
+  }
+}
+
+/*Social list*/
+.social {
+  &__list {
+    display: flex;
+    font-size: 1.6rem;
+    line-height: 2;
+    margin-left: 3.5rem;
+  }
+
+  &__item {
+    margin-right: 1.5rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    @extend %flex-center;
+    width: 3.9rem;
+    height: 3.9rem;
+    border-radius: 100%;
+    background-color: $silver-200;
+    transition: color 0.4s, background-color 0.4s, border 0.4s;
+
+    & svg {
+      width: 2rem;
+      height: 2rem;
+      fill: $dark;
+      transition: fill 0.4s;
+    }
+
+    &:focus,
+    &:active {
+      background-color: $orange-light;
+    }
+
+    &:focus {
+      @extend %orange-box-shadow;
+      & svg {
+        fill: $darkblue-900;
+      }
+    }
+
+    &:active svg {
+      fill: $orange-900;
+    }
+
+    &:hover {
+      background-color: $orange-900;
+      & svg {
+        fill: $orange-light;
+      }
+    }
   }
 }

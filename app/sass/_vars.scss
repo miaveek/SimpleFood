@@ -30,10 +30,26 @@ $text-shadow: 2px 2px 5px rgba(49, 53, 43, 0.5);
   box-shadow: 0 0 0 0.2rem $orange-900;
 }
 
+%bg-center {
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
 %flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+%inline-flex-center {
+  display: inline-flex;
+  align-items: center;
+}
+
+%flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 %section-padding {

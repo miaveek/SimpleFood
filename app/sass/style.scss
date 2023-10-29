@@ -1,6 +1,7 @@
 @import 'reset';
 @import 'fonts';
 @import 'vars';
+@import 'mixim';
 @import 'global';
 
 /*NAVIGATION*/
@@ -12,11 +13,8 @@
 }
 
 .nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 6rem 0;
-
+  @extend %flex-between;
   & .logo {
     margin-right: auto;
   }
@@ -57,9 +55,8 @@
     width: 4.2rem;
     height: 4.2rem;
     border-radius: 5px;
+    @extend %bg-center;
     background-color: transparent;
-    background-repeat: no-repeat;
-    background-position: center center;
     background-size: 1.9rem 1.9rem;
     transition: background 0.4s, color 0.4s;
 
@@ -177,12 +174,12 @@
 
   &__text {
     line-height: 1.5;
+    @include line-clamp(3);
   }
 
   &__image {
     min-height: 66rem;
-    background-repeat: no-repeat;
-    background-position: center center;
+    @extend %bg-center;
     background-size: 56rem 66rem;
   }
   &__span {
@@ -197,11 +194,11 @@
   max-width: 21rem;
   max-height: 30rem;
   display: flex;
+  align-items: center;
+  flex-direction: column;
   padding: 2rem 1.5rem;
   border-radius: 5px;
-  flex-direction: column;
   font-size: 1.5rem;
-  align-items: center;
   box-shadow: 0 0 0 1px $silver-200;
   background-color: $white;
   transition: box-shadow 0.4s;
@@ -228,6 +225,7 @@
     line-height: 1.2;
     margin-bottom: auto;
     min-height: 4.6rem;
+    @include line-clamp(2);
   }
 
   &__price {
@@ -292,9 +290,7 @@
 
   &__inner {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @extend %flex-between;
   }
 
   &__link {
@@ -346,8 +342,7 @@
     width: 2.4rem;
     height: 2.5rem;
     background-image: url('../images/sprite.svg#icon-open_time');
-    background-repeat: no-repeat;
-    background-position: center center;
+    @extend %bg-center;
     background-size: cover;
   }
 }
@@ -383,10 +378,10 @@
 
   &__navigation-link {
     display: flex;
+    align-items: center;
     box-shadow: 0 0 0 1px $silver-200;
     background-color: $white;
     border-radius: 5px;
-    align-items: center;
     padding: 1.3rem 3.4rem;
     font-size: 2rem;
     color: $darkblue-900;
@@ -449,8 +444,7 @@
   }
 
   &__image {
-    background-position: center center;
-    background-repeat: no-repeat;
+    @extend %bg-center;
     min-height: 58.5rem;
   }
 
@@ -607,11 +601,11 @@
   }
 
   &__controls {
-    display: inline-flex;
-    align-items: center;
+    @extend %inline-flex-center;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+
     & svg {
       width: 1.2rem;
       height: 1.8rem;
@@ -621,13 +615,11 @@
 
   &__prev,
   &__next {
-    display: flex;
+    @extend %flex-center;
     width: 3.8rem;
     height: 3.8rem;
     border: 3px solid $gray;
     border-radius: 100%;
-    align-items: center;
-    justify-content: center;
     fill: $gray;
     cursor: pointer;
 
@@ -688,13 +680,13 @@
   &__image {
     width: 57rem;
     height: 38rem;
-    background-repeat: no-repeat;
-    background-position: center center;
+    @extend %bg-center;
   }
 
   &__description {
     margin-bottom: 2.5rem;
     line-height: 1.5;
+    @include line-clamp(5);
   }
 
   &__link {
@@ -707,116 +699,6 @@
   }
 }
 
-/*FOOTER*/
-.footer {
-  font-size: 1.8rem;
-  letter-spacing: 0.18px;
-  color: $dark;
-
-  & .logo {
-    display: inline-block;
-    margin-bottom: 2.2rem;
-    padding: 0;
-  }
-
-  &__form {
-    max-width: 20rem;
-  }
-
-  & .form__input {
-    margin-bottom: 1.2rem;
-  }
-
-  &__inner {
-    display: grid;
-    justify-items: center;
-    grid-template-columns: repeat(3, auto);
-    gap: 2rem;
-  }
-
-  &__inner {
-    padding-bottom: 6rem;
-  }
-
-  &__list {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    column-gap: 7rem;
-  }
-
-  &__item {
-    margin-bottom: 2rem;
-  }
-
-  &__link {
-    @extend %animation;
-    display: inline-flex;
-    align-items: center;
-    margin-bottom: 2.5rem;
-    background-repeat: no-repeat;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-
-    &--location,
-    &--phone,
-    &--mail {
-      &:before {
-        content: '';
-        display: block;
-        width: 2rem;
-        height: 2rem;
-        margin-right: 0.7rem;
-        background-repeat: no-repeat;
-        padding-left: 7rem;
-      }
-    }
-
-    &--location {
-      background-image: url('../images/sprite.svg#icon-location');
-    }
-
-    &--phone {
-      background-image: url('../images/sprite.svg#icon-calling');
-    }
-
-    &--mail {
-      background-image: url('../images/sprite.svg#icon-message');
-    }
-  }
-
-  &__btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    font-size: 1.5rem;
-    background-position: left 3.7rem center;
-
-    & svg {
-      width: 1.4rem;
-      height: 1.4rem;
-      margin-right: 1rem;
-      fill: $white;
-    }
-
-    &:hover svg,
-    &:active svg,
-    &:focus svg {
-      fill: $orange-900;
-    }
-  }
-
-  &__rights {
-    text-align: center;
-    padding: 3rem 0;
-    font-size: 1.4rem;
-    line-height: 1;
-    border-top: 1px solid rgba(194, 194, 194, 0.2);
-  }
-}
-
 /*Contacts*/
 .contacts {
   &__item {
@@ -825,8 +707,7 @@
 
   &__link {
     @extend %animation;
-    display: inline-flex;
-    align-items: center;
+    @extend %inline-flex-center;
     margin-bottom: 2.5rem;
     background-repeat: no-repeat;
 

@@ -46,10 +46,7 @@ const slider = function () {
     slides.forEach((_, i) => {
       dotContainer.insertAdjacentHTML(
         'beforeend',
-        `
-        <li class="testimonials__dot" data-slide="${i}"></li>
-
-        `
+        `<li class="testimonials__dot" data-slide="${i}"></li>`
       );
     });
   };

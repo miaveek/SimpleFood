@@ -102,13 +102,23 @@ body {
   }
 }
 
-.form {
-  &__input {
+/*FOOTER*/
+.footer {
+  font-size: 1.8rem;
+  letter-spacing: 0.18px;
+  color: $dark;
+
+  &__form {
     max-width: 20rem;
+  }
+
+  &__input {
+    width: 100%;
     padding: 0.9rem 1.5rem;
     border-radius: 5px;
     border: 1px solid rgba(49, 53, 43, 0.2);
     transition: color 0.4s, background-color 0.4s, border 0.4s;
+    margin-bottom: 1.2rem;
 
     &::placeholder {
       color: $gray;
@@ -126,5 +136,101 @@ body {
       color: $darkblue-900;
       opacity: 1;
     }
+  }
+
+  & .logo {
+    display: inline-block;
+    margin-bottom: 2.2rem;
+    padding: 0;
+  }
+
+  &__form {
+    max-width: 20rem;
+  }
+
+  &__inner {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(3, auto);
+    gap: 2rem;
+  }
+
+  &__inner {
+    padding-bottom: 6rem;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    column-gap: 7rem;
+  }
+
+  &__item {
+    margin-bottom: 2rem;
+  }
+
+  &__link {
+    @extend %animation;
+    @extend %inline-flex-center;
+    margin-bottom: 2.5rem;
+    background-repeat: no-repeat;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &--location,
+    &--phone,
+    &--mail {
+      &:before {
+        content: '';
+        display: block;
+        width: 2rem;
+        height: 2rem;
+        margin-right: 0.7rem;
+        background-repeat: no-repeat;
+        padding-left: 7rem;
+      }
+    }
+
+    &--location {
+      background-image: url('../images/sprite.svg#icon-location');
+    }
+
+    &--phone {
+      background-image: url('../images/sprite.svg#icon-calling');
+    }
+
+    &--mail {
+      background-image: url('../images/sprite.svg#icon-message');
+    }
+  }
+
+  &__btn {
+    @extend %flex-center;
+    width: 100%;
+    font-size: 1.5rem;
+    background-position: left 3.7rem center;
+
+    & svg {
+      width: 1.4rem;
+      height: 1.4rem;
+      margin-right: 1rem;
+      fill: $white;
+    }
+
+    &:hover svg,
+    &:active svg,
+    &:focus svg {
+      fill: $orange-900;
+    }
+  }
+
+  &__rights {
+    text-align: center;
+    padding: 3rem 0;
+    font-size: 1.4rem;
+    line-height: 1;
+    border-top: 1px solid rgba(194, 194, 194, 0.2);
   }
 }

@@ -1,0 +1,83 @@
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+//responsive
+// $breakpoints: (
+//   'phone': 560px,
+//   'tablet': 768px,
+//   'tablet-2': 992px,
+//   'desktop': 1230px,
+// );
+@mixin mq($width, $type: min) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+    @if $type == max {
+      $width: $width - 1px;
+    }
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+// Использование миксина
+// .header {
+//   padding: 20px;
+//   @include mq('tablet') {
+//     padding: 15px;
+//   }
+// }
+//Обрезание текста
+@mixin line-clamp($lines: 1) {
+  @if $lines <=1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+  }
+}
+
+// Использование миксина
+// .class {
+//   font-size: 14px;
+//   @include line-clamp(3);
+// }
+
+@mixin font-face($font-family, $url, $weight) {
+  @font-face {
+    font-family: '#{$font-family}';
+    src: url('../fonts/#{$url}.woff2') format('woff2'),
+      url('../fonts/#{$url}.woff') format('woff');
+    font-weight: #{$weight};
+    font-display: swap;
+    font-style: normal;
+  }
+}
+
+// Использование миксина
+// Используем в файле, где подключаем шрифты (_fonts.scss)
+// Внимательно проверяем название файла в папке, это наш второй параметр - $url
+
+//   @include font-face(OpenSans, OpenSansRegular, 400)
+//   @include font-face(OpenSans, OpenSansBold, 700)
+
+%section-padding {
+  @include mq('tablet') {
+    padding-bottom: 6rem;
+  }
+
+  @include mq('tablet-2') {
+    padding-bottom: 8rem;
+  }
+
+  @include mq('desktop') {
+    padding-bottom: 12rem;
+  }
+}

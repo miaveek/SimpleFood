@@ -145,14 +145,29 @@
 }
 /*HERO*/
 .hero {
-  padding-top: 15.9rem;
+  padding-top: 14.5rem;
   min-height: 66rem;
-  @extend %section-padding;
-
+  @include mq('tablet') {
+    padding-bottom: 0;
+  }
+  @include mq('desktop') {
+    padding-bottom: 10.5rem;
+  }
   &__inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
+    background-repeat: no-repeat;
+    background-position: right center;
+    height: 66vh;
+    @include mq('tablet') {
+      background-size: auto 80%;
+    }
+    @include mq('tablet-2') {
+      background-size: auto 100%;
+    }
+    @include mq('desktop') {
+    }
   }
 
   &__content {
@@ -177,11 +192,6 @@
     @include line-clamp(3);
   }
 
-  &__image {
-    min-height: 66rem;
-    @extend %bg-center;
-    background-size: 56rem 66rem;
-  }
   &__span {
     display: block;
     color: $orange-900;
@@ -191,8 +201,6 @@
 /*card-product*/
 
 .card-product {
-  max-width: 21rem;
-  max-height: 30rem;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -263,11 +271,9 @@
 }
 /*shop*/
 .shop {
-  max-width: 37rem;
-  border-radius: 10px;
   background-color: $white;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
-  border-radius: 10px 10px 0 0;
+  object-fit: cover;
 
   &:hover {
     box-shadow: 0 3px 15px 0 rgba(255, 104, 56, 0.5);
@@ -278,14 +284,15 @@
   }
 
   &__face {
-    max-width: 37rem;
-    max-height: 30rem;
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+    height: auto;
   }
 
   &__name {
     font-weight: 400;
     font-size: 2.4rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.4rem;
   }
 
   &__inner {
@@ -359,7 +366,7 @@
   &__navigation {
     margin: 0 auto;
     display: flex;
-    overflow-block: scroll;
+    overflow-x: scroll;
 
     & svg {
       width: 4.4rem;
@@ -387,6 +394,14 @@
     color: $darkblue-900;
     background-repeat: no-repeat;
     transition: color 0.4s, background-color 0.4s, box-shadow 0.4s;
+
+    @include mq('tablet') {
+      padding: 0.9rem 1.7rem;
+    }
+
+    @include mq('desktop') {
+      padding: 1.3rem 3.4rem;
+    }
 
     & svg {
       margin-right: 0.7rem;
@@ -423,10 +438,20 @@
 
   &__product-list {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    row-gap: 3rem;
-    column-gap: 3rem;
     padding: 2.5rem 0 5.2rem 0;
+
+    @include mq('tablet') {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      row-gap: 2rem;
+      column-gap: 2rem;
+    }
+
+    @include mq('desktop') {
+      grid-template-columns: repeat(5, 1fr);
+      row-gap: 3rem;
+      column-gap: 3rem;
+    }
   }
 
   &__btn {
@@ -436,28 +461,43 @@
 
 /*FEATURES*/
 .features {
+  position: relative;
   @extend %section-padding;
-  &__inner {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
+  @include mq('tablet') {
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      background-color: rgba(249, 250, 255, 0.85);
+      transition: background-color 0.4s;
+    }
+    @include mq('tablet-2') {
+      &:before {
+        display: none;
+      }
+    }
   }
 
-  &__image {
-    @extend %bg-center;
-    min-height: 58.5rem;
+  &__inner {
+    display: flex;
+    justify-content: flex-end;
+    background-repeat: no-repeat;
+    background-position: 7rem -1rem;
+    height: 58rem;
   }
 
   &__content {
-    max-width: 53rem;
-    margin: 0 auto;
-    padding-left: 1.4rem;
-    margin-top: -1rem;
+    max-width: 54rem;
+    padding-top: 5rem;
+    z-index: 999;
   }
 
   &__title,
   &__text {
-    margin-bottom: 2.6rem;
+    margin-bottom: 2.8rem;
   }
 
   &__title,
@@ -471,6 +511,7 @@
   }
 
   &__text {
+    margin-right: 8rem;
     line-height: 1.5;
     font-size: 2rem;
   }
@@ -514,79 +555,94 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
+    justify-items: center;
+  }
+
+  &__item {
+    width: 100%;
   }
 }
 
 /*TESTIMONIALS*/
 .testimonials {
   position: relative;
-  padding-bottom: 16.4rem;
+  padding-bottom: 15.4rem;
+  padding-top: 2rem;
 
   & .title {
     text-align: center;
   }
 
   &__slider {
+    width: 100%;
     position: relative;
     display: flex;
     margin-bottom: 4.8rem;
     height: 30rem;
-    overflow: hidden;
+    overflow-y: hidden;
   }
 
   &__slide {
     position: absolute;
     top: 0;
-    width: 120rem;
     display: grid;
+    width: 100%;
     grid-template-columns: auto 1fr;
     align-items: center;
-    column-gap: 8rem;
+    column-gap: 3.5rem;
     transition: transform 1s;
   }
 
-  &__image {
-    margin-left: 9rem;
+  &__face {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include mq('tablet') {
+      margin: 0 auto;
+      width: 70%;
+    }
+
+    @include mq('desktop') {
+      margin-left: 9rem;
+    }
+  }
+
+  &__img {
     border-radius: 100%;
+    height: 100%;
   }
 
   &__content {
-    padding-top: 1rem;
-    max-width: 57rem;
     line-height: 1.5;
+    max-width: 66rem;
   }
 
   &__message {
     display: flex;
     font-style: italic;
     margin-bottom: 2.4rem;
-    position: relative;
-
     &:before,
     &:after {
       content: '';
-      position: absolute;
       display: block;
-      width: 8rem;
-      height: 4.4rem;
-      background-image: url('../images/sprite.svg#icon-quote-open');
+      width: 10rem;
+      height: 3rem;
+      background-image: url('../images/icons/icon-quote-open.svg');
       background-repeat: no-repeat;
     }
-
-    &::before {
-      left: -7rem;
+    &:before {
+      margin-right: 2rem;
     }
-
     &:after {
       align-self: end;
       transform: rotate(180deg);
-      right: -7rem;
     }
   }
 
   &__author,
   &__author-description {
     display: block;
+    margin-left: 4rem;
   }
 
   &__author {
@@ -675,12 +731,13 @@
     grid-template-columns: repeat(2, 1fr);
     column-gap: 6.2rem;
     align-items: center;
+    background-size: contain;
   }
 
   &__image {
-    width: 57rem;
     height: 38rem;
     @extend %bg-center;
+    background-size: cover;
   }
 
   &__description {
@@ -710,7 +767,7 @@
     @extend %inline-flex-center;
     margin-bottom: 2.5rem;
     background-repeat: no-repeat;
-
+    padding-left: 4rem;
     &:last-child {
       margin-bottom: 0;
     }
@@ -725,7 +782,7 @@
         height: 2rem;
         margin-right: 0.7rem;
         background-repeat: no-repeat;
-        padding-left: 7rem;
+        background-position: start;
       }
     }
 
@@ -749,7 +806,7 @@
     display: flex;
     font-size: 1.6rem;
     line-height: 2;
-    margin-left: 3.5rem;
+    margin-left: 2.5rem;
   }
 
   &__item {

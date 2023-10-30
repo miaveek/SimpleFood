@@ -1,5 +1,12 @@
 html {
-  font-size: 10px;
+  @include mq('tablet') {
+    font-size: 7px;
+  }
+  @include mq('tablet-2') {
+  }
+  @include mq('desktop') {
+    font-size: 10px;
+  }
 }
 
 body {
@@ -107,6 +114,7 @@ body {
   font-size: 1.8rem;
   letter-spacing: 0.18px;
   color: $dark;
+  margin-left: -1.5rem;
 
   &__form {
     max-width: 20rem;
@@ -153,16 +161,26 @@ body {
     justify-items: center;
     grid-template-columns: repeat(3, auto);
     gap: 2rem;
-  }
-
-  &__inner {
     padding-bottom: 6rem;
   }
 
   &__list {
     display: grid;
-    grid-template-columns: repeat(3, auto);
-    column-gap: 7rem;
+
+    @include mq('tablet') {
+      column-gap: 4rem;
+      grid-template-columns: repeat(2, auto);
+    }
+
+    @include mq('tablet-2') {
+      column-gap: 4rem;
+      grid-template-columns: repeat(3, auto);
+    }
+
+    @include mq('desktop') {
+      grid-template-columns: repeat(3, auto);
+      column-gap: 7rem;
+    }
   }
 
   &__item {
@@ -188,8 +206,7 @@ body {
         width: 2rem;
         height: 2rem;
         margin-right: 0.7rem;
-        background-repeat: no-repeat;
-        padding-left: 7rem;
+        background-position: start;
       }
     }
 
@@ -228,7 +245,17 @@ body {
 
   &__rights {
     text-align: center;
-    padding: 3rem 0;
+    @include mq('tablet') {
+      padding: 1.5rem 0;
+    }
+    @include mq('tablet-2') {
+      padding: 2rem 0;
+    }
+
+    @include mq('desktop') {
+      padding: 3rem 0;
+    }
+
     font-size: 1.4rem;
     line-height: 1;
     border-top: 1px solid rgba(194, 194, 194, 0.2);

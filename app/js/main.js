@@ -111,11 +111,23 @@ const slider = function () {
   });
 };
 
-//swiper js
-var swiper = new Swiper('.mySwiper', {
-  pagination: {
-    el: '.swiper-pagination',
-  },
+const swipInite = () => {
+  var swiper = new Swiper('.mySwiper', {
+    pagination: {
+      el: '.swiper-pagination',
+    },
+  });
+  return swiper;
+};
+
+if (screen.width > 561) {
+  document.querySelector('.swiper-wrapper').classList.add('restaurants__list');
+}
+
+window.addEventListener('resize', () => {
+  if (screen.width < 560) {
+    swipInite();
+  }
 });
 
 //////////////////////////////////////////////////

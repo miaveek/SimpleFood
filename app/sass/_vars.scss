@@ -12,7 +12,7 @@ $bg-color: #f9faff;
 $text-shadow: 2px 2px 5px rgba(49, 53, 43, 0.5);
 
 $breakpoints: (
-  'phone': 560px,
+  'phone': 369px,
   'tablet': 768px,
   'tablet-2': 992px,
   'desktop': 1230px,
@@ -81,5 +81,18 @@ $breakpoints: (
   }
   &:active {
     opacity: 0.4;
+  }
+}
+
+%bg {
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(249, 250, 255, 0.85);
+    transition: background-color 0.4s;
   }
 }

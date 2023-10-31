@@ -111,7 +111,21 @@ const slider = function () {
   });
 };
 
+//swiper js
+var swiper = new Swiper('.mySwiper', {
+  pagination: {
+    el: '.swiper-pagination',
+  },
+});
+
 //////////////////////////////////////////////////
-slider();
-scrollTo('.nav');
-scrollTo('.logo');
+if (document.querySelector('.testimonials__slider')) {
+  slider();
+}
+if (document.querySelector('.nav')) {
+  scrollTo('.nav');
+}
+if (document.querySelector('.log')) {
+  scrollTo('.logo');
+}
+//////////////////////////////////////////////////

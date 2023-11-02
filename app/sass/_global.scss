@@ -9,6 +9,10 @@ html {
   }
 }
 
+// * {
+//   outline: 1px solid greenyellow;
+// }
+
 body {
   @extend %Rubik-400;
   line-height: 1.3;
@@ -183,9 +187,11 @@ body::-webkit-scrollbar {
 
   &__contacts {
     @include mq('phone') {
-      margin-bottom: 2.5rem;
+      margin-bottom: 2.8rem;
     }
-    margin-bottom: 0;
+    @include mq('desktop') {
+      margin-bottom: 0;
+    }
   }
 
   &__inner {
@@ -210,12 +216,14 @@ body::-webkit-scrollbar {
 
     @include mq('phone') {
       order: 1;
+      row-gap: 2rem;
     }
 
     @include mq('tablet') {
       order: 0;
       column-gap: 4rem;
       grid-template-columns: repeat(2, auto);
+      row-gap: 0;
     }
 
     @include mq('tablet-2') {
@@ -229,19 +237,10 @@ body::-webkit-scrollbar {
     }
   }
 
-  &__item {
-    margin-bottom: 2rem;
-  }
-
   &__link {
     @extend %animation;
     @extend %inline-flex-center;
-    margin-bottom: 2.5rem;
     background-repeat: no-repeat;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
 
     &--location,
     &--phone,
@@ -297,17 +296,7 @@ body::-webkit-scrollbar {
 
   &__rights {
     text-align: center;
-    @include mq('tablet') {
-      padding: 1.5rem 0;
-    }
-    @include mq('tablet-2') {
-      padding: 2rem 0;
-    }
-
-    @include mq('desktop') {
-      padding: 3rem 0;
-    }
-
+    padding: 2rem 0;
     font-size: 1.4rem;
     line-height: 1;
     border-top: 1px solid rgba(194, 194, 194, 0.2);

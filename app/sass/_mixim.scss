@@ -69,6 +69,10 @@
 //   @include font-face(OpenSans, OpenSansBold, 700)
 
 %section-padding {
+  @include mq('phone') {
+    padding-bottom: 5.6rem;
+  }
+
   @include mq('tablet') {
     padding-bottom: 6rem;
   }

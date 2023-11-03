@@ -2,10 +2,13 @@ html {
   @include mq('phone') {
     font-size: 10px;
   }
+
+  @include mq('tablet') {
+    font-size: 8px;
+  }
+
   @include mq('tablet-2') {
     font-size: 10px;
-  }
-  @include mq('desktop') {
   }
 }
 
@@ -27,11 +30,6 @@ body {
   @include mq('tablet') {
     font-size: 2rem;
   }
-}
-
-body::-webkit-scrollbar {
-  display: none;
-  width: 0;
 }
 
 .wrapper {

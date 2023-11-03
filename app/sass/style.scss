@@ -17,11 +17,11 @@
   @extend %flex-between;
 
   @include mq('phone') {
-    padding: 1.3rem 0;
+    padding: 1rem 0;
   }
 
   @include mq('tablet-2') {
-    padding: 4rem 0;
+    padding: 2rem 0;
   }
 
   @include mq('desktop') {
@@ -211,17 +211,33 @@
     background-repeat: no-repeat;
     background-position: right center;
     background-size: contain;
-
+    position: relative;
     @include mq('phone') {
       grid-template-columns: 1fr;
 
+      z-index: 34;
+      &::before {
+        z-index: -1;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        background-color: rgba(249, 250, 255, 0.85);
+        transition: background-color 0.4s;
+      }
+
       @include mq('tablet') {
+        background-position: 80% center;
         &:before {
           display: none;
         }
       }
 
       @include mq('desktop') {
+        background-position: right center;
         height: 68.7rem;
       }
     }
@@ -240,7 +256,13 @@
   }
 
   &__content {
-    max-width: 49rem;
+    max-width: 37.5rem;
+    @include mq('tablet') {
+      max-width: 50%;
+    }
+    @include mq('tablet-2') {
+      max-width: 49rem;
+    }
   }
 
   &__title,
@@ -310,6 +332,14 @@
     display: flex;
     scroll-snap-align: start;
     width: 200%;
+
+    @include mq('phone') {
+      margin-bottom: 3.1rem;
+    }
+
+    @include mq('tablet-2') {
+      margin-bottom: 2rem;
+    }
     & svg {
       width: 4.4rem;
       height: 4.4rem;
@@ -319,12 +349,10 @@
   &__navigation-item {
     @include mq('phone') {
       margin-right: 1rem;
-      margin-bottom: 1.9rem;
     }
 
     @include mq('tablet') {
       margin-right: 2rem;
-      margin-bottom: 2rem;
     }
 
     &:last-child {
@@ -408,7 +436,7 @@
 
     @include mq('tablet') {
       padding: 2.5rem 0 5.2rem 0;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       grid-template-rows: repeat(2, 1fr);
       row-gap: 2rem;
       column-gap: 2rem;
@@ -504,6 +532,7 @@
 /*FEATURES*/
 .features {
   position: relative;
+
   @include mq('phone') {
     padding-bottom: 2.5rem;
     margin-bottom: 4rem;
@@ -519,16 +548,16 @@
       transition: background-color 0.4s;
     }
 
+    @include mq('tablet') {
+      &:before {
+        display: none;
+      }
+    }
+
     @include mq('desktop') {
       padding-top: 3rem;
       margin-bottom: 0;
       padding-bottom: 12rem;
-    }
-  }
-
-  @include mq('tablet-2') {
-    &:before {
-      display: none;
     }
   }
 
@@ -547,7 +576,7 @@
     z-index: 99;
 
     @include mq('phone') {
-      padding-top: 2.5rem;
+      padding-top: 3rem;
       width: 100%;
     }
 
@@ -649,6 +678,10 @@
   /*shop*/
   @include mq('phone') {
     padding-bottom: 1.5rem;
+  }
+
+  @include mq('tablet') {
+    padding-bottom: 6rem;
   }
 
   @include mq('desktop') {
@@ -808,7 +841,6 @@
     overflow-y: hidden;
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
-
     &::-webkit-scrollbar {
       display: none;
     }
@@ -816,6 +848,7 @@
     @include mq('phone') {
       margin-bottom: 0.8rem;
     }
+
     @include mq('desktop') {
       margin-bottom: 4.8rem;
     }
@@ -836,6 +869,11 @@
 
     @include mq('tablet') {
       grid-template-columns: auto 1fr;
+      align-items: center;
+    }
+
+    @include mq('desktop') {
+      align-items: start;
     }
   }
 
@@ -849,6 +887,11 @@
 
     @include mq('tablet') {
       margin: 0 auto;
+      padding: 0 5rem;
+    }
+
+    @include mq('tablet-2') {
+      padding: 0;
     }
 
     @include mq('desktop') {
@@ -866,6 +909,11 @@
     }
 
     @include mq('tablet') {
+      max-width: 20rem;
+      max-height: 20rem;
+    }
+
+    @include mq('tablet-2') {
       max-width: 30rem;
       max-height: 30rem;
     }
@@ -903,6 +951,7 @@
       height: 3rem;
       background-image: url('../images/icons/icon-quote-open.svg');
       background-repeat: no-repeat;
+      background-size: cover;
     }
     &:before {
       margin-right: 2rem;
@@ -1049,6 +1098,10 @@
     & .title {
       margin-bottom: 1.2rem;
     }
+  }
+
+  @include mq('tablet') {
+    padding-bottom: 6rem;
   }
 
   @include mq('desktop') {
@@ -1213,4 +1266,13 @@
       }
     }
   }
+}
+
+.swiper-pagination-bullet {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: $orange-900;
 }

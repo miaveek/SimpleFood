@@ -77,7 +77,7 @@ const slider = function () {
   };
   const prevSlide = function () {
     if (curSlide === 0) {
-      curSlide = maxSlide - 1;
+      // curSlide = maxSlide - 1;
     } else {
       curSlide--;
     }
@@ -111,22 +111,34 @@ const slider = function () {
   });
 };
 
-const swipInite = () => {
-  var swiper = new Swiper('.mySwiper', {
+let swiper;
+const createSwipper = () => {
+  swiper = new Swiper({
     pagination: {
       el: '.swiper-pagination',
+      clickable: true,
+    },
+    breakpoints: {
+      570: {
+        slidesPerView: 2,
+        spaceBetween: 10,
+      },
     },
   });
   return swiper;
 };
 
-if (screen.width > 561) {
-  document.querySelector('.swiper-wrapper').classList.add('restaurants__list');
+createSwipper();
+if (screen.width < 767) {
+  swiper.init('.mySwiper');
 }
 
 window.addEventListener('resize', () => {
-  if (screen.width < 560) {
-    swipInite();
+  if (screen.width < 767) {
+    swiper.init('.mySwiper');
+  } else {
+    swiper.destroy(true, true);
+    createSwipper();
   }
 });
 

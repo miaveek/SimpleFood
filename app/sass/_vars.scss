@@ -96,3 +96,15 @@ $breakpoints: (
     transition: background-color 0.4s;
   }
 }
+
+%mobile-pt {
+  padding: 2.5rem 0;
+}
+
+%mobile-border {
+  border-bottom: 1px solid #eeeff3;
+}
+
+%mobile-pl {
+  padding-left: 1.5rem;
+}

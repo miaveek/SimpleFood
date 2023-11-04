@@ -8,10 +8,14 @@ const scrollTo = container => {
     e.preventDefault();
     if (e.target.closest('a').hasAttribute('href')) {
       const id = e.target.closest('a').getAttribute('href');
+
       document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
     }
+    body.classList.remove('mobile__bg');
+    mobileNav.style.transform = 'translateX(-100%)';
   });
 };
+
 //chengeActive btn in categories navigation
 categoryNavigation.forEach(item => {
   item.addEventListener('click', e => {
@@ -110,7 +114,7 @@ const slider = function () {
     }
   });
 };
-
+//Swiper slider
 let swiper;
 const createSwipper = () => {
   swiper = new Swiper({
@@ -146,10 +150,27 @@ window.addEventListener('resize', () => {
 if (document.querySelector('.testimonials__slider')) {
   slider();
 }
-if (document.querySelector('.nav')) {
-  scrollTo('.nav');
-}
-if (document.querySelector('.log')) {
-  scrollTo('.logo');
-}
+
 //////////////////////////////////////////////////
+
+const mobileBtn = document.querySelector('.nav__btn--mmenu');
+const body = document.querySelector('body');
+const mobileNav = document.querySelector('.mobile');
+const mobileClose = document.querySelector('.mobile__close');
+
+mobileBtn.addEventListener('click', e => {
+  body.classList.add('mobile__bg');
+  mobileNav.style.transform = 'translateX(0)';
+});
+
+mobileClose.addEventListener('click', e => {
+  body.classList.remove('mobile__bg');
+  mobileNav.style.transform = 'translateX(-100%)';
+});
+
+body.addEventListener('click', e => {
+  if (e.target.classList == 'mobile__bg') {
+    body.classList.remove('mobile__bg');
+    mobileNav.style.transform = 'translateX(-100%)';
+  }
+});

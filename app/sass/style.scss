@@ -10,14 +10,14 @@
   width: 100%;
   position: fixed;
   background-color: $silver-100;
-  z-index: 999;
+  z-index: 90;
 }
 
 .nav {
   @extend %flex-between;
 
   @include mq('phone') {
-    padding: 1rem 0;
+    padding: 1.3rem 0;
   }
 
   @include mq('tablet-2') {
@@ -69,6 +69,9 @@
 
   &__btns {
     display: flex;
+    @include mq('phone') {
+      margin-right: 1.5rem;
+    }
   }
 
   &__btns-item {
@@ -92,7 +95,7 @@
 
     &--mmenu {
       @include mq('phone') {
-        display: block;
+        display: flex;
       }
 
       @include mq('tablet') {
@@ -163,7 +166,7 @@
       content: '';
       width: 3rem;
       height: 0.2rem;
-      background-color: $darkblue-900;
+      background-color: inherit;
       cursor: pointer;
       transition: transform 0.4s;
       position: absolute;
@@ -177,6 +180,99 @@
     &:after {
       bottom: -1rem;
     }
+  }
+
+  &__btn--mmenu {
+    @extend %flex-center;
+  }
+}
+/*mobile navigation*/
+.mobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 80%;
+  height: 100vh;
+  background-color: $white;
+  transform: translateX(-100%);
+  transition: transform 0.4s;
+  & .nav__logo {
+    @extend %mobile-pl;
+    display: inline-flex;
+    max-width: 20rem;
+  }
+
+  &__top {
+    @extend %mobile-pt;
+    @extend %mobile-border;
+    @extend %flex-between;
+  }
+
+  &__nav {
+    @extend %mobile-pt;
+    @extend %mobile-border;
+  }
+
+  &__nav-item {
+    font-size: 1.8rem;
+    @extend %mobile-pl;
+    padding-bottom: 2rem;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+  &__nav-link {
+    @extend %animation;
+    &--active {
+      color: $orange-900;
+    }
+  }
+
+  &__contacts {
+    @extend %mobile-pt;
+    @extend %mobile-pl;
+  }
+
+  &__close {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 1.8rem;
+    height: 1.8rem;
+    padding: 1rem;
+    margin-right: 2.6rem;
+    &:before,
+    &:after {
+      position: absolute;
+      top: 50%;
+      content: ' ';
+      display: block;
+      width: 100%;
+      height: 0.2rem;
+      background-color: $darkblue-900;
+    }
+    &:before {
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+.mobile__bg {
+  position: relative;
+  overflow: hidden;
+  &:before {
+    z-index: 998;
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
   }
 }
 
@@ -573,7 +669,7 @@
   }
 
   &__content {
-    z-index: 99;
+    z-index: 5;
 
     @include mq('phone') {
       padding-top: 3rem;

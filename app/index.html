@@ -33,7 +33,92 @@
     <script defer src="js/main.min.js"></script>
   </head>
 
-  <body id="top">
+  <body id="top" >
+    <!--mobile navigation-->
+    <nav class="mobile">
+      <div class="mobile__top">
+          <a class="nav__logo logo" href="#top">
+            <img
+            class="logo__img"
+            src="./images/logo.svg"
+            alt="Логотип"
+            width="200"
+            height="39"
+            />
+          </a>
+
+          <button class="mobile__close" type="button"></button>
+
+        </div>
+
+      <ul class="mobile__nav">
+        <li class="mobile__nav-item">
+          <a class="mobile__nav-link mobile__nav-link--active" href="#top"
+            >Главная
+          </a>
+        </li>
+        <li class="mobile__nav-item">
+          <a class="mobile__nav-link" href="#dishes">Блюда</a>
+        </li>
+        <li class="mobile__nav-item">
+          <a class="mobile__nav-link" href="#contacts">Контакты</a>
+        </li>
+      </ul>
+
+      <address class="mobile__contacts contacts">
+        <ul class="contacts__list">
+          <li class="contacts__item">
+            <a class="contacts__link contacts__link--location" href=""
+              >ул. Т.Г.Шевченко, 1
+            </a>
+          </li>
+          <li class="contacts__item">
+            <a
+              class="contacts__link contacts__link--phone"
+              href="tel:380501112233"
+              >380501112233</a
+            >
+          </li>
+          <li class="contacts__item">
+            <a
+              class="contacts__link contacts__link--mail"
+              href="mailto:support@sfood.com"
+              >support@sfood.com
+            </a>
+          </li>
+        </ul>
+
+        <ul class="social__list">
+          <li class="social__item">
+            <a class="social__link" href=""  target="_blank">
+              <svg>
+                <use xlink:href="images/sprite.svg#icon-facebook"></use>
+              </svg>
+              <span class="sr-only">Ссылка на страницу в facebook.com</span>
+            </a>
+          </li>
+          <li class="social__item">
+            <a class="social__link" href=""  target="_blank">
+              <svg>
+                <use xlink:href="images/sprite.svg#icon-twitter"></use>
+              </svg>
+              <span class="sr-only">Ссылка на страницу в X.com</span>
+            </a>
+          </li>
+          <li class="social__item">
+            <a class="social__link" href="#" target="_blank">
+              <svg>
+                <use xlink:href="images/sprite.svg#icon-instagram"></use>
+              </svg>
+              <span class="sr-only">Ссылка на страницу в Instagram</span>
+            </a>
+          </li>
+        </ul>
+      </address>
+    </div>
+    </nav>
+
+    <!--wrapper-->
     <div class="wrapper">
       <header class="header">
         <div class="container">
@@ -90,7 +175,7 @@
             </ul>
 
             <button
-            class="nav__btn nav__btn--mmenu"
+            class="nav__btn--mmenu"
             type="button"
             aria-label="open-close__btn"
           >
@@ -842,7 +927,7 @@
 
             <ul class="social__list">
               <li class="social__item">
-                <a class="social__link" href="">
+                <a class="social__link" href=""  target="_blank">
                   <svg>
                     <use xlink:href="images/sprite.svg#icon-facebook"></use>
                   </svg>
@@ -850,7 +935,7 @@
                 </a>
               </li>
               <li class="social__item">
-                <a class="social__link" href="">
+                <a class="social__link" href=""  target="_blank">
                   <svg>
                     <use xlink:href="images/sprite.svg#icon-twitter"></use>
                   </svg>
@@ -858,7 +943,7 @@
                 </a>
               </li>
               <li class="social__item">
-                <a class="social__link" href="#">
+                <a class="social__link" href="#" target="_blank">
                   <svg>
                     <use xlink:href="images/sprite.svg#icon-instagram"></use>
                   </svg>

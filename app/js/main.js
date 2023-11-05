@@ -153,7 +153,7 @@ if (document.querySelector('.testimonials__slider')) {
 
 //////////////////////////////////////////////////
 
-const mobileBtn = document.querySelector('.nav__btn--mmenu');
+const mobileBtn = document.querySelector('.nav__btn-mmenu');
 const body = document.querySelector('body');
 const mobileNav = document.querySelector('.mobile');
 const mobileClose = document.querySelector('.mobile__close');

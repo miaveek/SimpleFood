@@ -66,6 +66,9 @@
   &__list-link {
     @extend %animation;
   }
+  &__list-link--active {
+    color: $orange-900;
+  }
 
   &__btns {
     display: flex;
@@ -84,7 +87,7 @@
 
   &__btn {
     position: relative;
-    display: block;
+    @extend %flex-center;
     width: 4.2rem;
     height: 4.2rem;
     border-radius: 5px;
@@ -93,7 +96,7 @@
     background-size: 1.9rem 1.9rem;
     transition: background 0.4s, color 0.4s;
 
-    &--mmenu {
+    &-mmenu {
       @include mq('phone') {
         display: flex;
       }
@@ -109,6 +112,7 @@
       stroke: $darkblue-900;
       stroke-width: 2px;
     }
+
     &:hover svg {
       stroke: $white;
     }
@@ -128,7 +132,8 @@
     }
 
     &:hover {
-      background-color: $orange-900;
+      background-color: #ff7a50;
+      box-shadow: none;
     }
 
     &:hover &-count {
@@ -182,7 +187,7 @@
     }
   }
 
-  &__btn--mmenu {
+  &__btn-mmenu {
     @extend %flex-center;
   }
 }
@@ -197,6 +202,7 @@
   background-color: $white;
   transform: translateX(-100%);
   transition: transform 0.4s;
+
   & .nav__logo {
     @extend %mobile-pl;
     display: inline-flex;
@@ -260,19 +266,19 @@
       transform: rotate(-45deg);
     }
   }
-}
 
-.mobile__bg {
-  position: relative;
-  overflow: hidden;
-  &:before {
-    z-index: 998;
-    content: '';
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+  &__bg {
+    position: relative;
+    overflow: hidden;
+    &:before {
+      z-index: 998;
+      content: '';
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
   }
 }
 
@@ -308,9 +314,9 @@
     background-position: right center;
     background-size: contain;
     position: relative;
+
     @include mq('phone') {
       grid-template-columns: 1fr;
-
       z-index: 34;
       &::before {
         z-index: -1;
@@ -320,7 +326,6 @@
         left: 0;
         right: 0;
         bottom: 0;
-
         background-color: rgba(249, 250, 255, 0.85);
         transition: background-color 0.4s;
       }
@@ -423,11 +428,13 @@
       display: none;
     }
   }
+
   &__navigation {
+    padding: 0.2rem;
     margin: 0 auto;
     display: flex;
     scroll-snap-align: start;
-    width: 200%;
+    white-space: nowrap;
 
     @include mq('phone') {
       margin-bottom: 3.1rem;
@@ -436,6 +443,7 @@
     @include mq('tablet-2') {
       margin-bottom: 2rem;
     }
+
     & svg {
       width: 4.4rem;
       height: 4.4rem;
@@ -1371,4 +1379,57 @@
 
 .swiper-pagination-bullet-active {
   background-color: $orange-900;
+}
+
+/*****************Catalog Page ************************/
+.filters {
+  max-width: 27rem;
+  width: 100%;
+  margin-right: 3rem;
+
+  &__filter {
+    background-color: $white;
+    border-radius: 5px;
+    border: 1px solid $silver-200;
+    margin-bottom: 3rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    color: $darkblue-900;
+    @extend %Rubik-400;
+    font-size: 3.4rem;
+    line-height: 1.2;
+    letter-spacing: 0.72px;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid $silver-200;
+    margin-bottom: 2.5rem;
+    text-transform: capitalize;
+
+    &:before {
+      content: '';
+      display: inline-flex;
+      padding-left: 1.5rem;
+    }
+  }
+
+  &__list {
+    padding-left: 1.5rem;
+    font-size: 1.8rem;
+    letter-spacing: 0.54px;
+    margin-bottom: 2.5rem;
+  }
+
+  &__item {
+    margin-bottom: 1.2rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__btn {
+    @extend %Rubik-400;
+  }
 }

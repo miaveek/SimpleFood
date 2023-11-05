@@ -12,7 +12,7 @@ $bg-color: #f9faff;
 $text-shadow: 2px 2px 5px rgba(49, 53, 43, 0.5);
 
 $breakpoints: (
-  'phone': 369px,
+  'phone': 300px,
   'tablet': 768px,
   'tablet-2': 992px,
   'desktop': 1230px,
@@ -34,7 +34,7 @@ $breakpoints: (
 }
 
 %orange-box-shadow {
-  box-shadow: 0 0 0 0.2rem $orange-900;
+  box-shadow: 0 0 0 0.2rem rgba(255, 104, 56, 0.7);
 }
 
 %bg-center {

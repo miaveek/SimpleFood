@@ -1,42 +1,51 @@
-@import 'reset';
-@import 'fonts';
-@import 'vars';
-@import 'mixim';
-@import 'global';
-@import 'libs';
+@import "reset";
+@import "fonts";
+@import "vars";
+@import "mixim";
+@import "global";
+@import "libs";
 
 /*NAVIGATION*/
 .header {
   width: 100%;
   position: fixed;
   background-color: $silver-100;
-  z-index: 90;
+  z-index: 999;
 }
 
 .nav {
   @extend %flex-between;
-
-  @include mq('phone') {
+  @include mq("phone") {
     padding: 1.3rem 0;
   }
 
-  @include mq('tablet-2') {
+  @include mq("tablet-2") {
     padding: 2rem 0;
   }
 
-  @include mq('desktop') {
+  @include mq("desktop") {
     padding: 6rem 0 4rem 0;
+  }
+
+  &__btn-mmenu {
+    @extend %flex-center;
+  }
+  &__contacts {
+    display: block;
+
+    @include mq("tablet") {
+      display: none;
+    }
   }
 
   &__logo {
     margin-right: auto;
-
-    @include mq('phone') {
+    @include mq("phone") {
       margin-left: -0.5rem;
       max-width: 12rem;
     }
 
-    @include mq('tablet') {
+    @include mq("tablet") {
       margin-left: 0;
       max-width: 20rem;
     }
@@ -45,11 +54,11 @@
   &__list {
     margin-right: 5.4rem;
 
-    @include mq('phone') {
+    @include mq("phone") {
       display: none;
     }
 
-    @include mq('tablet-2') {
+    @include mq("tablet-2") {
       display: flex;
     }
   }
@@ -72,7 +81,7 @@
 
   &__btns {
     display: flex;
-    @include mq('phone') {
+    @include mq("phone") {
       margin-right: 1.5rem;
     }
   }
@@ -97,11 +106,11 @@
     transition: background 0.4s, color 0.4s;
 
     &-mmenu {
-      @include mq('phone') {
+      @include mq("phone") {
         display: flex;
       }
 
-      @include mq('tablet') {
+      @include mq("tablet") {
         display: none;
       }
     }
@@ -168,7 +177,7 @@
 
     &:before,
     &:after {
-      content: '';
+      content: "";
       width: 3rem;
       height: 0.2rem;
       background-color: inherit;
@@ -186,11 +195,8 @@
       bottom: -1rem;
     }
   }
-
-  &__btn-mmenu {
-    @extend %flex-center;
-  }
 }
+
 /*mobile navigation*/
 .mobile {
   position: fixed;
@@ -203,7 +209,7 @@
   transform: translateX(-100%);
   transition: transform 0.4s;
 
-  & .nav__logo {
+  & .logo {
     @extend %mobile-pl;
     display: inline-flex;
     max-width: 20rem;
@@ -215,24 +221,18 @@
     @extend %flex-between;
   }
 
-  &__nav {
+  & .nav__list {
+    display: block;
     @extend %mobile-pt;
     @extend %mobile-border;
   }
-
-  &__nav-item {
+  & .nav__list-item {
     font-size: 1.8rem;
     @extend %mobile-pl;
     padding-bottom: 2rem;
 
     &:last-child {
       padding-bottom: 0;
-    }
-  }
-  &__nav-link {
-    @extend %animation;
-    &--active {
-      color: $orange-900;
     }
   }
 
@@ -249,11 +249,16 @@
     height: 1.8rem;
     padding: 1rem;
     margin-right: 2.6rem;
+
+    @include mq("tablet") {
+      display: none;
+    }
+
     &:before,
     &:after {
       position: absolute;
       top: 50%;
-      content: ' ';
+      content: " ";
       display: block;
       width: 100%;
       height: 0.2rem;
@@ -271,8 +276,8 @@
     position: relative;
     overflow: hidden;
     &:before {
-      z-index: 998;
-      content: '';
+      z-index: 100;
+      content: "";
       position: absolute;
       display: block;
       width: 100%;
@@ -288,20 +293,20 @@
 .features,
 .restaurants,
 .testimonials,
-.mobileApp {
+.mobile-app {
   @extend %section-padding;
 }
 /*HERO*/
 .hero {
-  @include mq('phone') {
+  @include mq("phone") {
     padding-top: 5.7rem;
   }
 
-  @include mq('tablet-2') {
+  @include mq("tablet-2") {
     padding-top: 10rem;
   }
 
-  @include mq('desktop') {
+  @include mq("desktop") {
     padding-top: 13.2rem;
   }
 
@@ -315,12 +320,12 @@
     background-size: contain;
     position: relative;
 
-    @include mq('phone') {
+    @include mq("phone") {
       grid-template-columns: 1fr;
       z-index: 34;
       &::before {
         z-index: -1;
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         left: 0;
@@ -330,38 +335,38 @@
         transition: background-color 0.4s;
       }
 
-      @include mq('tablet') {
+      @include mq("tablet") {
         background-position: 80% center;
         &:before {
           display: none;
         }
       }
 
-      @include mq('desktop') {
+      @include mq("desktop") {
         background-position: right center;
         height: 68.7rem;
       }
     }
 
-    @include mq('tablet') {
+    @include mq("tablet") {
       background-size: contain;
     }
 
-    @include mq('tablet-2') {
+    @include mq("tablet-2") {
       background-size: auto 100%;
     }
 
-    @include mq('desktop') {
+    @include mq("desktop") {
       margin-bottom: 0;
     }
   }
 
   &__content {
     max-width: 37.5rem;
-    @include mq('tablet') {
+    @include mq("tablet") {
       max-width: 50%;
     }
-    @include mq('tablet-2') {
+    @include mq("tablet-2") {
       max-width: 49rem;
     }
   }
@@ -378,11 +383,11 @@
     line-height: 1.3;
     color: $darkblue-900;
 
-    @include mq('phone') {
+    @include mq("phone") {
       font-size: 4rem;
     }
 
-    @include mq('tablet-2') {
+    @include mq("tablet-2") {
       font-size: 6.6rem;
     }
   }
@@ -402,17 +407,17 @@
 .categories {
   text-align: center;
 
-  @include mq('phone') {
+  @include mq("phone") {
     padding-bottom: 4rem;
   }
 
-  @include mq('tablet') {
+  @include mq("tablet") {
     padding-bottom: 9rem;
   }
 
   @extend %section-padding;
   & .title {
-    @include mq('desktop') {
+    @include mq("desktop") {
       margin-bottom: 6rem;
     }
   }
@@ -436,11 +441,11 @@
     scroll-snap-align: start;
     white-space: nowrap;
 
-    @include mq('phone') {
+    @include mq("phone") {
       margin-bottom: 3.1rem;
     }
 
-    @include mq('tablet-2') {
+    @include mq("tablet-2") {
       margin-bottom: 2rem;
     }
 
@@ -451,11 +456,11 @@
   }
 
   &__navigation-item {
-    @include mq('phone') {
+    @include mq("phone") {
       margin-right: 1rem;
     }
 
-    @include mq('tablet') {
+    @include mq("tablet") {
       margin-right: 2rem;
     }
 
@@ -475,23 +480,23 @@
     background-repeat: no-repeat;
     transition: color 0.4s, background-color 0.4s, box-shadow 0.4s;
 
-    @include mq('phone') {
+    @include mq("phone") {
       padding: 0.9rem 1.4rem;
     }
 
-    @include mq('desktop') {
+    @include mq("desktop") {
       padding: 1.3rem 3.4rem;
     }
 
     & svg {
-      @include mq('phone') {
+      @include mq("phone") {
         width: 2rem;
         height: 2rem;
         margin-right: 0.5rem;
         font-size: 1.4rem;
       }
 
-      @include mq('tablet') {
+      @include mq("tablet") {
         width: 4.4rem;
         height: 4.4rem;
         margin-right: 0.7rem;
@@ -531,14 +536,14 @@
   &__product-list {
     display: grid;
 
-    @include mq('phone') {
+    @include mq("phone") {
       grid-template-columns: repeat(2, 1fr);
       column-gap: 0.5rem;
       row-gap: 1rem;
       margin-bottom: 3rem;
     }
 
-    @include mq('tablet') {
+    @include mq("tablet") {
       padding: 2.5rem 0 5.2rem 0;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: repeat(2, 1fr);
@@ -546,7 +551,7 @@
       column-gap: 2rem;
     }
 
-    @include mq('desktop') {
+    @include mq("desktop") {
       grid-template-columns: repeat(5, 1fr);
       row-gap: 3rem;
       column-gap: 3rem;
@@ -555,7 +560,7 @@
   }
 
   &__btn {
-    @include mq('phone') {
+    @include mq("phone") {
       font-size: 2rem;
       padding: 0;
     }
@@ -637,12 +642,12 @@
 .features {
   position: relative;
 
-  @include mq('phone') {
+  @include mq("phone") {
     padding-bottom: 2.5rem;
     margin-bottom: 4rem;
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       right: 0;
@@ -652,13 +657,13 @@
       transition: background-color 0.4s;
     }
 
-    @include mq('tablet') {
+    @include mq("tablet") {
       &:before {
         display: none;
       }
     }
 
-    @include mq('desktop') {
+    @include mq("desktop") {
       padding-top: 3rem;
       margin-bottom: 0;
       padding-bottom: 12rem;
@@ -671,7 +676,7 @@
     background-repeat: no-repeat;
     background-size: contain;
 
-    @include mq('desktop') {
+    @include mq("desktop") {
       background-position: 7rem center;
     }
   }
@@ -679,16 +684,16 @@
   &__content {
     z-index: 5;
 
-    @include mq('phone') {
+    @include mq("phone") {
       padding-top: 3rem;
       width: 100%;
     }
 
-    @include mq('tablet') {
+    @include mq("tablet") {
       max-width: 54rem;
     }
 
-    @include mq('desktop') {
+    @include mq("desktop") {
       padding: 6rem 0;
     }
   }
@@ -706,10 +711,10 @@
   &__title {
     @extend %Rubik-500;
 
-    @include mq('phone') {
+    @include mq("phone") {
       font-size: 2.4rem;
     }
-    @include mq('tablet') {
+    @include mq("tablet") {
       font-size: 3.6rem;
     }
   }
@@ -718,11 +723,11 @@
     line-height: 1.5;
     font-size: 1.6rem;
 
-    @include mq('phone') {
+    @include mq("phone") {
       margin-bottom: 3.5rem;
     }
 
-    @include mq('tablet') {
+    @include mq("tablet") {
       margin-right: 8rem;
       font-size: 2rem;
       margin-bottom: 3rem;
@@ -730,10 +735,10 @@
   }
 
   &__benefits {
-    @include mq('phone') {
+    @include mq("phone") {
       margin-bottom: 2.6rem;
     }
-    @include mq('desktop') {
+    @include mq("desktop") {
       margin-bottom: 3rem;
     }
   }
@@ -746,32 +751,32 @@
     padding-left: 4.5rem;
     background-position: -3rem center;
 
-    @include mq('tablet') {
+    @include mq("tablet") {
       background-position: -4rem center;
       padding-left: 6.5rem;
       font-size: 2.4rem;
     }
     &--time {
-      background-image: url('../images/sprite.svg#icon-delivery-time');
+      background-image: url("../images/sprite.svg#icon-delivery-time");
     }
 
     &--delivery {
-      background-image: url('../images/sprite.svg#icon-delivery-speed');
+      background-image: url("../images/sprite.svg#icon-delivery-speed");
     }
 
     &--shops {
-      background-image: url('../images/sprite.svg#icon-delivery-shops');
+      background-image: url("../images/sprite.svg#icon-delivery-shops");
     }
   }
 
   &__btn {
-    @include mq('phone') {
+    @include mq("phone") {
       padding: 1.2rem 3.2rem;
       font-size: 1.4rem;
       line-height: 1.3;
     }
 
-    @include mq('desktop') {
+    @include mq("desktop") {
       font-size: 1.8rem;
     }
   }
@@ -780,120 +785,39 @@
 /*RESTORANS*/
 .restaurants {
   /*shop*/
-  @include mq('phone') {
+  @include mq("phone") {
     padding-bottom: 1.5rem;
   }
 
-  @include mq('tablet') {
+  @include mq("tablet") {
     padding-bottom: 6rem;
   }
 
-  @include mq('desktop') {
+  @include mq("desktop") {
     padding-bottom: 12rem;
-  }
-
-  .shop {
-    background-color: $white;
-    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
-    object-fit: cover;
-    border-radius: 10px;
-
-    &:hover {
-      box-shadow: 0 3px 15px 0 rgba(255, 104, 56, 0.5);
-    }
-
-    &__content {
-      padding: 1.6rem 2rem 2.1rem;
-    }
-
-    &__face {
-      width: 100%;
-    }
-
-    &__name {
-      font-weight: 400;
-      font-size: 2.4rem;
-      margin-bottom: 2rem;
-    }
-
-    &__inner {
-      width: 100%;
-      @extend %flex-between;
-    }
-
-    &__link {
-      border-radius: 20px;
-      padding: 1rem 3.3rem;
-      transition: color 0.4s, box-shadow 0.4s, background-color 0.4s;
-
-      & svg {
-        width: 1.4rem;
-        height: 1.2rem;
-        fill: $white;
-        transition: transform 0.4s, color 0.4s;
-      }
-
-      &:active,
-      &:focus {
-        background-color: $light-orange;
-      }
-
-      &:focus,
-      &:hover {
-        @extend %orange-box-shadow;
-      }
-
-      &:focus svg,
-      &:active svg,
-      &:hover svg {
-        fill: $orange-900;
-      }
-
-      &:active {
-        box-shadow: none;
-        transform: translateX(0);
-      }
-
-      &:hover svg {
-        transform: translateX(50%);
-      }
-    }
-
-    &__time {
-      display: flex;
-      align-items: center;
-
-      @include mq('phone') {
-        font-size: 1.8rem;
-      }
-    }
-
-    &__time:before {
-      content: '';
-      margin-right: 1rem;
-      width: 2.2rem;
-      height: 2.2rem;
-      background-image: url('../images/sprite.svg#icon-open_time');
-      @extend %bg-center;
-      background-size: cover;
-    }
   }
 
   & .title {
     text-align: center;
     margin-bottom: 3rem;
 
-    @include mq('tablet') {
+    @include mq("tablet") {
       margin-bottom: 4.3rem;
     }
   }
 
   &__list {
-    @include mq('phone') {
+    @include mq("phone") {
+      position: relative;
+      width: 100%;
+      z-index: 1;
+      display: flex;
+      transition-property: transform;
+      box-sizing: content-box;
       padding-bottom: 7rem;
     }
 
-    @include mq('tablet') {
+    @include mq("tablet") {
       grid-template-columns: repeat(2, 1fr);
       column-gap: 3rem;
       row-gap: 3rem;
@@ -902,13 +826,21 @@
       padding-bottom: 0;
     }
 
-    @include mq('tablet-2') {
+    @include mq("tablet-2") {
       grid-template-columns: repeat(3, 1fr);
     }
   }
 
   &__item {
     width: 100%;
+    @include mq("phone") {
+      flex-shrink: 0;
+      width: 100%;
+      position: relative;
+      height: 100%;
+      transition-property: transform;
+      z-index: 1;
+    }
   }
 }
 
@@ -916,24 +848,24 @@
 .testimonials {
   position: relative;
 
-  @include mq('phone') {
+  @include mq("phone") {
     padding-bottom: 0;
   }
 
-  @include mq('tablet') {
+  @include mq("tablet") {
     padding-bottom: 4rem;
   }
-  @include mq('desktop') {
+  @include mq("desktop") {
     padding-bottom: 5.5rem;
   }
 
   & .title {
     text-align: center;
-    @include mq('phone') {
+    @include mq("phone") {
       margin-bottom: 3rem;
     }
 
-    @include mq('tablet-2') {
+    @include mq("tablet-2") {
       margin-bottom: 4.5rem;
     }
   }
@@ -949,11 +881,11 @@
       display: none;
     }
 
-    @include mq('phone') {
+    @include mq("phone") {
       margin-bottom: 0.8rem;
     }
 
-    @include mq('desktop') {
+    @include mq("desktop") {
       margin-bottom: 4.8rem;
     }
   }
@@ -966,17 +898,17 @@
     column-gap: 3.5rem;
     transition: transform 1s;
 
-    @include mq('phone') {
+    @include mq("phone") {
       font-size: 1.4rem;
       grid-template-columns: 1fr;
     }
 
-    @include mq('tablet') {
+    @include mq("tablet") {
       grid-template-columns: auto 1fr;
       align-items: center;
     }
 
-    @include mq('desktop') {
+    @include mq("desktop") {
       align-items: start;
     }
   }
@@ -984,21 +916,21 @@
   &__face {
     @extend %flex-center;
 
-    @include mq('phone') {
+    @include mq("phone") {
       margin-bottom: 3rem;
       margin-left: -3rem;
     }
 
-    @include mq('tablet') {
+    @include mq("tablet") {
       margin: 0 auto;
       padding: 0 5rem;
     }
 
-    @include mq('tablet-2') {
+    @include mq("tablet-2") {
       padding: 0;
     }
 
-    @include mq('desktop') {
+    @include mq("desktop") {
       margin-left: 9rem;
     }
   }
@@ -1007,17 +939,17 @@
     border-radius: 100%;
     height: 100%;
 
-    @include mq('phone') {
+    @include mq("phone") {
       max-width: 10rem;
       max-height: 10rem;
     }
 
-    @include mq('tablet') {
+    @include mq("tablet") {
       max-width: 20rem;
       max-height: 20rem;
     }
 
-    @include mq('tablet-2') {
+    @include mq("tablet-2") {
       max-width: 30rem;
       max-height: 30rem;
     }
@@ -1027,7 +959,7 @@
     line-height: 1.5;
     max-width: 68rem;
 
-    @include mq('desktop') {
+    @include mq("desktop") {
       padding-top: 3rem;
     }
   }
@@ -1037,23 +969,23 @@
     font-style: italic;
     padding-right: 2rem;
 
-    @include mq('phone') {
+    @include mq("phone") {
       margin-bottom: 2rem;
       font-size: 1.4rem;
     }
 
-    @include mq('tablet') {
+    @include mq("tablet") {
       margin-bottom: 3rem;
       font-size: 2rem;
     }
 
     &:before,
     &:after {
-      content: '';
+      content: "";
       display: block;
       width: 10rem;
       height: 3rem;
-      background-image: url('../images/icons/icon-quote-open.svg');
+      background-image: url("../images/icons/icon-quote-open.svg");
       background-repeat: no-repeat;
       background-size: cover;
     }
@@ -1078,12 +1010,12 @@
     @extend %Rubik-500;
     color: $orange-900;
 
-    @include mq('phone') {
+    @include mq("phone") {
       margin-bottom: 1.3rem;
       font-size: 1.6rem;
     }
 
-    @include mq('desktop') {
+    @include mq("desktop") {
       margin-bottom: 1.6rem;
       font-size: 2rem;
     }
@@ -1100,7 +1032,7 @@
     left: 50%;
     transform: translateX(-50%);
 
-    @include mq('phone') {
+    @include mq("phone") {
       width: 100%;
       padding: 0 5.4rem;
       top: 9rem;
@@ -1108,7 +1040,7 @@
       justify-content: space-between;
     }
 
-    @include mq('tablet') {
+    @include mq("tablet") {
       width: auto;
       bottom: -19.5rem;
     }
@@ -1134,12 +1066,12 @@
     fill: $gray;
     cursor: pointer;
 
-    @include mq('phone') {
+    @include mq("phone") {
       width: 3.6rem;
       height: 3.6rem;
     }
 
-    @include mq('tablet') {
+    @include mq("tablet") {
       width: 3.8rem;
       height: 3.8rem;
     }
@@ -1174,11 +1106,11 @@
     display: flex;
     padding-left: 1.5rem;
 
-    @include mq('phone') {
+    @include mq("phone") {
       display: none;
     }
 
-    @include mq('tablet') {
+    @include mq("tablet") {
       display: flex;
     }
   }
@@ -1196,19 +1128,19 @@
   }
 }
 
-.mobileApp {
-  @include mq('phone') {
+.mobile-app {
+  @include mq("phone") {
     padding-bottom: 3.6rem;
     & .title {
       margin-bottom: 1.2rem;
     }
   }
 
-  @include mq('tablet') {
+  @include mq("tablet") {
     padding-bottom: 6rem;
   }
 
-  @include mq('desktop') {
+  @include mq("desktop") {
     padding-bottom: 12rem;
     & .title {
       padding-top: 4.1rem;
@@ -1219,11 +1151,11 @@
   &__inner {
     background-size: contain;
 
-    @include mq('phone') {
+    @include mq("phone") {
       display: block;
     }
 
-    @include mq('tablet') {
+    @include mq("tablet") {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       column-gap: 6.2rem;
@@ -1235,11 +1167,11 @@
     @extend %bg-center;
     background-size: cover;
 
-    @include mq('phone') {
+    @include mq("phone") {
       display: none;
     }
 
-    @include mq('tablet') {
+    @include mq("tablet") {
       display: block;
     }
   }
@@ -1249,12 +1181,12 @@
     max-width: 55rem;
     @include line-clamp(5);
 
-    @include mq('phone') {
+    @include mq("phone") {
       font-size: 1.4rem;
       margin-bottom: 1.5rem;
     }
 
-    @include mq('tablet') {
+    @include mq("tablet") {
       font-size: 2rem;
       margin-bottom: 3rem;
     }
@@ -1282,7 +1214,7 @@
     @extend %inline-flex-center;
     margin-bottom: 2.5rem;
     background-repeat: no-repeat;
-    padding-left: 4rem;
+
     &:last-child {
       margin-bottom: 0;
     }
@@ -1291,37 +1223,36 @@
     &--phone,
     &--mail {
       &:before {
-        content: '';
+        content: "";
         display: block;
         width: 2rem;
         height: 2rem;
-        margin-right: 0.7rem;
+        margin-right: 0.9rem;
         background-repeat: no-repeat;
         background-position: start;
       }
     }
 
     &--location {
-      background-image: url('../images/sprite.svg#icon-location');
+      background-image: url("../images/icons/icon-location.svg");
     }
 
     &--phone {
-      background-image: url('../images/sprite.svg#icon-calling');
+      background-image: url("../images/icons/icon-calling.svg");
     }
 
     &--mail {
-      background-image: url('../images/sprite.svg#icon-message');
+      background-image: url("../images/icons/icon-message.svg");
     }
   }
 }
 
 /*Social list*/
-.social {
+.internet-party {
   &__list {
     display: flex;
     font-size: 1.6rem;
     line-height: 2;
-    margin-left: 2.5rem;
   }
 
   &__item {
@@ -1409,7 +1340,7 @@
     text-transform: capitalize;
 
     &:before {
-      content: '';
+      content: "";
       display: inline-flex;
       padding-left: 1.5rem;
     }
@@ -1431,5 +1362,107 @@
 
   &__btn {
     @extend %Rubik-400;
+  }
+}
+
+.swiper {
+  @include mq("phone") {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+}
+
+.shop {
+  background-color: $white;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  border-radius: 10px;
+
+  @include mq("phone") {
+    width: 100%;
+    height: 100%;
+  }
+
+  &:hover {
+    box-shadow: 0 3px 15px 0 rgba(255, 104, 56, 0.5);
+  }
+
+  &__content {
+    padding: 1.6rem 2rem 2.1rem;
+  }
+
+  &__face {
+    width: 100%;
+  }
+
+  &__name {
+    font-weight: 400;
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+  }
+
+  &__inner {
+    width: 100%;
+    @extend %flex-between;
+  }
+
+  &__link {
+    border-radius: 20px;
+    padding: 1rem 3.3rem;
+    transition: color 0.4s, box-shadow 0.4s, background-color 0.4s;
+
+    & svg {
+      width: 1.4rem;
+      height: 1.2rem;
+      fill: $white;
+      transition: transform 0.4s, color 0.4s;
+    }
+
+    &:active,
+    &:focus {
+      background-color: $light-orange;
+    }
+
+    &:focus,
+    &:hover {
+      @extend %orange-box-shadow;
+    }
+
+    &:focus svg,
+    &:active svg,
+    &:hover svg {
+      fill: $orange-900;
+    }
+
+    &:active {
+      box-shadow: none;
+      transform: translateX(0);
+    }
+
+    &:hover svg {
+      transform: translateX(50%);
+    }
+  }
+
+  &__time {
+    display: flex;
+    align-items: center;
+
+    @include mq("phone") {
+      font-size: 1.8rem;
+    }
+  }
+
+  &__time:before {
+    content: "";
+    margin-right: 1rem;
+    width: 2.2rem;
+    height: 2.2rem;
+    background-image: url("../images/sprite.svg#icon-open_time");
+    @extend %bg-center;
+    background-size: cover;
   }
 }

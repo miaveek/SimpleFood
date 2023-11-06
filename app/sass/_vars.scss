@@ -12,24 +12,24 @@ $bg-color: #f9faff;
 $text-shadow: 2px 2px 5px rgba(49, 53, 43, 0.5);
 
 $breakpoints: (
-  'phone': 300px,
-  'tablet': 768px,
-  'tablet-2': 992px,
-  'desktop': 1230px,
+  "phone": 300px,
+  "tablet": 768px,
+  "tablet-2": 992px,
+  "desktop": 1230px,
 );
 
 %Rubik-300 {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 300;
 }
 
 %Rubik-400 {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 400;
 }
 
 %Rubik-500 {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 500;
 }
 
@@ -68,6 +68,7 @@ $breakpoints: (
   }
   &:active {
     text-shadow: $text-shadow;
+    box-shadow: none;
   }
   &:hover,
   &--active {
@@ -82,11 +83,16 @@ $breakpoints: (
   &:active {
     opacity: 0.4;
   }
+  &:focus {
+    border-radius: 5px;
+    @extend %orange-box-shadow;
+    opacity: 1;
+  }
 }
 
 %bg {
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0px;
     right: 0px;

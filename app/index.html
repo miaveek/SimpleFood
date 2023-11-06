@@ -34,10 +34,13 @@
   </head>
 
   <body id="top" >
-    <!--mobile navigation-->
+
+      <header class="header">
+        <div class="container">
+          <!--mobile navigation-->
     <nav class="mobile">
       <div class="mobile__top">
-          <a class="nav__logo logo" href="#top">
+          <a class="logo" href="#top">
             <img
             class="logo__img"
             src="./images/logo.svg"
@@ -49,19 +52,19 @@
           <button class="mobile__close" type="button"></button>
         </div>
 
-      <ul class="mobile__nav">
-        <li class="mobile__nav-item">
-          <a class="mobile__nav-link mobile__nav-link--active" href="#top"
-            >Главная
-          </a>
-        </li>
-        <li class="mobile__nav-item">
-          <a class="mobile__nav-link" href="#dishes">Блюда</a>
-        </li>
-        <li class="mobile__nav-item">
-          <a class="mobile__nav-link" href="#contacts">Контакты</a>
-        </li>
-      </ul>
+        <ul class="nav__list">
+          <li class="nav__list-item">
+            <a class="nav__list-link nav__list-link--active" href="#top"
+              >Главная</a
+            >
+          </li>
+          <li class="nav__list-item">
+            <a class="nav__list-link" href="#dishes">Блюда</a>
+          </li>
+          <li class="nav__list-item">
+            <a class="nav__list-link" href="#contacts">Контакты</a>
+          </li>
+        </ul>
 
       <address class="mobile__contacts contacts">
         <ul class="contacts__list">
@@ -86,25 +89,25 @@
           </li>
         </ul>
 
-        <ul class="social__list">
-          <li class="social__item">
-            <a class="social__link" href=""  target="_blank">
+        <ul class="internet-party__list">
+          <li class="internet-party__item">
+            <a class="internet-party__link" href=""  target="_blank">
               <svg>
                 <use xlink:href="images/sprite.svg#icon-facebook"></use>
               </svg>
               <span class="sr-only">Ссылка на страницу в facebook.com</span>
             </a>
           </li>
-          <li class="social__item">
-            <a class="social__link" href=""  target="_blank">
+          <li class="sinternet-party__item">
+            <a class="internet-party__link" href=""  target="_blank">
               <svg>
                 <use xlink:href="images/sprite.svg#icon-twitter"></use>
               </svg>
               <span class="sr-only">Ссылка на страницу в X.com</span>
             </a>
           </li>
-          <li class="social__item">
-            <a class="social__link" href="#" target="_blank">
+          <li class="internet-party__item">
+            <a class="internet-party__link" href="#" target="_blank">
               <svg>
                 <use xlink:href="images/sprite.svg#icon-instagram"></use>
               </svg>
@@ -114,9 +117,6 @@
         </ul>
       </address>
     </nav>
-
-      <header class="header">
-        <div class="container">
           <nav class="nav">
             <a class="nav__logo logo" href="#top">
               <img
@@ -174,6 +174,7 @@
           >
             <span class="nav__toggle-btn"></span>
           </button>
+
           </nav>
         </div>
       </header>
@@ -494,7 +495,7 @@
        
 
         <h2 class="title">Лучшие рестораны</h2>
-        <div class="swiper mySwiper">
+        <div class="swiper my-swiper">
         <ul class="restaurants__list swiper-wrapper">
           <li class="restaurants__item swiper-slide">
             <article class="shop">
@@ -780,28 +781,28 @@
     </section>
 
     <!--MOBILE APP-->
-    <section class="mobileApp">
+    <section class="mobile-app">
       <div class="container">
 
-        <div class="mobileApp__inner">
-          <div class="mobileApp__content">
+        <div class="mobile-app__inner">
+          <div class="mobile-app__content">
             <h3 class="title">Скачайте мобильное приложение</h3>
-            <p class="mobileApp__description">
+            <p class="mobile-app__description">
               Рестораны, которые вы любите - в ваших руках. Устанавливайте
               приложение и заказывайте еду в любом удобном месте.
             </p>
-            <div class="mobileApp__links">
-              <a class="mobileApp__link" href="">
+            <div class="mobile-app__links">
+              <a class="mobile-app__link" href="">
                 <img
-                  class="mobileApp__link-image"
+                  class="mobile-app__link-image"
                   src="./images/appstore.svg"
                   alt="ссылка на App Store"
                 />
               </a>
 
-              <a class="mobileApp__link" href="">
+              <a class="mobile-app__link" href="">
                 <img
-                  class="mobileApp__link-image"
+                  class="mobile-app__link-image"
                   src="./images/googlePlay.svg"
                   alt="Google Play"
                 />
@@ -810,7 +811,7 @@
           </div>
 
           <div
-            class="mobileApp__image"
+            class="mobile-app__image"
             style="background-image: url('./images/appImg.jpg')"
             width="570"
             height="380"
@@ -917,25 +918,25 @@
               </li>
             </ul>
 
-            <ul class="social__list">
-              <li class="social__item">
-                <a class="social__link" href=""  target="_blank">
+            <ul class="internet-party__list">
+              <li class="internet-party__item">
+                <a class="internet-party__link" href=""  target="_blank">
                   <svg>
                     <use xlink:href="images/sprite.svg#icon-facebook"></use>
                   </svg>
                   <span class="sr-only">Ссылка на страницу в facebook.com</span>
                 </a>
               </li>
-              <li class="social__item">
-                <a class="social__link" href=""  target="_blank">
+              <li class="internet-party__item">
+                <a class="internet-party__link" href=""  target="_blank">
                   <svg>
                     <use xlink:href="images/sprite.svg#icon-twitter"></use>
                   </svg>
                   <span class="sr-only">Ссылка на страницу в X.com</span>
                 </a>
               </li>
-              <li class="social__item">
-                <a class="social__link" href="#" target="_blank">
+              <li class="internet-party__item">
+                <a class="internet-party__link" href="#" target="_blank">
                   <svg>
                     <use xlink:href="images/sprite.svg#icon-instagram"></use>
                   </svg>

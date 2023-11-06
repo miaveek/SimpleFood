@@ -170,3 +170,66 @@ body.addEventListener("click", (e) => {
     mobileNav.style.transform = "translateX(-100%)";
   }
 });
+//Range slider
+// $("#filter__price").ionRangeSlider();
+
+let $range = $(".catalog__price-slider"),
+  $inputFrom = $(".catalog__price-from"),
+  $inputTo = $(".catalog__price-to"),
+  instance,
+  min = 0,
+  max = 1200,
+  from = 0,
+  to = 0;
+$range.ionRangeSlider({
+  skin: "round",
+  type: "double",
+  min: min,
+  max: max,
+  from: 100,
+  to: 1000,
+  grid: false,
+  hide_min_max: true,
+  hide_from_to: true,
+  onStart: updateInputs,
+  onChange: updateInputs,
+});
+instance = $range.data("ionRangeSlider");
+
+function updateInputs(data) {
+  from = data.from;
+  to = data.to;
+
+  $inputFrom.prop("value", from);
+  $inputTo.prop("value", to);
+}
+
+$inputFrom.on("input", function () {
+  var val = $(this).prop("value");
+
+  // validate
+  if (val < min) {
+    val = min;
+  } else if (val > to) {
+    val = to;
+  }
+
+  instance.update({
+    from: val,
+  });
+});
+
+$inputTo.on("input", function () {
+  var val = $(this).prop("value");
+
+  // validate
+  if (val < from) {
+    val = from;
+  } else if (val > max) {
+    val = max;
+  }
+
+  instance.update({
+    to: val,
+  });
+});

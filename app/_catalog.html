@@ -215,7 +215,7 @@
             <h3 class="catalog__filter-title">Категории</h3>
               <ul class="catalog__filter-list">
                 <li class="catalog__filter-item">
-                  <button class="catalog__filter-btn" type="button">Бургеры</button>
+                  <button class="catalog__filter-btn catalog__filter-btn--active" type="button">Бургеры</button>
                 </li>
                 <li class="catalog__filter-item">
                   <button class="catalog__filter-btn" type="button">Пицца</button>
@@ -233,28 +233,44 @@
             <h3 class="catalog__filter-title">Предложения</h3>
               <ul class="catalog__filter-list">
                 <li class="catalog__filter-item">
-                  <label class="catalog__chekbox-label" for="sale">
-                    <input class="catalog__filter-input" type="checkbox" id="sale" name="sale">Со скидкой</input>
-                    <span class="filters__chekbox-style"></span>
+                  <label class="catalog__checkbox-label" for="sale">
+                    <input class="catalog__filter-input" type="checkbox" id="sale" name="sale"></input>
+                    <span class="catalog__checkbox-style"></span>
+                    Со скидкой
                   </label>
                 </li>
                 <li class="catalog__filter-item">
-                  <label class="catalog__chekbox-label" for="new">
-                    <input class="catalog__filter-input" type="checkbox" id="new" name="new">Новинка</input>
-                    <span class="filters__chekbox-style"></span>
+                  <label class="catalog__checkbox-label" for="new">
+                    <input class="catalog__filter-input" type="checkbox" id="new" name="new"></input>
+                    <span class="catalog__checkbox-style"></span>
+                    Новинка
                   </label>
                 </li>
                 <li class="catalog__filter-item">
-                  <label class="catalog__chekbox-label" for="hot">
-                    <input class="catalog__filter-input" type="checkbox" id="hot" name="hot">Хит</input>
-                    <span class="catalog__filter-style"></span>
+                  <label class="catalog__checkbox-label" for="hot">
+                    <input class="catalog__filter-input" type="checkbox" id="hot" name="hot"></input>
+                    <span class="catalog__checkbox-style"></span>
+                    Хит
                   </label>
                 </li>
               </ul>
           </div>
           <div class="catalog__filter">
             <h3 class="catalog__filter-title">цена</h3>
-              
+            <!--price filter-->
+            <div class="catalog__price-range">
+              <div class="catalog__price-controls">
+                <label class="catalog__price-label" for="price-from">
+                  от
+                  <input type="text" class="catalog__price-from" id="price-from" value="0" />
+                </label>
+                <label class="catalog__price-label" for="price-to">
+                  до  
+                  <input type="text" class="catalog__price-to" id="price-to" value="0" />
+                </label>
+            </div>
+              <input type="text" class="catalog__price-slider" value="" />
+            </div>
           </div>
         </div>
     
@@ -480,7 +496,7 @@
             </a>
           </li>
           <li class="catalog__pagination-item">
-            <a class="catalog__pagination-link" href="">1</a></li>
+            <a class="catalog__pagination-link catalog__pagination-link--active" href="">1</a></li>
           <li class="catalog__pagination-item">
             <a class="catalog__pagination-link" href="">2</a></li>
           <li class="catalog__pagination-item"><span class="catalog__pagination-link" href="">...</span></li>

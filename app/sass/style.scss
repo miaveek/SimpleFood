@@ -565,77 +565,6 @@
       padding: 0;
     }
   }
-
-  /*card-product*/
-  .card-product {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 2rem 1.5rem;
-    border-radius: 5px;
-    font-size: 1.5rem;
-    box-shadow: 0 0 0 1px $silver-200;
-    background-color: $white;
-    transition: box-shadow 0.4s;
-
-    &:hover {
-      @extend %orange-box-shadow;
-    }
-
-    &__title,
-    &__price {
-      padding-bottom: 1rem;
-    }
-
-    &__image {
-      max-width: 14rem;
-      max-height: 14rem;
-      margin-bottom: 1rem;
-      object-fit: cover;
-    }
-
-    &__title {
-      font-weight: 400;
-      font-size: 1.5rem;
-      line-height: 1.2;
-      margin-bottom: auto;
-      min-height: 4.6rem;
-      @include line-clamp(2);
-    }
-
-    &__price {
-      font-weight: 500;
-      line-height: 1.4;
-    }
-
-    &__btn {
-      padding: 0.7rem 1.6rem;
-      font-size: 1.4rem;
-      display: inline-flex;
-      border-radius: 6px;
-      line-height: 1.3;
-      letter-spacing: 0.54px;
-      transition: color 0.4s, background-color 0.4s, border 0.4s;
-      background-color: $orange-900;
-      color: $white;
-
-      &:focus,
-      &:hover {
-        @extend %orange-box-shadow;
-        color: $orange-900;
-      }
-      &:focus,
-      &:active {
-        background-color: $light-orange;
-      }
-      &:active {
-        color: $orange-900;
-      }
-      &:hover {
-        background-color: $white;
-      }
-    }
-  }
 }
 
 /*FEATURES*/
@@ -1312,59 +1241,6 @@
   background-color: $orange-900;
 }
 
-/*****************Catalog Page ************************/
-.filters {
-  max-width: 27rem;
-  width: 100%;
-  margin-right: 3rem;
-
-  &__filter {
-    background-color: $white;
-    border-radius: 5px;
-    border: 1px solid $silver-200;
-    margin-bottom: 3rem;
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  &__title {
-    color: $darkblue-900;
-    @extend %Rubik-400;
-    font-size: 3.4rem;
-    line-height: 1.2;
-    letter-spacing: 0.72px;
-    padding: 1.5rem 0;
-    border-bottom: 1px solid $silver-200;
-    margin-bottom: 2.5rem;
-    text-transform: capitalize;
-
-    &:before {
-      content: "";
-      display: inline-flex;
-      padding-left: 1.5rem;
-    }
-  }
-
-  &__list {
-    padding-left: 1.5rem;
-    font-size: 1.8rem;
-    letter-spacing: 0.54px;
-    margin-bottom: 2.5rem;
-  }
-
-  &__item {
-    margin-bottom: 1.2rem;
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  &__btn {
-    @extend %Rubik-400;
-  }
-}
-
 .swiper {
   @include mq("phone") {
     width: 100%;
@@ -1375,6 +1251,78 @@
   }
 }
 
+/*card-product*/
+.card-product {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem 1.5rem;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  box-shadow: 0 0 0 1px $silver-200;
+  background-color: $white;
+  transition: box-shadow 0.4s;
+
+  &:hover {
+    @extend %orange-box-shadow;
+  }
+
+  &__title,
+  &__price {
+    padding-bottom: 1rem;
+  }
+
+  &__image {
+    max-width: 14rem;
+    max-height: 14rem;
+    margin-bottom: 1rem;
+    object-fit: cover;
+  }
+
+  &__title {
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin-bottom: auto;
+    min-height: 4.6rem;
+    @include line-clamp(2);
+  }
+
+  &__price {
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  &__btn {
+    padding: 0.7rem 1.6rem;
+    font-size: 1.4rem;
+    display: inline-flex;
+    border-radius: 6px;
+    line-height: 1.3;
+    letter-spacing: 0.54px;
+    transition: color 0.4s, background-color 0.4s, border 0.4s;
+    background-color: $orange-900;
+    color: $white;
+
+    &:focus,
+    &:hover {
+      @extend %orange-box-shadow;
+      color: $orange-900;
+    }
+    &:focus,
+    &:active {
+      background-color: $light-orange;
+    }
+    &:active {
+      color: $orange-900;
+    }
+    &:hover {
+      background-color: $white;
+    }
+  }
+}
+
+/********Shop***********/
 .shop {
   background-color: $white;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
@@ -1464,5 +1412,159 @@
     background-image: url("../images/sprite.svg#icon-open_time");
     @extend %bg-center;
     background-size: cover;
+  }
+}
+
+/*****************Catalog Page ************************/
+.catalog {
+  @include mq("phone") {
+    margin-bottom: 3rem;
+  }
+
+  @include mq("tablet") {
+    margin-bottom: 6rem;
+  }
+
+  @include mq("desktop") {
+    margin-bottom: 12rem;
+  }
+
+  &__title {
+    @extend %Rubik-500;
+    font-size: 3.6rem;
+    padding: 6rem 0;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__filters {
+    @extend %Rubik-400;
+    max-width: 27rem;
+    width: 100%;
+    margin-right: 3rem;
+  }
+  &__filter {
+    background-color: $white;
+    border-radius: 5px;
+    border: 1px solid $silver-200;
+    margin-bottom: 3rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &__filter-title {
+    color: $darkblue-900;
+    @extend %Rubik-400;
+    font-size: 2.4rem;
+    line-height: 1.2;
+    letter-spacing: 0.72px;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid $silver-200;
+    margin-bottom: 2.5rem;
+    text-transform: capitalize;
+
+    &:before {
+      content: "";
+      display: inline-flex;
+      padding-left: 1.5rem;
+    }
+  }
+
+  &__filter-list {
+    padding-left: 1.5rem;
+    font-size: 1.8rem;
+    letter-spacing: 0.54px;
+    margin-bottom: 2.5rem;
+  }
+
+  &__filter-item {
+    margin-bottom: 1.2rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__filter-btn {
+    @extend %Rubik-400;
+  }
+
+  &__options-list {
+    @extend %Rubik-400;
+    border: 1px solid $gray;
+    padding: 1.5rem 4rem 1.5rem 1.5rem;
+    border-radius: 0.3rem;
+    font-size: 1.4rem;
+    text-transform: capitalize;
+    background-color: $white;
+    position: relative;
+    margin-right: 1.5rem;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__products-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 1rem;
+    column-gap: 1rem;
+    margin-bottom: 6rem;
+  }
+
+  &__pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__pagination-link {
+    display: flex;
+    margin-right: 0.6rem;
+    width: 4.8rem;
+    height: 4.8rem;
+    @extend %flex-center;
+    background-color: #faeded;
+    border-radius: 3px;
+    & svg {
+      fill: $darkblue-900;
+    }
+  }
+
+  &__pagination-next,
+  &__pagination-prev {
+    display: flex;
+    align-items: center;
+    & svg {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  &__pagination-prev {
+    &--noactive {
+      fill: $gray;
+    }
+  }
+
+  &__pagination-next {
+    transform: rotate(180deg);
+  }
+}
+/********discounts*************/
+.discounts {
+  margin-bottom: 12rem;
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 3rem;
   }
 }

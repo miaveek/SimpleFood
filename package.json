@@ -48,6 +48,7 @@
     "jquery-form-styler": "^2.0.2",
     "normalize.css": "^8.0.1",
     "rangeslider.js": "^2.3.3",
+    "rateyo": "^2.3.5",
     "swiper": "^11.0.3"
   }
 }

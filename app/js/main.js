@@ -265,3 +265,10 @@ $inputTo.on("input", function () {
 });
 
 $(".catalog__options-list").styler();
+$("#rateYo").rateYo({
+  starWidth: "16px",
+  rating: 4,
+  spacing: "6px",
+  ratedFill: "#FFB800",
+  normalFill: "#C1C1C1",
+});

@@ -54,7 +54,7 @@
 
         <ul class="nav__list">
           <li class="nav__list-item">
-            <a class="nav__list-link nav__list-link--active" href="#top"
+            <a class="nav__list-link nav__list-link--active" href="index.html"
               >Главная</a
             >
           </li>
@@ -134,7 +134,7 @@
                 >
               </li>
               <li class="nav__list-item">
-                <a class="nav__list-link" href="#dishes">Блюда</a>
+                <a class="nav__list-link" href="catalog.html">Блюда</a>
               </li>
               <li class="nav__list-item">
                 <a class="nav__list-link" href="#contacts">Контакты</a>
@@ -194,8 +194,13 @@
       <div class="catalog__header">
         <h2 class="catalog__title">Каталог продуктов</h2>
           <form class="catalog__options">
+            <button class="catalog__filters-btn" type="submit">
+              <svg>
+              <use xlink:href="images/sprite.svg#icon-filters"></use>
+              </svg>
+            </button>
             <select class="catalog__options-list">
-              <option class="catalog__options-item" value="1">по названию</option>
+              <option class="catalog__options-item" value="1">По названию</option>
               <option class="catalog__options-item" value="2">по имени</option>
               <option class="catalog__options-item" value="3">по цене</option>
               <option class="catalog__options-item" value="4">по рейтингу</option>
@@ -211,6 +216,11 @@
       </div>
       <div class="catalog__inner">
         <div class="catalog__filters">
+         <div class="catalog__close">
+           <button class="catalog__close-btn" type="button"></button>
+          </div>
+      
+
           <div class="catalog__filter">
             <h3 class="catalog__filter-title">Категории</h3>
               <ul class="catalog__filter-list">
@@ -382,7 +392,7 @@
             </article>
           </li>
 
-          <li class="product__item">
+          <li class="product__item product-hidden">
             <article class="card-product">
               <img
               class="card-product__image"
@@ -399,7 +409,7 @@
             </article>
           </li>
 
-          <li class="product__item">
+          <li class="product__item product-hidden">
             <article class="card-product">
               <img
                 class="card-product__image"
@@ -415,7 +425,7 @@
               </button>
             </article>
           </li>
-          <li class="product__item">
+          <li class="product__item product-hidden">
             <article class="card-product">
               <img
                 class="card-product__image"
@@ -434,7 +444,7 @@
             </article>
           </li>
 
-          <li class="product__item">
+          <li class="product__item product-hidden">
             <article class="card-product">
               <img
               class="card-product__image"
@@ -451,7 +461,7 @@
             </article>
           </li>
 
-          <li class="product__item">
+          <li class="product__item product-hidden">
             <article class="card-product">
               <img
               class="card-product__image"
@@ -468,7 +478,7 @@
             </article>
           </li>
 
-          <li class="product__item">
+          <li class="product__item product-hidden">
             <article class="card-product">
               <img
                 class="card-product__image"
@@ -485,26 +495,37 @@
             </article>
           </li>
         </ul>
+
         <ul class="catalog__pagination">
           <li class="catalog__pagination-item">
-            <a class="catalog__pagination-link
-                      catalog__pagination-prev 
-                      catalog__pagination-prev--noactive" href="">
+            <a class="catalog__pagination-link catalog__pagination-prev catalog__pagination-prev--noactive" href="">
               <svg>
                 <use xlink:href="images/sprite.svg#icon-left"></use>
               </svg>
             </a>
           </li>
           <li class="catalog__pagination-item">
-            <a class="catalog__pagination-link catalog__pagination-link--active" href="">1</a></li>
+            <a class="catalog__pagination-link catalog__pagination-link--active" href="">1</a>
+          </li>
           <li class="catalog__pagination-item">
-            <a class="catalog__pagination-link" href="">2</a></li>
-          <li class="catalog__pagination-item"><span class="catalog__pagination-link" href="">...</span></li>
-          <li class="catalog__pagination-item"><a class="catalog__pagination-link" href="">9</a></li>
-          <li class="catalog__pagination-item"><a class="catalog__pagination-link" href="">10</a></li>
-          <li class="catalog__pagination-item"><a class=" catalog__pagination-link catalog__pagination-next" href=""><svg>
-            <use xlink:href="images/sprite.svg#icon-left"></use>
-          </svg></a></li>
+            <a class="catalog__pagination-link" href="">2</a>
+          </li>
+          <li class="catalog__pagination-item">
+            <span class="catalog__pagination-link">...</span>
+          </li>
+          <li class="catalog__pagination-item">
+            <a class="catalog__pagination-link" href="">9</a>
+          </li>
+          <li class="catalog__pagination-item">
+            <a class="catalog__pagination-link" href="">10</a>
+          </li>
+          <li class="catalog__pagination-item">
+            <a class=" catalog__pagination-link catalog__pagination-next" href="">
+              <svg>
+                <use xlink:href="images/sprite.svg#icon-left"></use>
+              </svg>
+          </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -557,8 +578,10 @@
     <section class="discounts">
       <div class="container">
         <h2 class="title">Акции и скидки</h2>
-        <ul class="discounts__list">
-          <li class="discounts__item">
+
+        <div class="swiper catalog-swiper">
+        <ul class="discounts__list swiper-wrapper">
+          <li class="discounts__item swiper-slide">
             <article class="shop">
               <img
                 class="shop__face"
@@ -569,12 +592,12 @@
               />
               <div class="shop__content">
                 <div class="shop__inner">
-                 <p>Скидка 50% на вторую пиццу</p>
+                 <p class="shop__text">Скидка 50% на вторую пиццу</p>
                 </div>
               </div>
             </article>
           </li>
-          <li class="discounts__item">
+          <li class="discounts__item swiper-slide">
             <article class="shop">
               <img
                 class="shop__face"
@@ -585,12 +608,12 @@
               />
               <div class="shop__content">
                 <div class="shop__inner">
-                 <p>Картошечка из KFC даром при заказе бургера</p>
+                 <p class="shop__text">Картошечка из KFC даром при заказе бургера</p>
                 </div>
               </div>
             </article>
           </li>
-          <li class="discounts__item">
+          <li class="discounts__item swiper-slide">
             <article class="shop">
               <img
                 class="shop__face"
@@ -601,12 +624,14 @@
               />
               <div class="shop__content">
                 <div class="shop__inner">
-                 <p>Чёрные бургеры на чёрный день </p>
+                 <p class="shop__text">Чёрные бургеры на чёрный день </p>
                 </div>
               </div>
             </article>
           </li>
         </ul>
+        <div class="swiper-pagination"></div>
+      </div>
       </div>
     </section>
   </main>
@@ -684,7 +709,7 @@
             <ul class="contacts__list">
               <li class="contacts__item">
                 <a class="contacts__link contacts__link--location" href=""
-                  >ул. Т.Г.Шевченко, 1
+                  >ул. Шевченко, 1
                 </a>
               </li>
               <li class="contacts__item">

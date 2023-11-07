@@ -129,22 +129,48 @@ const createSwipper = () => {
 };
 
 createSwipper();
-if (screen.width < 767) {
-  swiper.init(".my-swiper");
-}
-
-window.addEventListener("resize", () => {
+const initeSwiper = (container) => {
   if (screen.width < 767) {
-    swiper.init(".my-swiper");
-  } else {
-    swiper.destroy(true, true);
-    createSwipper();
+    swiper.init(container);
   }
-});
 
+  window.addEventListener("resize", () => {
+    if (screen.width < 767) {
+      swiper.init(container);
+    } else {
+      swiper.destroy(true, true);
+      createSwipper();
+    }
+  });
+};
+initeSwiper(".my-swiper");
+initeSwiper(".catalog-swiper");
 //////////////////////////////////////////////////
 if (document.querySelector(".testimonials__slider")) {
   slider();
+}
+
+const filtersBtn = document.querySelector(".catalog__filters-btn");
+const filtersClose = document.querySelector(".catalog__close-btn");
+const filters = document.querySelector(".catalog__filters");
+let flag = false;
+
+if (filtersBtn) {
+  filtersBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    flag = !flag;
+    filters.style.transform = "translateX(0)";
+  });
+}
+
+if (filtersClose) {
+  filtersClose.addEventListener("click", (e) => {
+    e.preventDefault();
+    filters.style.transform = "translateX(-100%)";
+    flag = !flag;
+  });
 }
 
 //////////////////////////////////////////////////
@@ -169,10 +195,14 @@ body.addEventListener("click", (e) => {
     body.classList.remove("mobile__bg");
     mobileNav.style.transform = "translateX(-100%)";
   }
+  // if (flag) {
+  //   if (e.target.closest("ul").classList !== "catalog__filters") {
+  //     filters.style.transform = "translateX(-100%)";
+  //     flag = !flag;
+  //   }
+  // }
 });
 //Range slider
-// $("#filter__price").ionRangeSlider();
-
 let $range = $(".catalog__price-slider"),
   $inputFrom = $(".catalog__price-from"),
   $inputTo = $(".catalog__price-to"),
@@ -233,3 +263,5 @@ $inputTo.on("input", function () {
     to: val,
   });
 });
+
+$(".catalog__options-list").styler();

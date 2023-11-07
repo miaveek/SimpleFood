@@ -44,7 +44,10 @@
     "sass": "^1.69.2"
   },
   "dependencies": {
+    "ion-rangeslider": "^2.3.1",
+    "jquery-form-styler": "^2.0.2",
     "normalize.css": "^8.0.1",
+    "rangeslider.js": "^2.3.3",
     "swiper": "^11.0.3"
   }
 }

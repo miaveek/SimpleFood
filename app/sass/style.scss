@@ -52,13 +52,13 @@
   }
 
   &__list {
-    margin-right: 5.4rem;
+    margin-right: 5rem;
 
     @include mq("phone") {
       display: none;
     }
 
-    @include mq("tablet-2") {
+    @include mq("tablet") {
       display: flex;
     }
   }
@@ -82,7 +82,10 @@
   &__btns {
     display: flex;
     @include mq("phone") {
-      margin-right: 1.5rem;
+      margin-right: 1.3rem;
+    }
+    @include mq("tablet") {
+      margin-right: 0;
     }
   }
 
@@ -98,16 +101,17 @@
     position: relative;
     @extend %flex-center;
     width: 4.2rem;
-    height: 4.2rem;
+    height: 4.5rem;
     border-radius: 5px;
     @extend %bg-center;
     background-color: transparent;
-    background-size: 1.9rem 1.9rem;
+    background-size: 2rem 2rem;
     transition: background 0.4s, color 0.4s;
 
     &-mmenu {
       @include mq("phone") {
         display: flex;
+        margin-right: 1.1rem;
       }
 
       @include mq("tablet") {
@@ -204,7 +208,7 @@
   left: 0;
   z-index: 999;
   width: 80%;
-  height: 100vh;
+  height: 100%;
   background-color: $white;
   transform: translateX(-100%);
   transition: transform 0.4s;
@@ -291,6 +295,9 @@
   font-size: 1.4rem;
   line-height: 1.2;
   letter-spacing: 0.42px;
+  @include mq("tablet") {
+    margin-bottom: 1.8rem;
+  }
 }
 
 /*ALL SECTIONS*/
@@ -1139,7 +1146,6 @@
 
 /*Contacts*/
 .contacts {
-  margin-left: -2.5rem;
   &__item {
     margin-bottom: 1.8rem;
   }
@@ -1162,9 +1168,8 @@
         display: block;
         width: 2rem;
         height: 2rem;
-        margin-right: 0.9rem;
+        margin-right: 1rem;
         background-repeat: no-repeat;
-        background-position: start;
       }
     }
 
@@ -1262,6 +1267,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  text-align: center;
   padding: 2rem 1.5rem;
   border-radius: 5px;
   font-size: 1.5rem;
@@ -1363,6 +1369,12 @@
     @extend %flex-between;
   }
 
+  &__text {
+    font-size: 2.4rem;
+    min-height: 4.2rem;
+    @include line-clamp(2);
+  }
+
   &__link {
     border-radius: 20px;
     padding: 1rem 3.3rem;
@@ -1437,27 +1449,99 @@
 
   &__title {
     @extend %Rubik-500;
-    font-size: 3.6rem;
     padding: 6rem 0;
+
+    @include mq("phone") {
+      font-size: 2.4rem;
+      padding: 4rem 0 2rem 0;
+    }
+
+    @include mq("tablet") {
+      font-size: 3.6rem;
+    }
   }
 
   &__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include mq("phone") {
+      display: block;
+    }
+
+    @include mq("tablet") {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 4rem;
+    }
   }
 
   &__inner {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   &__filters {
     @extend %Rubik-400;
-    max-width: 27rem;
     width: 100%;
-    margin-right: 3rem;
+    transition: transform 0.4s;
+
+    @include mq("phone") {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      transform: translateX(-100%);
+      background-color: $white;
+      max-width: 80%;
+      height: 100%;
+    }
+    @include mq("tablet") {
+      position: static;
+      background-color: transparent;
+      margin-right: 3rem;
+      max-width: 27rem;
+      transform: translateX(0);
+    }
   }
+
+  &__close {
+    padding: 2rem;
+    display: flex;
+    justify-content: right;
+    @include mq("tablet") {
+      display: none;
+    }
+  }
+
+  &__close-btn {
+    position: relative;
+    @extend %flex-center;
+    width: 4rem;
+    height: 4rem;
+
+    background-color: $light-beige;
+
+    @include mq("tablet") {
+      display: none;
+    }
+
+    &:before,
+    &:after {
+      position: absolute;
+      top: 50%;
+      content: " ";
+      display: block;
+      width: 2rem;
+      height: 0.2rem;
+      background-color: $darkblue-900;
+    }
+    &:before {
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
+
   &__filter {
     background-color: $white;
     border-radius: 5px;
@@ -1468,6 +1552,34 @@
       margin-bottom: 0;
     }
   }
+
+  &__options {
+    display: flex;
+
+    @include mq("phone") {
+      margin-bottom: 3rem;
+    }
+
+    @include mq("tablet") {
+      margin-bottom: 0;
+    }
+  }
+
+  &__filters-btn {
+    width: 4.7rem;
+    height: 4.7rem;
+    display: flex;
+    align-items: center;
+    background-color: $light-orange;
+    border-radius: 3px;
+    padding: 0.5rem;
+    margin-right: 1rem;
+
+    @include mq("tablet") {
+      display: none;
+    }
+  }
+
   &__filter-input {
     display: none;
   }
@@ -1530,7 +1642,7 @@
     padding-left: 1.5rem;
     font-size: 1.8rem;
     letter-spacing: 0.54px;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
   }
 
   &__filter-item {
@@ -1619,14 +1731,8 @@
 
   &__options-list {
     @extend %Rubik-400;
-    border: 1px solid $gray;
-    padding: 1.5rem 4rem 1.5rem 1.5rem;
-    border-radius: 0.3rem;
     font-size: 1.4rem;
-    text-transform: capitalize;
-    background-color: $white;
-    position: relative;
-    margin-right: 1.5rem;
+    margin-right: 1rem;
     &:last-child {
       margin-right: 0;
     }
@@ -1634,16 +1740,47 @@
 
   &__products-list {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
     row-gap: 1rem;
-    column-gap: 1rem;
-    margin-bottom: 6rem;
+    column-gap: 0.5rem;
+
+    @include mq("phone") {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 0.2rem;
+      margin-bottom: 2.8rem;
+      & .product-hidden {
+        display: none;
+      }
+    }
+    @include mq("tablet") {
+      margin-bottom: 6rem;
+      grid-template-columns: repeat(3, 1fr);
+      & .product-hidden {
+        display: block;
+      }
+    }
+
+    @include mq("tablet-2") {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
 
   &__pagination {
     display: flex;
     align-items: center;
     justify-content: center;
+    @include mq("phone") {
+      margin-bottom: 1rem;
+    }
+  }
+  &__pagination-item {
+    &:nth-child(3),
+    &:nth-child(5) {
+      display: none;
+
+      @include mq("tablet") {
+        display: flex;
+      }
+    }
   }
 
   &__pagination-link {
@@ -1655,6 +1792,11 @@
     background-color: #faeded;
     border-radius: 3px;
     border: 1px solid transparent;
+
+    @include mq("tablet") {
+      display: flex;
+    }
+
     & svg {
       fill: $darkblue-900;
     }
@@ -1695,10 +1837,69 @@
 }
 /********discounts*************/
 .discounts {
-  margin-bottom: 12rem;
-  &__list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 3rem;
+  & .swiper-pagination {
+    position: static;
+    margin-bottom: 4rem;
   }
+
+  & .title {
+    @include mq("phone") {
+      text-align: center;
+      margin-bottom: 3.8rem;
+    }
+
+    @include mq("desktop") {
+      text-align: start;
+      margin-bottom: 6rem;
+    }
+  }
+
+  &__list {
+    padding: 0.2rem;
+
+    @include mq("phone") {
+      display: flex;
+      margin-bottom: 4rem;
+      & .shop__content {
+        padding: 1.6rem 2rem 1.2rem;
+      }
+    }
+
+    @include mq("tablet") {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 3rem;
+    }
+
+    @include mq("tablet-2") {
+      margin-bottom: 11rem;
+    }
+  }
+}
+/************plugins style**************/
+.jq-selectbox__select {
+  height: auto;
+  padding: 1.5rem 4.3rem 1.5rem 1.1rem;
+  border: 1px solid $gray;
+  border-radius: 3px;
+  background: $white;
+  box-shadow: none;
+  text-shadow: none;
+  line-height: 1;
+}
+.jq-selectbox__trigger {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 34px;
+  height: 100%;
+  border-left: none;
+}
+
+.jq-selectbox__trigger-arrow {
+  position: absolute;
+  top: 2rem;
+  right: 12px;
+  width: 0;
+  height: 0;
 }

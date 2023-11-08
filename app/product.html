@@ -250,18 +250,24 @@
           <div class="product__tabs-container">
           
           <ul class="product__tabs-head">
-            <li class="product__tabs-headitem"><button class="product__tabs-headbtn product__tabs-headbtn--active" type="button">Описание</button></li>
-            <li class="product__tabs-headitem"><button class="product__tabs-headbtn" type="button">Характеристики</button></li>
-            <li class="product__tabs-headitem"><button class="product__tabs-headbtn" type="button">Отзывы (<span class="product__reviews-count">2</span>)</button>
+            <li class="product__tabs-headitem" >
+              <button class="product__tabs-headbtn product__tabs-headbtn--active" type="button" data-tab="product__description">Описание</button></li>
+            <li class="product__tabs-headitem" >
+              <button class="product__tabs-headbtn" type="button" data-tab="product__property">Характеристики</button>
+            </li>
+            <li class="product__tabs-headitem" >
+              <button class="product__tabs-headbtn" type="button" data-tab="reviews">Отзывы (<span class="product__reviews-count">2</span>
+                )
+              </button>
             </li>
           </ul>
           <ul class="product__tabs-list">
-            <li class="product__tabs-tab product__tabs-tab-description">
+            <li class="product__tabs-tab product__tabs-tab--active product__description">
               <p class="product__tabs-text">Рубленый бифштекс из натуральной говядины на карамелизованной булочке, с ломтиком сыра «Чеддер», кетчупом, горчицей, луком и маринованными огурчиками.</p>
               <p class="product__tabs-text">Аллергены: Глютен, Молоко, Горчица, Может содержать сою, яйцо, следы кунжута.</p>
               <p class="product__tabs-text">Внешний вид товара может отличаться от изображений, представленных на сайте.</p>
             </li>
-            <li class="product__tabs-tab product__property">
+            <li class="product__tabs-tab product__property" >
                 <ul class="product__property-list">
                   <li class="product__property-item"><span class="product__property-name">Диаметр: </span>20 см</li>
                   <li class="product__property-item"><span class="product__property-name">Вес:</span> 300 гр</li>
@@ -314,7 +320,7 @@
     
                     <label class="review__form-text" for="review-textarea">
                       Ваш отзыв *
-                      <textarea class="review__form-input" name="review-message" id="review-textarea" cols="30"placeholder="Введите текст отзыва"></textarea>
+                      <textarea class="review__form-input" name="review-message" id="review-textarea" cols="30"placeholder="Введите текст отзыва" required></textarea>
                     </label>
                     <div class="review__form-inputs">
                       <label class="review__form-text" for="review__name">
@@ -323,14 +329,29 @@
                       </label>
                       <label class="review__form-text" for="review__email">
                         Email *
-                        <input class="review__form-input" name="review__email" id="review__email" type="email" placeholder="youremail@mail.com"></label>
+                        <input class="review__form-input" name="review__email" id="review__email" type="email" placeholder="youremail@mail.com" required></label>
                       </div>
                   </div>
-                </>
+
+                  <label class="product__terms"  for="terms" >
+                    <input class="product__terms-checkbox" type="checkbox" id="terms" name="form__terms" >
+                    <span class="product__terms-text">Сохранить моё имя, email и адрес сайта в этом браузере для последующих моих комментариев.</span>
+                  </label>
+                  <button class="secondary-btn" type="submit">Оставить отзыв</button>
+                </form>
             </li>
           </ul>
           
         </div>
+      </div>
+    </section>
+    <section class="recommendations">
+      <div class="container">
+        <h2 class="title">Вас может заинтересовать</h2>
+        
+       
+
+
       </div>
     </section>
   </main>

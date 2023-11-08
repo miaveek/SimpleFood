@@ -287,12 +287,32 @@ $(".product__rate").rateYo(rateYoOptions);
 $(".review__rate").rateYo(rateYoOptions);
 $(".review__form-ratepick").rateYo(rateYoOptions);
 
-Fancybox.bind("[data-fancybox]", {
-  // Custom options for all galleries
+Fancybox.bind("[data-fancybox]");
+//product plus minus btn events
+const currValue = document.querySelector(".product__plus-minus-input");
+document.querySelector(".product__plus").addEventListener("click", () => {
+  currValue.value = parseInt(currValue.value) + 1;
 });
+document.querySelector(".product__minus").addEventListener("click", () => {
+  if (currValue.value > 1) currValue.value = parseInt(currValue.value) - 1;
+});
+//product tabs events
+const tabs = document.querySelectorAll(".product__tabs-tab");
+const tabsBtns = document.querySelectorAll(".product__tabs-headbtn");
+const tabsNav = document
+  .querySelector(".product__tabs-head")
+  .addEventListener("click", (e) => {
+    const dataAttr = e.target.dataset.tab;
+    console.log(e.target.dataset.tab);
+    if (e.target.closest(".product__tabs-headbtn").classList == "product__tabs-headbtn") {
+      tabsBtns.forEach((tab) => {
+        tab.classList.remove("product__tabs-headbtn--active");
+      });
+      e.target.classList.add("product__tabs-headbtn--active");
+      tabs.forEach((tab) => {
+        tab.style.display = "none";
+      });
 
-document.querySelector(".f-button").addEventListener("click", () => {
-  document
-    .querySelector(".product__img-swiper")
-    .classList.remove("swiper-backface-hidden");
-});
+      document.querySelector(`.${dataAttr}`).style.display = "block";
+    }
+  });

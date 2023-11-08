@@ -145,6 +145,16 @@ const initeSwiper = (container) => {
 };
 initeSwiper(".my-swiper");
 initeSwiper(".catalog-swiper");
+
+if (document.querySelector(".product__img-swiper")) {
+  swiper = new Swiper(".product__img-swiper", {
+    pagination: false,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+}
 //////////////////////////////////////////////////
 if (document.querySelector(".testimonials__slider")) {
   slider();
@@ -265,10 +275,24 @@ $inputTo.on("input", function () {
 });
 
 $(".catalog__options-list").styler();
-$("#rateYo").rateYo({
+
+const rateYoOptions = {
   starWidth: "16px",
-  rating: 4,
   spacing: "6px",
   ratedFill: "#FFB800",
   normalFill: "#C1C1C1",
+};
+
+$(".product__rate").rateYo(rateYoOptions);
+$(".review__rate").rateYo(rateYoOptions);
+$(".review__form-ratepick").rateYo(rateYoOptions);
+
+Fancybox.bind("[data-fancybox]", {
+  // Custom options for all galleries
+});
+
+document.querySelector(".f-button").addEventListener("click", () => {
+  document
+    .querySelector(".product__img-swiper")
+    .classList.remove("swiper-backface-hidden");
 });

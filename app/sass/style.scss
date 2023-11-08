@@ -298,6 +298,9 @@
   @include mq("tablet") {
     margin-bottom: 1.8rem;
   }
+  @include mq("desktop") {
+    margin-bottom: 6rem;
+  }
 }
 
 /*ALL SECTIONS*/
@@ -1457,6 +1460,7 @@
     }
 
     @include mq("tablet") {
+      padding-top: 0;
       font-size: 3.6rem;
     }
   }
@@ -1852,32 +1856,83 @@
 
 /************product page***************/
 .product {
+  @include mq("phone") {
+    margin-bottom: 4.5rem;
+  }
+
+  @include mq("tablet") {
+    margin-bottom: 12rem;
+  }
+
   & .title {
     margin-bottom: 3rem;
   }
 
+  &__inner {
+    display: block;
+    @include mq("phone") {
+      padding-bottom: 3rem;
+    }
+    @include mq("tablet") {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 3rem;
+      padding-bottom: 6rem;
+    }
+  }
+  /**product face**/
+
   &__face {
-    height: 55rem;
+    @include mq("phone") {
+      margin-bottom: 3rem;
+    }
+    @include mq("tablet") {
+      margin-right: 3rem;
+      margin-bottom: 0;
+    }
   }
 
+  /** product  swiper and Fancybox styles**/
+  &__img-swiper {
+    //fix Fancybox inline style
+    display: block !important;
+  }
+  & .swiper {
+    max-width: 61rem;
+    width: 100%;
+    height: 55rem;
+    background-color: $white;
+    padding: 7.5rem 2.5rem;
+  }
+
+  & .swiper-slide {
+    transition: all 0.4s;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
+  & .swiper-button-next,
+  .swiper-button-prev {
+    color: $darkblue-900;
+  }
+
+  &__image {
+    display: inline-flex;
+    max-width: 40rem;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /*product about*/
   &__subtitle {
     display: block;
-
     font-size: 2.4rem;
     line-height: 1.2;
     letter-spacing: 0.72px;
     padding-bottom: 1.5rem;
     margin-bottom: 2rem;
     border-bottom: 1px solid #e4e4e4;
-  }
-
-  &__inner {
-    display: block;
-    @include mq("tablet") {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      row-gap: 3rem;
-    }
   }
 
   &__price {
@@ -1961,6 +2016,132 @@
     color: #505050;
     margin-bottom: 2rem;
   }
+  /*product tabs*/
+  &__tabs {
+    border-top: 1px solid #e4e4e4;
+    padding-top: 3rem;
+  }
+
+  &__tabs-container {
+    margin: 0 auto;
+    max-width: 69rem;
+  }
+  &__tabs-subtitle {
+    font-size: 2.4rem;
+    @extend %Rubik-500;
+    letter-spacing: 0.72px;
+    margin-bottom: 3rem;
+  }
+
+  &__tabs-head {
+    display: flex;
+    margin-bottom: 3rem;
+  }
+
+  &__tabs-headitem {
+    line-height: 1.5;
+    margin-right: 6rem;
+    color: $darkblue-900;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__tabs-headbtn {
+    font-size: 2.4rem;
+    @extend %Rubik-400;
+
+    &--active {
+      color: $orange-900;
+    }
+  }
+
+  &__tabs-text {
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+
+  &__property-item {
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  &__property-name {
+    @extend %Rubik-500;
+  }
+
+  .review {
+    padding-bottom: 2rem;
+    margin-bottom: 3.2rem;
+    border-bottom: 1px solid #e4e4e4;
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &__head {
+      @extend %flex-between;
+      margin-bottom: 2rem;
+    }
+
+    &__author {
+      display: flex;
+    }
+
+    &__date {
+      font-size: 1.8rem;
+      letter-spacing: 0.54px;
+    }
+
+    &__author-avatar {
+      border-radius: 100%;
+      margin-right: 2.5rem;
+    }
+
+    &__author-name {
+      @extend %Rubik-500;
+      margin-bottom: 1rem;
+    }
+    &__date,
+    &__author-name {
+      display: block;
+    }
+
+    &__form-inner {
+      display: flex;
+
+      & label {
+        display: block;
+      }
+
+      & textarea {
+        max-height: 16.5rem;
+        height: 100%;
+      }
+    }
+
+    &__form-rate {
+      display: flex;
+    }
+
+    &__form-ratepick {
+      padding-top: 0.5rem;
+      padding-left: 1.5rem;
+    }
+
+    &__form-input {
+      @extend %Rubik-400;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      padding: 1.6rem 1.8rem;
+      border: 1px solid #c2c2c2;
+      background-color: #fff;
+
+      &::placeholder {
+        @extend %Rubik-400;
+      }
+    }
+  }
 }
 
 /************plugins style**************/
@@ -2021,4 +2202,18 @@
 .jq-ry-container {
   padding: 0;
   margin-bottom: 2.5rem;
+}
+/**/
+.fancybox__content {
+  padding: 0;
+  max-width: 95%;
+}
+.fancybox__slide {
+  text-align: center;
+}
+.fancybox__container {
+  background-color: rgba(0, 0, 0, 0.15) !important;
+}
+.fancybox__content > .f-button.is-close-btn {
+  top: 0;
 }

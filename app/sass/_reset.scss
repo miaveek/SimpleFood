@@ -46,17 +46,23 @@ img {
   max-width: 100%;
   display: block;
 }
-
+textarea {
+  resize: none;
+}
 input,
 button,
 textarea,
 select {
   font-size: inherit;
-  border: none;
+  border-radius: 5px;
   padding: 0;
+  border: none;
   background-color: transparent;
   outline-color: transparent;
   transition: all 0.4s;
+  &::placeholder {
+    color: #c2c2c2;
+  }
 }
 
 a {

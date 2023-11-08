@@ -195,11 +195,24 @@
     <section class="product">
       <div class="container">
         <div class="product__inner">
-          <div class="product__face"></div>
-          <div class="product__about">
-            
+          <div class="product__face">
+            <div class="swiper product__img-swiper" id="fullscrean" >
+              <div class="swiper-wrapper" >
+                <div class="swiper-slide" data-fancybox data-src="#fullscrean">
+                  <img class="product__image" src="./images/burgers/item1_big.jpg" alt="Чизбургер с листьями салата фото 1">
+                </div>
+                <div class="swiper-slide" data-fancybox data-src="#fullscrean" >
+                  <img class="product__image" src="./images/burgers/item1_big.jpg" alt="Чизбургер с листьями салата фото 2">
+                </div>           
+              </div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+          <div class="product__about">            
             <h2 class="title">Чизбургер с листьями салата</h2>
-            <div class="product__rate" id="rateYo"></div>
+            <div class="product__rate" data-rateyo-rating="4"></div>
             <span class="product__price">160 грн.</span>
              
             <div class="product__controls">
@@ -230,6 +243,93 @@
            <button class="btn" type="button">Подробнее</button>
 
           </div>
+        </div>
+      </div> 
+      
+      <div class="product__tabs">
+          <div class="product__tabs-container">
+          
+          <ul class="product__tabs-head">
+            <li class="product__tabs-headitem"><button class="product__tabs-headbtn product__tabs-headbtn--active" type="button">Описание</button></li>
+            <li class="product__tabs-headitem"><button class="product__tabs-headbtn" type="button">Характеристики</button></li>
+            <li class="product__tabs-headitem"><button class="product__tabs-headbtn" type="button">Отзывы (<span class="product__reviews-count">2</span>)</button>
+            </li>
+          </ul>
+          <ul class="product__tabs-list">
+            <li class="product__tabs-tab product__tabs-tab-description">
+              <p class="product__tabs-text">Рубленый бифштекс из натуральной говядины на карамелизованной булочке, с ломтиком сыра «Чеддер», кетчупом, горчицей, луком и маринованными огурчиками.</p>
+              <p class="product__tabs-text">Аллергены: Глютен, Молоко, Горчица, Может содержать сою, яйцо, следы кунжута.</p>
+              <p class="product__tabs-text">Внешний вид товара может отличаться от изображений, представленных на сайте.</p>
+            </li>
+            <li class="product__tabs-tab product__property">
+                <ul class="product__property-list">
+                  <li class="product__property-item"><span class="product__property-name">Диаметр: </span>20 см</li>
+                  <li class="product__property-item"><span class="product__property-name">Вес:</span> 300 гр</li>
+                  <li class="product__property-item"><span class="product__property-name">Калорийность (на 100г):</span> 295 ккал</li>
+                  <li class="product__property-item"><span class="product__property-name">Срок хранения:</span> до 3 дней</li>
+                </ul>
+            </li>
+            <li class="product__tabs-tab reviews">
+              <h3 class="product__tabs-subtitle">Мнения наших клиентов</h3>
+                <ul class="reviews__list">
+                  <li class="reviews__item review">
+                    <div class="review__head">
+                      <div class="review__author">
+                        <img class="review__author-avatar" src="./images/no-avatar.png" alt="Аварар автора">
+                        <div class="review__author-inner">
+                          <span class="review__author-name">Андрей</span>
+                          <span class="review__date">10.06.2021</span>
+                        </div>
+                      </div>
+                      <div class="review__rate"data-rateyo-rating="5" ></div>
+                    </div>
+                    <p class="review__text">
+                      Доставили быстро. Товар свежий и очень вкусный, буду пробовать еще!))
+                    </p>
+                  </li>
+                  <li class="reviews__item review">
+                    <div class="review__head">
+                      <div class="review__author">
+                        <img class="review__author-avatar" src="./images/no-avatar.png" alt="Аварар автора">
+                        <div class="review__author-inner">
+                          <span class="review__author-name">Екатерина Белая</span>
+                          <span class="review__date">7.06.2021</span>
+                        </div>
+                      </div>
+                      <div class="review__rate"data-rateyo-rating="4" ></div>
+                    </div>
+                    <p class="review__text">
+                      этот бургер неплохой чтобы перекусить, когда нет возможности или времени что-нибудь приготовить. Это отличный вариант, чтобы съесть на ходу, но чтобы побаловать себя, я больше предпочту пиццу.
+                    </p>
+                  </li>
+                </ul>
+                <h3 class="product__tabs-subtitle">Оставить отзыв</h3>
+
+                <form class="review__form">
+                  <div class="review__form-rate">
+                    <span class="review__form-text">Ваша оценка *</span>
+                    <div class="review__form-ratepick"data-rateyo-rating="0" ></div>
+                  </div>
+                  <div class="review__form-inner">
+    
+                    <label class="review__form-text" for="review-textarea">
+                      Ваш отзыв *
+                      <textarea class="review__form-input" name="review-message" id="review-textarea" cols="30"placeholder="Введите текст отзыва"></textarea>
+                    </label>
+                    <div class="review__form-inputs">
+                      <label class="review__form-text" for="review__name">
+                        Имя
+                        <input class="review__form-input" name="review__name"  id="review__name" type="text" placeholder="Введите ваше имя">
+                      </label>
+                      <label class="review__form-text" for="review__email">
+                        Email *
+                        <input class="review__form-input" name="review__email" id="review__email" type="email" placeholder="youremail@mail.com"></label>
+                      </div>
+                  </div>
+                </>
+            </li>
+          </ul>
+          
         </div>
       </div>
     </section>

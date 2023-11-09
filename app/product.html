@@ -240,13 +240,14 @@
                   <li class="product__delivery-item">Окончательная сумма заказа формируется после сбора товаров.</li>
                 </ul>
             </div>
-           <button class="btn" type="button">Подробнее</button>
+           <button class="primary-btn" type="button">Подробнее</button>
 
           </div>
         </div>
       </div> 
       
       <div class="product__tabs">
+        <div class="con">
           <div class="product__tabs-container">
           
           <ul class="product__tabs-head">
@@ -256,8 +257,8 @@
               <button class="product__tabs-headbtn" type="button" data-tab="product__property">Характеристики</button>
             </li>
             <li class="product__tabs-headitem" >
-              <button class="product__tabs-headbtn" type="button" data-tab="reviews">Отзывы (<span class="product__reviews-count">2</span>
-                )
+              <button class="product__tabs-headbtn" type="button" data-tab="reviews">Отзывы &#40;<span class="product__reviews-count">2</span>&#41;
+                
               </button>
             </li>
           </ul>
@@ -287,10 +288,10 @@
                           <span class="review__date">10.06.2021</span>
                         </div>
                       </div>
-                      <div class="review__rate"data-rateyo-rating="5" ></div>
+                      <div class="review__rate"data-rateyo-rating="5" data-rateyo-read-only="true"></div>
                     </div>
                     <p class="review__text">
-                      Доставили быстро. Товар свежий и очень вкусный, буду пробовать еще!))
+                      Доставили быстро. Товар свежий и очень вкусный, буду пробовать еще!&#41;&#41;
                     </p>
                   </li>
                   <li class="reviews__item review">
@@ -302,7 +303,7 @@
                           <span class="review__date">7.06.2021</span>
                         </div>
                       </div>
-                      <div class="review__rate"data-rateyo-rating="4" ></div>
+                      <div class="review__rate"data-rateyo-rating="4" data-rateyo-read-only="true"></div>
                     </div>
                     <p class="review__text">
                       этот бургер неплохой чтобы перекусить, когда нет возможности или времени что-нибудь приготовить. Это отличный вариант, чтобы съесть на ходу, но чтобы побаловать себя, я больше предпочту пиццу.
@@ -344,13 +345,137 @@
           
         </div>
       </div>
+      </div>
     </section>
     <section class="recommendations">
       <div class="container">
-        <h2 class="title">Вас может заинтересовать</h2>
-        
-       
+        <div class="swiper recommendations__swiper">
+        <div class="recommendations__head">
 
+          <h2 class="title">Вас может заинтересовать</h2>
+          <div class="recommendations__controls">
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+        </div>
+            <div class="recommendations__wrapper swiper-wrapper">
+              <div class="swiper-slide">
+                <article class="card-product">
+                  <img
+                    class="card-product__image"
+                    src="images/burgers/item1.jpg"
+                    alt="Чизбургер с листьями салата"
+                    width="140"
+                    height="140"
+                  />
+                  <h3 class="card-product__title">
+                    Чизбургер с листьями салата
+                  </h3>
+                  <span class="card-product__price">160 грн</span>
+                  <button class="card-product__btn" type="button">
+                    В корзину
+                  </button>
+                </article></div>
+              <div class="swiper-slide"><article class="card-product">
+                  <img
+                    class="card-product__image"
+                    src="images/burgers/item2.jpg"
+                    alt="Чизбургер с листьями салата"
+                    width="140"
+                    height="140"
+                  />
+                  <h3 class="card-product__title">
+                    Чизбургер с листьями салата
+                  </h3>
+                  <span class="card-product__price">160 грн</span>
+                  <button class="card-product__btn" type="button">
+                    В корзину
+                  </button>
+                </article></div>
+              <div class="swiper-slide"><article class="card-product">
+                  <img
+                    class="card-product__image"
+                    src="images/burgers/item3.jpg"
+                    alt="Чизбургер с листьями салата"
+                    width="140"
+                    height="140"
+                  />
+                  <h3 class="card-product__title">
+                    Чизбургер с листьями салата
+                  </h3>
+                  <span class="card-product__price">160 грн</span>
+                  <button class="card-product__btn" type="button">
+                    В корзину
+                  </button>
+                </article></div>
+              <div class="swiper-slide"><article class="card-product">
+                  <img
+                    class="card-product__image"
+                    src="images/burgers/item4.jpg"
+                    alt="Чизбургер с листьями салата"
+                    width="140"
+                    height="140"
+                  />
+                  <h3 class="card-product__title">
+                    Чизбургер с листьями салата
+                  </h3>
+                  <span class="card-product__price">160 грн</span>
+                  <button class="card-product__btn" type="button">
+                    В корзину
+                  </button>
+                </article></div>
+              <div class="swiper-slide"><article class="card-product">
+                  <img
+                    class="card-product__image"
+                    src="images/burgers/item5.jpg"
+                    alt="Чизбургер с листьями салата"
+                    width="140"
+                    height="140"
+                  />
+                  <h3 class="card-product__title">
+                    Чизбургер с листьями салата
+                  </h3>
+                  <span class="card-product__price">160 грн</span>
+                  <button class="card-product__btn" type="button">
+                    В корзину
+                  </button>
+                </article></div>
+              <div class="swiper-slide"><article class="card-product">
+                  <img
+                    class="card-product__image"
+                    src="images/burgers/item1.jpg"
+                    alt="Чизбургер с листьями салата"
+                    width="140"
+                    height="140"
+                  />
+                  <h3 class="card-product__title">
+                    Чизбургер с листьями салата
+                  </h3>
+                  <span class="card-product__price">160 грн</span>
+                  <button class="card-product__btn" type="button">
+                    В корзину
+                  </button>
+                </article></div>
+              <div class="swiper-slide"><article class="card-product">
+                  <img
+                    class="card-product__image"
+                    src="images/burgers/item2.jpg"
+                    alt="Чизбургер с листьями салата"
+                    width="140"
+                    height="140"
+                  />
+                  <h3 class="card-product__title">
+                    Чизбургер с листьями салата
+                  </h3>
+                  <span class="card-product__price">160 грн</span>
+                  <button class="card-product__btn" type="button">
+                    В корзину
+                  </button>
+                </article></div>
+
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
 
       </div>
     </section>

@@ -295,9 +295,7 @@
   font-size: 1.4rem;
   line-height: 1.2;
   letter-spacing: 0.42px;
-  @include mq("tablet") {
-    margin-bottom: 1.8rem;
-  }
+  margin-bottom: 1.8rem;
   @include mq("desktop") {
     margin-bottom: 6rem;
   }
@@ -441,13 +439,7 @@
   &__navigation-container {
     width: 100%;
     overflow-x: scroll;
-    scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-    &::-webkit-scrollbar {
-      display: none;
-    }
+    @extend %scroll;
   }
 
   &__navigation {
@@ -1246,25 +1238,6 @@
   }
 }
 
-.swiper-pagination-bullet {
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-.swiper-pagination-bullet-active {
-  background-color: $orange-900;
-}
-
-.swiper {
-  @include mq("phone") {
-    width: 100%;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-  }
-}
-
 /*card-product*/
 .card-product {
   display: flex;
@@ -1878,6 +1851,7 @@
       grid-template-columns: repeat(2, 1fr);
       row-gap: 3rem;
       padding-bottom: 6rem;
+      align-items: center;
     }
   }
   /**product face**/
@@ -1900,9 +1874,23 @@
   & .swiper {
     max-width: 61rem;
     width: 100%;
-    height: 55rem;
     background-color: $white;
-    padding: 7.5rem 2.5rem;
+    max-height: 34.5rem;
+
+    @include mq("tablet-2") {
+      padding: 7.5rem 2.5rem;
+      max-height: 55rem;
+    }
+    & .swiper-button-next,
+    & .swiper-button-prev {
+      display: none;
+    }
+    @include mq("tablet") {
+      & .swiper-button-next,
+      & .swiper-button-prev {
+        display: block;
+      }
+    }
   }
 
   & .swiper-slide {
@@ -1914,6 +1902,15 @@
   & .swiper-button-next,
   .swiper-button-prev {
     color: $darkblue-900;
+    left: auto;
+  }
+
+  & .swiper-button-prev {
+    left: var(--swiper-navigation-sides-offset, 40px);
+  }
+
+  & .swiper-button-next {
+    right: var(--swiper-navigation-sides-offset, 40px);
   }
 
   &__image {
@@ -1939,17 +1936,19 @@
     display: block;
     @extend %Rubik-500;
     font-size: 2.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.3rem;
   }
 
   &__controls {
     display: flex;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
   }
 
   &__plus-minus {
     display: flex;
     margin-right: 2rem;
+    margin-bottom: 1.5rem;
   }
 
   &__plus,
@@ -1996,8 +1995,8 @@
     background-color: $orange-900;
     align-items: center;
     svg {
-      width: 2.4rem;
-      height: 2.4rem;
+      width: 1.7rem;
+      height: 1.6rem;
       margin-right: 1.5rem;
       stroke: $white;
       stroke-width: 0.2rem;
@@ -2009,22 +2008,28 @@
     }
   }
 
+  & .primary-btn {
+    padding: 0;
+  }
+
   &__delivery-details {
     font-size: 1.6rem;
     line-height: 1.5;
     letter-spacing: 0.48px;
     color: #505050;
     margin-bottom: 2rem;
+    letter-spacing: 0.45px;
   }
   /*product tabs*/
   &__tabs {
     border-top: 1px solid #e4e4e4;
-    padding-top: 3rem;
+    padding-top: 3.4rem;
   }
 
   &__tabs-tab {
     display: none;
     transition: all 0.4s;
+
     &--active {
       display: block;
     }
@@ -2044,6 +2049,9 @@
   &__tabs-head {
     display: flex;
     margin-bottom: 3rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    @extend %scroll;
   }
 
   &__tabs-headitem {
@@ -2057,7 +2065,9 @@
   }
 
   &__tabs-headbtn {
-    font-size: 2.4rem;
+    @include mq("tablet") {
+      font-size: 2.4rem;
+    }
     @extend %Rubik-400;
     cursor: pointer;
     &--active {
@@ -2067,7 +2077,7 @@
 
   &__tabs-text {
     line-height: 1.5;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.1rem;
   }
 
   &__property-item {
@@ -2168,6 +2178,55 @@
   }
 }
 
+.recommendations {
+  padding-bottom: 4rem;
+  @include mq("tablet-2") {
+    padding-bottom: 12rem;
+  }
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+  }
+
+  &__controls {
+    position: relative;
+    width: 10rem;
+    height: 4rem;
+    display: none;
+    @include mq("tablet") {
+      display: block;
+    }
+  }
+
+  & .swiper-wrapper {
+    padding: 0.2rem;
+  }
+
+  & .swiper-button-prev,
+  .swiper-button-next {
+    position: absolute;
+    top: 0;
+    width: 3.3rem;
+    height: 3.3rem;
+    border: 2px solid $gray;
+    border-radius: 100%;
+    margin-top: 0;
+    color: $gray;
+
+    &:after {
+      font-size: 2rem;
+    }
+  }
+
+  & .swiper-pagination {
+    position: static;
+    padding-top: 3rem;
+    margin-bottom: 4rem;
+  }
+}
+
 /************plugins style**************/
 .jq-selectbox__select {
   height: auto;
@@ -2227,7 +2286,7 @@
   padding: 0;
   margin-bottom: 2.5rem;
 }
-/**/
+/*fancybox*/
 .fancybox__content {
   padding: 0;
   max-width: 95%;
@@ -2240,4 +2299,23 @@
 }
 .fancybox__content > .f-button.is-close-btn {
   top: 0;
+}
+
+.swiper-pagination-bullet {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: $orange-900;
+}
+
+.swiper {
+  @include mq("phone") {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
 }

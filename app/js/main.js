@@ -155,6 +155,37 @@ if (document.querySelector(".product__img-swiper")) {
     },
   });
 }
+
+if (document.querySelector(".recommendations__swiper")) {
+  swiper = new Swiper(".recommendations__swiper", {
+    slidesPerView: 2,
+    spaceBetween: 10,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      600: {
+        slidesPerView: 3,
+        spaceBetween: 15,
+        pagination: false,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      },
+      900: {
+        slidesPerView: 5,
+        spaceBetween: 30,
+        pagination: false,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      },
+    },
+  });
+}
 //////////////////////////////////////////////////
 if (document.querySelector(".testimonials__slider")) {
   slider();

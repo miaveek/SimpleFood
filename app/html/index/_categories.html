@@ -1,0 +1,167 @@
+<section class="categories">
+  <div class="container">
+    <h2 class="title">Популярные категории</h2>
+    <div class="categories__navigation-container">
+      <ul class="categories__navigation">
+        <li class="categories__navigation-item">
+          <button
+            class="categories__navigation-link categories__navigation-link--active"
+            data-filter=".category-burger">
+            <svg>
+              <use xlink:href="images/sprite.svg#icon-category-burger"></use>
+            </svg>
+            Бургеры
+          </button>
+        </li>
+        <li class="categories__navigation-item">
+          <button
+            class="categories__navigation-link--pizza categories__navigation-link"
+            data-filter=".category-pizza">
+            <svg>
+              <use xlink:href="images/sprite.svg#icon-category-pizza"></use>
+            </svg>
+            Пицца
+          </button>
+        </li>
+        <li class="categories__navigation-item">
+          <button
+            type="button"
+            class="categories__navigation-link"
+            data-filter=".category-sendwich">
+            <svg>
+              <use xlink:href="images/sprite.svg#icon-category-sandvich"></use>
+            </svg>
+
+            Сендвичи
+          </button>
+        </li>
+        <li class="categories__navigation-item">
+          <button
+            type="button"
+            class="categories__navigation-link"
+            data-filter=".category-asian">
+            <svg>
+              <use xlink:href="images/sprite.svg#icon-category-asian"></use>
+            </svg>
+
+            Азиатская кухня
+          </button>
+        </li>
+        <li class="categories__navigation-item">
+          <button
+            type="button"
+            class="categories__navigation-link"
+            data-filter=".category-sets">
+            <svg>
+              <use xlink:href="images/sprite.svg#icon-category-dish"></use>
+            </svg>
+            Cеты
+          </button>
+        </li>
+      </ul>
+    </div>
+    <ul class="categories__product-list">
+      <li class="categories__product-item mix category-burger">
+        <!-- prettier-ignore -->
+        @include('../components/_card-product.html',{
+        "image-path":"images/burgers/item1.jpg", 
+        "image-alt":"Чизбургер с листьями салата",
+         "name":"Чизбургер с листьями салата",
+         "price":"160грн",
+         })
+      </li>
+
+      <li class="categories__product-item mix category-burger">
+        <!-- prettier-ignore -->
+        @include('../components/_card-product.html',{
+          "image-path":"images/burgers/item2.jpg", 
+          "image-alt":"Бифбургер",
+           "name":"Бифбургер",
+           "price":"160грн",
+           })
+      </li>
+
+      <li class="categories__product-item mix category-burger">
+        <!-- prettier-ignore -->
+        @include('../components/_card-product.html',{
+          "image-path":"images/burgers/item3.jpg", 
+          "image-alt":"Королевский чизбургер",
+           "name":"Королевский чизбургер",
+           "price":"160грн",
+           })
+      </li>
+
+      <li class="categories__product-item mix category-burger">
+        <!-- prettier-ignore -->
+        @include('../components/_card-product.html',{
+          "image-path":"images/burgers/item4.jpg", 
+          "image-alt":"Черный гамбургер",
+           "name":"Черный гамбургер",
+           "price":"160грн",
+           })
+      </li>
+
+      <li class="categories__product-item mix category-burger">
+        <!-- prettier-ignore -->
+        @include('../components/_card-product.html',{
+          "image-path":"images/burgers/item5.jpg", 
+          "image-alt":"Чикен бургер",
+           "name":"Чикен бургер",
+           "price":"160грн",
+           })
+      </li>
+
+      <li class="categories__product-item mix category-burger">
+        <!-- prettier-ignore -->
+        @include('../components/_card-product.html',{
+        "image-path":"images/burgers/item1.jpg", 
+        "image-alt":"Чизбургер с листьями салата",
+         "name":"Чизбургер с листьями салата",
+         "price":"160грн",
+         })
+      </li>
+
+      <li class="categories__product-item mix category-burger">
+        <!-- prettier-ignore -->
+        @include('../components/_card-product.html',{
+          "image-path":"images/burgers/item2.jpg", 
+          "image-alt":"Бифбургер",
+           "name":"Бифбургер",
+           "price":"160грн",
+           })
+      </li>
+
+      <li class="categories__product-item mix category-burger">
+        <!-- prettier-ignore -->
+        @include('../components/_card-product.html',{
+          "image-path":"images/burgers/item3.jpg", 
+          "image-alt":"Королевский чизбургер",
+           "name":"Королевский чизбургер",
+           "price":"160грн",
+           })
+      </li>
+
+      <li class="categories__product-item mix category-burger">
+        <!-- prettier-ignore -->
+        @include('../components/_card-product.html',{
+          "image-path":"images/burgers/item4.jpg", 
+          "image-alt":"Черный гамбургер",
+           "name":"Черный гамбургер",
+           "price":"160грн",
+           })
+      </li>
+
+      <li class="categories__product-item mix category-burger">
+        <!-- prettier-ignore -->
+        @include('../components/_card-product.html',{
+          "image-path":"images/burgers/item5.jpg", 
+          "image-alt":"Чикен бургер",
+           "name":"Чикен бургер",
+           "price":"160грн",
+           })
+      </li>
+    </ul>
+
+    <button class="primary-btn categories__btn" type="button">Показать еще</button>
+  </div>
+</section>

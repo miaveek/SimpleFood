@@ -1,0 +1,37 @@
+<div class="product__about">
+  <h2 class="title">@product-name</h2>
+  <div class="product__rate" data-rateyo-rating="@product-rate"></div>
+  <span class="product__price">@product-price</span>
+
+  <div class="product__controls">
+    <div class="product__plus-minus">
+      <div class="product__minus">-</div>
+      <input class="product__plus-minus-input" type="number" value="1" />
+      <div class="product__plus">+</div>
+    </div>
+
+    <button class="product__add-cart">
+      <svg>
+        <use xlink:href="images/sprite.svg#icon-cart"></use>
+      </svg>
+      Добавить в корзину
+    </button>
+  </div>
+
+  <div class="product__delivery">
+    <span class="product__subtitle">Доставка и оплата</span>
+    <ul class="product__delivery-details">
+      <li class="product__delivery-item">
+        Минимальная сумма заказа — @min-delivery__price
+      </li>
+      <li class="product__delivery-item">Время доставки заказа — @delivery-time</li>
+      <li class="product__delivery-item">
+        Оплата осуществляется только банковской картой.
+      </li>
+      <li class="product__delivery-item">
+        Окончательная сумма заказа формируется после сбора товаров.
+      </li>
+    </ul>
+  </div>
+  <button class="primary-btn" type="button">Подробнее</button>
+</div>

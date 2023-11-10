@@ -1,0 +1,32 @@
+<section class="discounts">
+  <div class="container">
+    <h2 class="title">Акции и скидки</h2>
+
+    <div class="swiper catalog-swiper">
+      <ul class="discounts__list swiper-wrapper">
+        <li class="discounts__item swiper-slide">
+          <!-- prettier-ignore -->
+          @include("../components/_shop.html",{
+          "image-path":"./images/restorans/restorans1.jpg", "image-alt":"Скидка 50%",
+          "text":"Скидка 50% на вторую пиццу", 
+        })
+        </li>
+        <li class="discounts__item swiper-slide">
+          <!-- prettier-ignore -->
+          @include("../components/_shop.html",{
+            "image-path":"./images/restorans/restorans5.jpg", "image-alt":"Картошечка из KFC ",
+            "text":"Картошечка из KFC даром при заказе бургера", 
+          })
+        </li>
+        <li class="discounts__item swiper-slide">
+          <!-- prettier-ignore -->
+          @include("../components/_shop.html",{
+            "image-path":"./images/restorans/restorans6.jpg", "image-alt":"Чёрные бургеры",
+            "text":"Чёрные бургеры на чёрный день ", 
+          })
+        </li>
+      </ul>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>

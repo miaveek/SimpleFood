@@ -1,0 +1,57 @@
+<section class="restaurants">
+  <div class="container">
+    <h2 class="title">Лучшие рестораны</h2>
+    <div class="swiper my-swiper">
+      <ul class="restaurants__list swiper-wrapper">
+        <li class="restaurants__item swiper-slide">
+          <!-- prettier-ignore -->
+          @include("../components/_shop.html",{
+          "image-path":"./images/restorans/restorans1.jpg", "image-alt":"Blaze Pizza",
+          "name":"Blaze Pizza", 
+          "work-time":"11:00 - 22:00" })
+        </li>
+
+        <li class="restaurants__item swiper-slide">
+          <!-- prettier-ignore -->
+          @include("../components/_shop.html",{
+            "image-path":"./images/restorans/restorans2.jpg", "image-alt":"Pizza Runcho",
+            "name":"Pizza Runcho", 
+            "work-time":"12:00 - 21:00" })
+        </li>
+
+        <li class="restaurants__item swiper-slide">
+          <!-- prettier-ignore -->
+          @include("../components/_shop.html",{
+              "image-path":"./images/restorans/restorans3.jpg", "image-alt":"Pizza Hut",
+              "name":"Pizza Hut", 
+              "work-time":"11:00 - 22:00" })
+        </li>
+
+        <li class="restaurants__item swiper-slide">
+          <!-- prettier-ignore -->
+          @include("../components/_shop.html",{
+            "image-path":"./images/restorans/restorans4.jpg", "image-alt":"McDonald`s",
+            "name":"McDonald`s", 
+            "work-time":"06:00 - 23:00" })
+        </li>
+
+        <li class="restaurants__item swiper-slide">
+          <!-- prettier-ignore -->
+          @include("../components/_shop.html",{
+              "image-path":"./images/restorans/restorans5.jpg", "image-alt":"KFC",
+              "name":"KFC", 
+              "work-time":"06:00 - 23:30" })
+        </li>
+
+        <li class="restaurants__item swiper-slide">
+          <!-- prettier-ignore -->
+          @include("../components/_shop.html",{
+              "image-path":"./images/restorans/restorans6.jpg", "image-alt":"Star Burgers",
+              "name":"Star Burgers", 
+              "work-time":"09:00 - 21:00" })
+        </li>
+      </ul>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>

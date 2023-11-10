@@ -12,7 +12,7 @@ const FAVICON_DATA_FILE = "faviconData.json";
 const svgSprite = require("gulp-svg-sprite");
 const cheerio = require("gulp-cheerio");
 const replace = require("gulp-replace");
-
+const fileInclude = require("gulp-file-include");
 function styles() {
   return src("app/sass/*.scss")
     .pipe(sass({ outputStyle: "compressed" }))
@@ -48,6 +48,7 @@ function watching() {
   watch(["app/js/*.js", "!app/js/main.min.js"], scripts);
   watch(["app/*.html"]).on("change", browserSync.reload);
   watch(["app/images/icons/*.svg"], svgSprites);
+  watch(["app/html/**/*.html"], htmlInclude);
 }
 
 function browsersync() {
@@ -212,6 +213,19 @@ function svgRemoveAttr() {
     .pipe(dest("app/images"));
 }
 
+const htmlInclude = () => {
+  return src(["app/html/*.html"])
+    .pipe(
+      fileInclude({
+        prefix: "@",
+        basepath: "@file",
+      })
+    )
+    .pipe(dest("app"))
+    .pipe(browserSync.stream());
+};
+
+exports.htmlInclude = htmlInclude;
 exports.svgRemoveAttr = svgRemoveAttr;
 exports.genFavicon = genFavicon;
 exports.injectFaviconMarkups = injectFaviconMarkups;
@@ -225,4 +239,11 @@ exports.images = images;
 exports.cleanDist = cleanDist;
 exports.svgSprites = svgSprites;
 exports.buildRepo = series(cleanDist, images, buildRepo);
-exports.default = parallel(svgSprites, styles, scripts, browsersync, watching);
+exports.default = parallel(
+  htmlInclude,
+  svgSprites,
+  styles,
+  scripts,
+  browsersync,
+  watching
+);

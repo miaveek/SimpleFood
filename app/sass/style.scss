@@ -778,6 +778,11 @@
 
   &__item {
     width: 100%;
+
+    & .shop__text {
+      display: none;
+    }
+
     @include mq("phone") {
       flex-shrink: 0;
       width: 100%;
@@ -1356,6 +1361,7 @@
   &__text {
     font-size: 2.4rem;
     min-height: 4.2rem;
+    padding: 1.6rem 2rem 2.1rem;
     @include line-clamp(2);
   }
 
@@ -1798,6 +1804,9 @@
   & .swiper-pagination {
     position: static;
     margin-bottom: 4rem;
+  }
+  & .shop__content {
+    display: none;
   }
 
   & .title {

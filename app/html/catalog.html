@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+  @include('components/_head.html')
+  <body id="top">
+    @include('components/_header.html')
+    <main class="main">
+      <div class="main__header">
+        <div class="breadCrumbs">
+          <div class="container">
+            <ul class="breadCrumbs__list">
+              <li class="breadCrumbs__item">
+                <a class="breadCrumbs__link" href=""></a>Каталог товаров
+              </li>
+              <li class="breadCrumbs__item">
+                <a class="breadCrumbs__link" href="">Главная</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <section class="catalog">
+        <div class="container">
+          @include('catalog/_catalog-header.html')
+          <div class="catalog__inner">
+            @include('components/_filters.html')
+            @include('catalog/_catalog-products.html')
+          </div>
+        </div>
+      </section>
+      @include('components/_mobile-app.html') @include('components/_discounts.html')
+    </main>
+    @include('components/_footer.html')
+  </body>
+</html>

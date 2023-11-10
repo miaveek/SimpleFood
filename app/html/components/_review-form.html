@@ -1,0 +1,52 @@
+<form class="review__form">
+  <div class="review__form-rate">
+    <span class="review__form-text">Ваша оценка *</span>
+    <div class="review__form-ratepick" data-rateyo-rating="0"></div>
+  </div>
+  <div class="review__form-inner">
+    <label class="review__form-text" for="review-textarea">
+      Ваш отзыв *
+      <textarea
+        class="review__form-input"
+        name="review-message"
+        id="review-textarea"
+        cols="30"
+        placeholder="Введите текст отзыва"
+        required></textarea>
+    </label>
+    <div class="review__form-inputs">
+      <label class="review__form-text" for="review__name">
+        Имя
+        <input
+          class="review__form-input"
+          name="review__name"
+          id="review__name"
+          type="text"
+          placeholder="Введите ваше имя" />
+      </label>
+      <label class="review__form-text" for="review__email">
+        Email *
+        <input
+          class="review__form-input"
+          name="review__email"
+          id="review__email"
+          type="email"
+          placeholder="youremail@mail.com"
+          required
+      /></label>
+    </div>
+  </div>
+
+  <label class="product__terms" for="terms">
+    <input
+      class="product__terms-checkbox"
+      type="checkbox"
+      id="terms"
+      name="form__terms" />
+    <span class="product__terms-text"
+      >Сохранить моё имя, email и адрес сайта в этом браузере для последующих моих
+      комментариев.</span
+    >
+  </label>
+  <button class="secondary-btn" type="submit">Оставить отзыв</button>
+</form>

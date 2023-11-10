@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+  @include('components/_head.html')
+  <body id="top">
+    @include('components/_header.html')
+    <main class="main">
+      <!--breadCrumbs-->
+      <div class="main__header">
+        <div class="breadCrumbs">
+          <div class="container">
+            <ul class="breadCrumbs__list">
+              <li class="breadCrumbs__item">
+                <a class="breadCrumbs__link" href="">Главная</a>
+              </li>
+              <li class="breadCrumbs__item breadCrumbs__hidden">
+                <a class="breadCrumbs__link" href="">Каталог товаров</a>
+              </li>
+              <li class="breadCrumbs__item">
+                <span class="breadCrumbs__link" href="">Чизбургер с листьями салата</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!--product-->
+      <section class="product">
+        <div class="container">
+          <div class="product__inner">
+            <!-- prettier-ignore -->
+            @include('product/_product-face.html') 
+            @include('product/_product-about.html',{
+              "product-name":"Чизбургер с листьями салата",
+              "product-rate":"4",
+              "product-price":"160 грн.",
+              "min-delivery__price":"160 грн.",
+              "delivery-time":" 80-140 мин."
+
+            })
+          </div>
+        </div>
+        @include('product/_product-tabs.html')
+      </section>
+      @include('product/_product-recommendations.html')
+    </main>
+    @include('components/_footer.html')
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<div class="product__tabs">
+  <div class="container">
+    <div class="product__tabs-container">
+      <ul class="product__tabs-head">
+        <li class="product__tabs-headitem">
+          <button
+            class="product__tabs-headbtn product__tabs-headbtn--active"
+            type="button"
+            data-tab="product__description">
+            Описание
+          </button>
+        </li>
+        <li class="product__tabs-headitem">
+          <button
+            class="product__tabs-headbtn"
+            type="button"
+            data-tab="product__property">
+            Характеристики
+          </button>
+        </li>
+        <li class="product__tabs-headitem">
+          <button class="product__tabs-headbtn" type="button" data-tab="reviews">
+            Отзывы &#40;<span class="product__reviews-count">2</span>&#41;
+          </button>
+        </li>
+      </ul>
+      <ul class="product__tabs-list">
+        <li class="product__tabs-tab product__tabs-tab--active product__description">
+          @include('_product-description.html')
+        </li>
+        <li class="product__tabs-tab product__property">
+          @include('_product-property.html')
+        </li>
+        <li class="product__tabs-tab reviews">
+          <h3 class="product__tabs-subtitle">Мнения наших клиентов</h3>
+          @include('_product-reviews.html')
+          <h3 class="product__tabs-subtitle">Оставить отзыв</h3>
+
+          @include('../components/_review-form.html')
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

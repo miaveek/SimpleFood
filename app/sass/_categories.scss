@@ -1,0 +1,157 @@
+.categories {
+  @extend %section-padding;
+  text-align: center;
+
+  @include mq("phone") {
+    padding-bottom: 4rem;
+  }
+
+  @include mq("tablet") {
+    padding-bottom: 9rem;
+  }
+
+  @extend %section-padding;
+  & .title {
+    @include mq("desktop") {
+      margin-bottom: 6rem;
+    }
+  }
+
+  &__navigation-container {
+    width: 100%;
+    overflow-x: scroll;
+    @extend %scroll;
+  }
+
+  &__navigation {
+    padding: 0.2rem;
+    margin: 0 auto;
+    display: flex;
+    scroll-snap-align: start;
+    white-space: nowrap;
+
+    @include mq("phone") {
+      margin-bottom: 3.1rem;
+    }
+
+    @include mq("tablet-2") {
+      margin-bottom: 2rem;
+    }
+
+    & svg {
+      width: 4.4rem;
+      height: 4.4rem;
+    }
+  }
+
+  &__navigation-item {
+    @include mq("phone") {
+      margin-right: 1rem;
+    }
+
+    @include mq("tablet") {
+      margin-right: 2rem;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__navigation-link {
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 0 1px $silver-200;
+    background-color: $white;
+    border-radius: 5px;
+    padding: 1.3rem 3.4rem;
+    color: $darkblue-900;
+    background-repeat: no-repeat;
+    transition: color 0.4s, background-color 0.4s, box-shadow 0.4s;
+
+    @include mq("phone") {
+      padding: 0.9rem 1.4rem;
+    }
+
+    @include mq("desktop") {
+      padding: 1.3rem 3.4rem;
+    }
+
+    & svg {
+      @include mq("phone") {
+        width: 2rem;
+        height: 2rem;
+        margin-right: 0.5rem;
+        font-size: 1.4rem;
+      }
+
+      @include mq("tablet") {
+        width: 4.4rem;
+        height: 4.4rem;
+        margin-right: 0.7rem;
+        font-size: 2rem;
+      }
+    }
+
+    &:focus,
+    &:hover {
+      @extend %orange-box-shadow;
+    }
+
+    &:hover {
+      background-color: $light-orange;
+      color: $orange-900;
+    }
+    &:hover svg {
+      fill: $orange-900;
+    }
+
+    &:active {
+      color: $darkblue-900;
+      box-shadow: 0 -5px 12px 0 rgba(255, 104, 56, 0.2) inset;
+    }
+
+    &:active svg {
+      fill: $darkblue-900;
+    }
+
+    &--active {
+      background-color: $orange-900;
+      color: $white;
+      fill: $white;
+    }
+  }
+
+  &__product-list {
+    display: grid;
+
+    @include mq("phone") {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 0.5rem;
+      row-gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    @include mq("tablet") {
+      padding: 2.5rem 0 5.2rem 0;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      row-gap: 2rem;
+      column-gap: 2rem;
+    }
+
+    @include mq("desktop") {
+      grid-template-columns: repeat(5, 1fr);
+      row-gap: 3rem;
+      column-gap: 3rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__btn {
+    @include mq("phone") {
+      font-size: 2rem;
+      padding: 0;
+    }
+  }
+}

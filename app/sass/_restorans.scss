@@ -1,0 +1,66 @@
+/*RESTORANS*/
+.restaurants {
+  @extend %section-padding;
+  @include mq("phone") {
+    padding-bottom: 1.5rem;
+  }
+
+  @include mq("tablet") {
+    padding-bottom: 6rem;
+  }
+
+  @include mq("desktop") {
+    padding-bottom: 12rem;
+  }
+
+  & .title {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    @include mq("tablet") {
+      margin-bottom: 4.3rem;
+    }
+  }
+
+  &__list {
+    @include mq("phone") {
+      position: relative;
+      width: 100%;
+      z-index: 1;
+      display: flex;
+      transition-property: transform;
+      box-sizing: content-box;
+      padding-bottom: 7rem;
+    }
+
+    @include mq("tablet") {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 3rem;
+      row-gap: 3rem;
+      display: grid;
+      justify-items: center;
+      padding-bottom: 0;
+    }
+
+    @include mq("tablet-2") {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__item {
+    width: 100%;
+
+    & .shop__text {
+      display: none;
+    }
+
+    @include mq("phone") {
+      flex-shrink: 0;
+      width: 100%;
+      position: relative;
+      height: 100%;
+      transition-property: transform;
+      z-index: 1;
+    }
+  }
+}

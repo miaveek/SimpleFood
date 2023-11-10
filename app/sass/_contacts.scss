@@ -1,0 +1,41 @@
+contacts {
+  &__item {
+    margin-bottom: 1.8rem;
+  }
+
+  &__link {
+    @extend %animation;
+    @extend %inline-flex-center;
+    margin-bottom: 2.5rem;
+    background-repeat: no-repeat;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &--location,
+    &--phone,
+    &--mail {
+      &:before {
+        content: "";
+        display: block;
+        width: 2rem;
+        height: 2rem;
+        margin-right: 1rem;
+        background-repeat: no-repeat;
+      }
+    }
+
+    &--location {
+      background-image: url("../images/icons/icon-location.svg");
+    }
+
+    &--phone {
+      background-image: url("../images/icons/icon-calling.svg");
+    }
+
+    &--mail {
+      background-image: url("../images/icons/icon-message.svg");
+    }
+  }
+}

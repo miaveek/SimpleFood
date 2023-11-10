@@ -1,0 +1,55 @@
+/*Social list*/
+.internet-party {
+  &__list {
+    display: flex;
+    font-size: 1.6rem;
+    line-height: 2;
+  }
+
+  &__item {
+    margin-right: 1.5rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    @extend %flex-center;
+    width: 3.9rem;
+    height: 3.9rem;
+    border-radius: 100%;
+    background-color: $silver-200;
+    transition: color 0.4s, background-color 0.4s, border 0.4s;
+
+    & svg {
+      width: 2rem;
+      height: 2rem;
+      fill: $dark;
+      transition: fill 0.4s;
+    }
+
+    &:focus,
+    &:active {
+      background-color: $orange-light;
+    }
+
+    &:focus {
+      @extend %orange-box-shadow;
+      & svg {
+        fill: $darkblue-900;
+      }
+    }
+
+    &:active svg {
+      fill: $orange-900;
+    }
+
+    &:hover {
+      background-color: $orange-900;
+      & svg {
+        fill: $orange-light;
+      }
+    }
+  }
+}

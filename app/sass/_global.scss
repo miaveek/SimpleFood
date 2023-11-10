@@ -318,6 +318,21 @@ body {
 .breadCrumbs {
   background-color: $light-orange;
   padding: 2.4rem 0;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  letter-spacing: 0.42px;
+  margin-bottom: 1.8rem;
+  @include mq("phone") {
+    &__hidden {
+      display: none;
+    }
+  }
+  @include mq("tablet") {
+    margin-bottom: 6rem;
+    &__hidden {
+      display: flex;
+    }
+  }
 
   &__list {
     display: flex;

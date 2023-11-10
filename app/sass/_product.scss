@@ -1,0 +1,386 @@
+.product {
+  @include mq("phone") {
+    margin-bottom: 4.5rem;
+  }
+
+  @include mq("tablet") {
+    margin-bottom: 12rem;
+  }
+
+  & .title {
+    @include mq("phone") {
+      margin-bottom: 1.4rem;
+    }
+    @include mq("tablet") {
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__inner {
+    display: block;
+    @include mq("phone") {
+      padding-bottom: 3rem;
+    }
+    @include mq("tablet") {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 3rem;
+      padding-bottom: 6rem;
+      align-items: center;
+    }
+
+    @include mq("desktop") {
+      align-items: start;
+    }
+  }
+  /**product face**/
+
+  &__face {
+    & .swiper-pagination {
+      display: none;
+    }
+
+    @include mq("phone") {
+      margin-bottom: 4.2rem;
+    }
+    @include mq("tablet") {
+      margin-right: 3rem;
+      margin-bottom: 0;
+    }
+  }
+
+  /** product  swiper and Fancybox styles**/
+  &__img-swiper {
+    //fix Fancybox inline style
+    display: block !important;
+  }
+  & .swiper {
+    max-width: 61rem;
+    width: 100%;
+    background-color: $white;
+    max-height: 34.5rem;
+
+    @include mq("tablet-2") {
+      padding: 7.5rem 2.5rem;
+      max-height: 55rem;
+    }
+    & .swiper-button-next,
+    & .swiper-button-prev {
+      display: none;
+    }
+    @include mq("tablet") {
+      & .swiper-button-next,
+      & .swiper-button-prev {
+        display: block;
+      }
+    }
+  }
+
+  & .swiper-slide {
+    transition: all 0.4s;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
+  & .swiper-button-next,
+  .swiper-button-prev {
+    color: $darkblue-900;
+    left: auto;
+  }
+
+  & .swiper-button-prev {
+    left: var(--swiper-navigation-sides-offset, 40px);
+  }
+
+  & .swiper-button-next {
+    right: var(--swiper-navigation-sides-offset, 40px);
+  }
+
+  &__image {
+    display: inline-flex;
+    max-width: 40rem;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /*product about*/
+  &__subtitle {
+    display: block;
+    font-size: 1.8rem;
+    line-height: 1.2;
+    letter-spacing: 0.72px;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e4e4e4;
+    margin-bottom: 1.3rem;
+
+    @include mq("tablet") {
+      margin-bottom: 2rem;
+      font-size: 2.4rem;
+    }
+  }
+
+  &__price {
+    display: block;
+    @extend %Rubik-500;
+    font-size: 2.5rem;
+    margin-bottom: 2.3rem;
+  }
+
+  &__controls {
+    display: flex;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+
+    @include mq("tablet") {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__plus-minus {
+    display: flex;
+    margin-right: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__plus,
+  &__minus {
+    font-size: 3rem;
+    width: 4.4rem;
+    height: 4.4rem;
+    background-color: $orange-900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+  }
+
+  &__plus-minus-input {
+    width: 7rem;
+    height: 4.4rem;
+    background-color: $light-beige;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $darkblue-900;
+    font-size: 2rem;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  &__plus {
+    border-radius: 0 3px 3px 0;
+  }
+  &__minus {
+    border-radius: 3px 0 0 3px;
+  }
+
+  &__add-cart {
+    @extend %Rubik-500;
+    width: 24.7rem;
+    height: 4.4rem;
+    display: flex;
+    font-size: 1.4rem;
+    padding-left: 3.8rem;
+    border-radius: 3px;
+    color: $white;
+    background-color: $orange-900;
+    align-items: center;
+    svg {
+      width: 1.7rem;
+      height: 1.6rem;
+      margin-right: 1.5rem;
+      stroke: $white;
+      stroke-width: 0.2rem;
+    }
+    &:hover {
+      svg {
+        stroke: #ff6838;
+      }
+    }
+  }
+
+  & .primary-btn {
+    padding: 0;
+  }
+
+  &__delivery-details {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    letter-spacing: 0.48px;
+    color: #505050;
+    letter-spacing: 0.45px;
+    margin-bottom: 1.7rem;
+
+    @include mq("tablet") {
+      margin-bottom: 2rem;
+    }
+  }
+  /*product tabs*/
+  &__tabs {
+    border-top: 1px solid #e4e4e4;
+    padding-top: 3.4rem;
+  }
+
+  &__tabs-tab {
+    display: none;
+    transition: all 0.4s;
+
+    &--active {
+      display: block;
+    }
+  }
+
+  &__tabs-container {
+    margin: 0 auto;
+    max-width: 69rem;
+  }
+  &__tabs-subtitle {
+    font-size: 2.4rem;
+    @extend %Rubik-500;
+    letter-spacing: 0.72px;
+    margin-bottom: 3rem;
+  }
+
+  &__tabs-head {
+    display: flex;
+    margin-bottom: 3rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    @extend %scroll;
+  }
+
+  &__tabs-headitem {
+    line-height: 1.5;
+    margin-right: 3rem;
+    color: $darkblue-900;
+
+    @include mq("tablet") {
+      margin-right: 6rem;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__tabs-headbtn {
+    font-size: 2rem;
+    @include mq("tablet") {
+      font-size: 2.4rem;
+    }
+    @extend %Rubik-400;
+    cursor: pointer;
+    &--active {
+      color: $orange-900;
+    }
+  }
+
+  &__tabs-text {
+    line-height: 1.5;
+    margin-bottom: 2.1rem;
+    font-size: 1.6rem;
+    padding-right: 0.5rem;
+    @include mq("tablet") {
+      font-size: 2rem;
+      padding-right: 0;
+    }
+  }
+
+  &__property-item {
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  &__property-name {
+    @extend %Rubik-500;
+  }
+
+  .review {
+    padding-bottom: 2rem;
+    margin-bottom: 3.2rem;
+    border-bottom: 1px solid #e4e4e4;
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &__head {
+      @extend %flex-between;
+      margin-bottom: 2rem;
+    }
+
+    &__author {
+      display: flex;
+    }
+
+    &__date {
+      font-size: 1.8rem;
+      letter-spacing: 0.54px;
+    }
+
+    &__author-avatar {
+      border-radius: 100%;
+      margin-right: 2.5rem;
+    }
+
+    &__author-name {
+      @extend %Rubik-500;
+      margin-bottom: 1rem;
+    }
+    &__date,
+    &__author-name {
+      display: block;
+    }
+
+    &__form-inner {
+      display: flex;
+      margin-bottom: 3rem;
+
+      & label {
+        display: block;
+      }
+
+      & textarea {
+        max-height: 16.5rem;
+        height: 100%;
+      }
+    }
+
+    &__form-rate {
+      display: flex;
+    }
+
+    &__form-ratepick {
+      padding-top: 0.5rem;
+      padding-left: 1.5rem;
+    }
+
+    &__form-input {
+      @extend %Rubik-400;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      padding: 1.5rem 0 1.5rem 1.8rem;
+      border: 1px solid $gray;
+      background-color: #fff;
+
+      &::placeholder {
+        @extend %Rubik-400;
+      }
+    }
+  }
+  &__terms {
+    display: flex;
+    align-items: start;
+    font-size: 1.8rem;
+    color: #505050;
+    margin-bottom: 3rem;
+  }
+  &__terms-checkbox {
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 3px;
+    border: 1px solid $gray;
+    margin-right: 1rem;
+  }
+}

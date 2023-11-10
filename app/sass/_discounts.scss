@@ -1,0 +1,43 @@
+.discounts {
+  & .swiper-pagination {
+    position: static;
+    margin-bottom: 4rem;
+  }
+  & .shop__content {
+    display: none;
+  }
+
+  & .title {
+    @include mq("phone") {
+      text-align: center;
+      margin-bottom: 3.8rem;
+    }
+
+    @include mq("desktop") {
+      text-align: start;
+      margin-bottom: 6rem;
+    }
+  }
+
+  &__list {
+    padding: 0.2rem;
+
+    @include mq("phone") {
+      display: flex;
+      margin-bottom: 4rem;
+      & .shop__content {
+        padding: 1.6rem 2rem 1.2rem;
+      }
+    }
+
+    @include mq("tablet") {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 3rem;
+    }
+
+    @include mq("tablet-2") {
+      margin-bottom: 11rem;
+    }
+  }
+}

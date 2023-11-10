@@ -1,0 +1,65 @@
+.recommendations {
+  padding-bottom: 3.5rem;
+  @include mq("tablet-2") {
+    padding-bottom: 8.8rem;
+  }
+
+  & .title {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+
+    @include mq("tablet") {
+      font-size: 3.6rem;
+      margin-bottom: 5.8rem;
+    }
+  }
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+  }
+
+  &__controls {
+    position: relative;
+    width: 10rem;
+    height: 4rem;
+    display: none;
+    @include mq("tablet") {
+      display: block;
+    }
+  }
+
+  & .swiper-wrapper {
+    padding: 0.2rem;
+  }
+
+  & .swiper-button-prev,
+  .swiper-button-next {
+    position: absolute;
+    top: 0;
+    width: 3.8rem;
+    height: 3.8rem;
+    border: 2px solid $gray;
+    border-radius: 100%;
+    margin-top: 0;
+    color: $gray;
+
+    &:after {
+      font-size: 1.8rem;
+    }
+  }
+
+  & .swiper-button-prev {
+    left: 0;
+  }
+
+  & .swiper-button-next {
+    right: 0;
+  }
+
+  & .swiper-pagination {
+    position: static;
+    padding-top: 2rem;
+  }
+}

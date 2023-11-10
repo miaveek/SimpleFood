@@ -1,0 +1,104 @@
+/************plugins style**************/
+.jq-selectbox__select {
+  height: auto;
+  padding: 1.5rem 4.3rem 1.5rem 1.1rem;
+  border: 1px solid $gray;
+  border-radius: 3px;
+  background: $white;
+  box-shadow: none;
+  text-shadow: none;
+  line-height: 1;
+}
+.jq-selectbox__trigger {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 34px;
+  height: 100%;
+  border-left: none;
+}
+
+.jq-selectbox__trigger-arrow {
+  position: absolute;
+  top: 2rem;
+  right: 12px;
+  width: 0;
+  height: 0;
+}
+
+.irs--round {
+  height: 1.8rem;
+}
+
+.irs--round .irs-handle {
+  top: 0;
+  width: 1.8rem;
+  height: 1.8rem;
+  border: none;
+  background-color: $orange-900;
+  border-radius: 24px;
+  box-shadow: none;
+}
+
+.irs--round .irs-bar {
+  top: 0.9rem;
+  height: 0.2rem;
+  background-color: $orange-900;
+}
+
+.irs--round .irs-line {
+  top: 0.9rem;
+  height: 0.2rem;
+  background-color: $gray;
+  border-radius: none;
+}
+/*rateYo*/
+.jq-ry-container {
+  padding: 0;
+
+  @include mq("phone") {
+    margin-bottom: 1.6rem;
+  }
+
+  @include mq("tablet") {
+    margin-bottom: 2.5rem;
+  }
+}
+/*fancybox*/
+.fancybox__content {
+  padding: 0;
+  max-width: 95%;
+}
+.fancybox__slide {
+  text-align: center;
+}
+.fancybox__container {
+  background-color: rgba(0, 0, 0, 0.15) !important;
+}
+.fancybox__content > .f-button.is-close-btn {
+  top: 0;
+}
+
+.swiper-pagination-bullet {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: $orange-900;
+}
+
+.swiper {
+  @include mq("phone") {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+}
+.with-fancybox {
+  & .swiper-pagination {
+    display: block;
+  }
+}

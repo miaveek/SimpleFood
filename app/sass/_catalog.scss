@@ -1,0 +1,374 @@
+.catalog {
+  @include mq("phone") {
+    margin-bottom: 3rem;
+  }
+
+  @include mq("tablet") {
+    margin-bottom: 6rem;
+  }
+
+  @include mq("desktop") {
+    margin-bottom: 12rem;
+  }
+
+  &__title {
+    @extend %Rubik-500;
+    @include mq("phone") {
+      font-size: 2.4rem;
+      padding: 2.1rem 0;
+    }
+
+    @include mq("tablet") {
+      padding-top: 0;
+      font-size: 3.6rem;
+      padding: 6rem 0;
+    }
+  }
+
+  &__header {
+    @include mq("phone") {
+      display: block;
+    }
+
+    @include mq("tablet") {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 4rem;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__filters {
+    @extend %Rubik-400;
+    width: 100%;
+    transition: transform 0.4s;
+
+    @include mq("phone") {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      transform: translateX(-100%);
+      background-color: $white;
+      max-width: 80%;
+      height: 100%;
+    }
+    @include mq("tablet") {
+      position: static;
+      background-color: transparent;
+      margin-right: 3rem;
+      max-width: 27rem;
+      transform: translateX(0);
+    }
+  }
+
+  &__close {
+    padding: 2rem;
+    display: flex;
+    justify-content: right;
+    @include mq("tablet") {
+      display: none;
+    }
+  }
+
+  &__close-btn {
+    position: relative;
+    @extend %flex-center;
+    width: 4rem;
+    height: 4rem;
+
+    background-color: $light-beige;
+
+    @include mq("tablet") {
+      display: none;
+    }
+
+    &:before,
+    &:after {
+      position: absolute;
+      top: 50%;
+      content: " ";
+      display: block;
+      width: 2rem;
+      height: 0.2rem;
+      background-color: $darkblue-900;
+    }
+    &:before {
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  &__filter {
+    background-color: $white;
+    border-radius: 5px;
+    border: 1px solid $silver-200;
+    margin-bottom: 3rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__options {
+    display: flex;
+
+    @include mq("phone") {
+      margin-bottom: 3rem;
+    }
+
+    @include mq("tablet") {
+      margin-bottom: 0;
+    }
+  }
+
+  &__filters-btn {
+    width: 4.7rem;
+    height: 4.7rem;
+    display: flex;
+    align-items: center;
+    background-color: $light-orange;
+    border-radius: 3px;
+    padding: 0.5rem;
+    margin-right: 1rem;
+
+    @include mq("tablet") {
+      display: none;
+    }
+  }
+
+  &__filter-input {
+    display: none;
+  }
+
+  &__checkbox-label {
+    display: flex;
+    align-items: center;
+    transition: color 0.4s;
+    &:hover {
+      color: $orange-900;
+      & .catalog__checkbox-style {
+        border-color: $orange-900;
+      }
+    }
+    &:focus {
+      & .catalog__checkbox-style {
+        border-color: $orange-900;
+      }
+    }
+  }
+
+  &__checkbox-style {
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 3px;
+    border: 1px solid $silver-200;
+    background-color: $light-beige;
+    display: inline-flex;
+    margin-right: 1.2rem;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 2rem 2rem;
+    transition: color 0.4s, border 0.4s;
+  }
+
+  &__filter-input:checked + &__checkbox-style {
+    background-image: url("../images/sprite.svg#icon-checkbox");
+    border-color: $darkblue-900;
+  }
+
+  &__filter-title {
+    color: $darkblue-900;
+    @extend %Rubik-400;
+    font-size: 2.4rem;
+    line-height: 1.2;
+    letter-spacing: 0.72px;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid $silver-200;
+    margin-bottom: 2.5rem;
+    text-transform: capitalize;
+
+    &:before {
+      content: "";
+      display: inline-flex;
+      padding-left: 1.5rem;
+    }
+  }
+
+  &__filter-list {
+    padding-left: 1.5rem;
+    font-size: 1.8rem;
+    letter-spacing: 0.54px;
+    margin-bottom: 2rem;
+  }
+
+  &__filter-item {
+    margin-bottom: 1.2rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__filter-btn {
+    @extend %Rubik-400;
+    @extend %animation;
+    &--active {
+      color: $orange-900;
+    }
+  }
+
+  &__price-range {
+    padding: 0 1.6rem 2.5rem;
+  }
+
+  &__price-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+  }
+
+  &__price-label {
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    margin-right: 2.1rem;
+    color: $gray;
+    &:last-child {
+      margin-right: 0;
+    }
+    &:after {
+      content: "";
+      display: block;
+      width: 1rem;
+      height: 1.7rem;
+      background-repeat: no-repeat;
+      background-image: url("../images/icons/icon-uan.svg");
+    }
+    & input {
+      display: flex;
+      justify-content: center;
+      font-size: 1.6rem;
+      width: 7rem;
+      height: 4rem;
+      padding: 1.2rem 1.5rem;
+      background-color: $light-beige;
+      border: 1px solid $gray;
+      border-radius: 3px;
+      margin: 0 0.5rem;
+    }
+  }
+
+  &__options-list {
+    @extend %Rubik-400;
+    font-size: 1.4rem;
+    margin-right: 1rem;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__products-list {
+    display: grid;
+    row-gap: 1rem;
+    column-gap: 0.5rem;
+
+    @include mq("phone") {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 0.2rem;
+      margin-bottom: 2.8rem;
+      & .product-hidden {
+        display: none;
+      }
+    }
+    @include mq("tablet") {
+      margin-bottom: 6rem;
+      grid-template-columns: repeat(3, 1fr);
+      & .product-hidden {
+        display: block;
+      }
+    }
+
+    @include mq("tablet-2") {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include mq("phone") {
+      margin-bottom: 1rem;
+    }
+  }
+  &__pagination-item {
+    &:nth-child(3),
+    &:nth-child(5) {
+      display: none;
+
+      @include mq("tablet") {
+        display: flex;
+      }
+    }
+  }
+
+  &__pagination-link {
+    display: flex;
+    margin-right: 0.6rem;
+    width: 4.8rem;
+    height: 4.8rem;
+    @extend %flex-center;
+    background-color: #faeded;
+    border-radius: 3px;
+    border: 1px solid transparent;
+
+    @include mq("tablet") {
+      display: flex;
+    }
+
+    & svg {
+      fill: $darkblue-900;
+    }
+    &--active {
+      border: 1px solid $darkblue-900;
+    }
+    &:hover {
+      background-color: $orange-900;
+      color: $white;
+    }
+    &:focus {
+      border-color: $orange-900;
+    }
+    &:active {
+      box-shadow: 0 -1px 4px 2px rgba(0, 0, 0, 0.15) inset;
+    }
+  }
+
+  &__pagination-next,
+  &__pagination-prev {
+    display: flex;
+    align-items: center;
+    & svg {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  &__pagination-prev {
+    &--noactive {
+      fill: $gray;
+    }
+  }
+
+  &__pagination-next {
+    transform: rotate(180deg);
+  }
+}

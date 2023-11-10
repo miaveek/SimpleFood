@@ -1,0 +1,283 @@
+.header {
+  width: 100%;
+  position: fixed;
+  background-color: $silver-100;
+  z-index: 999;
+}
+.nav {
+  @extend %flex-between;
+  @include mq("phone") {
+    padding: 1.3rem 0;
+  }
+
+  @include mq("tablet-2") {
+    padding: 2rem 0;
+  }
+
+  @include mq("desktop") {
+    padding: 6rem 0 4rem 0;
+  }
+
+  &__btn-mmenu {
+    @extend %flex-center;
+  }
+  &__contacts {
+    display: block;
+
+    @include mq("tablet") {
+      display: none;
+    }
+  }
+
+  &__logo {
+    margin-right: auto;
+    @include mq("phone") {
+      margin-left: -0.5rem;
+      max-width: 12rem;
+    }
+
+    @include mq("tablet") {
+      margin-left: 0;
+      max-width: 20rem;
+    }
+  }
+
+  &__list {
+    margin-right: 5rem;
+
+    @include mq("phone") {
+      display: none;
+    }
+
+    @include mq("tablet") {
+      display: flex;
+    }
+  }
+
+  &__list-item {
+    font-size: 1.8rem;
+    margin-right: 4.5rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__list-link {
+    @extend %animation;
+  }
+  &__list-link--active {
+    color: $orange-900;
+  }
+
+  &__btns {
+    display: flex;
+    @include mq("phone") {
+      margin-right: 1.3rem;
+    }
+    @include mq("tablet") {
+      margin-right: 0;
+    }
+  }
+
+  &__btns-item {
+    margin-right: 1.5rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__btn {
+    position: relative;
+    @extend %flex-center;
+    width: 4.2rem;
+    height: 4.5rem;
+    border-radius: 5px;
+    @extend %bg-center;
+    background-color: transparent;
+    background-size: 2rem 2rem;
+    transition: background 0.4s, color 0.4s;
+
+    &-mmenu {
+      @include mq("phone") {
+        display: flex;
+        margin-right: 1.1rem;
+      }
+
+      @include mq("tablet") {
+        display: none;
+      }
+    }
+
+    & svg {
+      width: 1.9rem;
+      height: 1.9rem;
+      stroke: $darkblue-900;
+      stroke-width: 2px;
+    }
+
+    &:hover svg {
+      stroke: $white;
+    }
+
+    &:active,
+    &:focus {
+      background-color: $light-orange;
+    }
+
+    &:active &-count {
+      background-color: $orange-900;
+      color: $white;
+    }
+
+    &:focus {
+      @extend %orange-box-shadow;
+    }
+
+    &:hover {
+      background-color: #ff7a50;
+      box-shadow: none;
+    }
+
+    &:hover &-count {
+      background-color: $white;
+      color: $orange-900;
+    }
+  }
+
+  &__btn-count {
+    position: absolute;
+    right: 0.2rem;
+    top: 0.5rem;
+    font-size: 1rem;
+    display: block;
+    width: 1.3rem;
+    height: 1.3rem;
+    padding-top: 0.2rem;
+    background-color: $orange-900;
+    color: $white;
+    border-radius: 100%;
+    transition: color 0.4s, background-color 0.4s;
+  }
+
+  &__toggle-btn {
+    display: block;
+    position: relative;
+    width: 3rem;
+    height: 0.2rem;
+    background-color: $darkblue-900;
+    cursor: pointer;
+    transition: transform 0.4s;
+
+    &:before,
+    &:after {
+      content: "";
+      width: 3rem;
+      height: 0.2rem;
+      background-color: inherit;
+      cursor: pointer;
+      transition: transform 0.4s;
+      position: absolute;
+      left: 0;
+    }
+
+    &:before {
+      top: -1rem;
+    }
+
+    &:after {
+      bottom: -1rem;
+    }
+  }
+}
+
+/*mobile navigation*/
+.mobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 80%;
+  height: 100%;
+  background-color: $white;
+  transform: translateX(-100%);
+  transition: transform 0.4s;
+
+  & .logo {
+    @extend %mobile-pl;
+    display: inline-flex;
+    max-width: 20rem;
+  }
+
+  &__top {
+    @extend %mobile-pt;
+    @extend %mobile-border;
+    @extend %flex-between;
+  }
+
+  & .nav__list {
+    display: block;
+    @extend %mobile-pt;
+    @extend %mobile-border;
+  }
+  & .nav__list-item {
+    font-size: 1.8rem;
+    @extend %mobile-pl;
+    padding-bottom: 2rem;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+
+  &__contacts {
+    @extend %mobile-pt;
+    @extend %mobile-pl;
+  }
+
+  &__close {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 1.8rem;
+    height: 1.8rem;
+    padding: 1rem;
+    margin-right: 2.6rem;
+
+    @include mq("tablet") {
+      display: none;
+    }
+
+    &:before,
+    &:after {
+      position: absolute;
+      top: 50%;
+      content: " ";
+      display: block;
+      width: 100%;
+      height: 0.2rem;
+      background-color: $darkblue-900;
+    }
+    &:before {
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  &__bg {
+    position: relative;
+    overflow: hidden;
+    &:before {
+      z-index: 100;
+      content: "";
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  }
+}

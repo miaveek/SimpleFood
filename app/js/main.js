@@ -13,6 +13,7 @@ const scrollTo = (container) => {
     mobileNav.style.transform = "translateX(-100%)";
   });
 };
+scrollTo(".nav");
 
 //chengeActive btn in categories navigation
 categoryNavigation.forEach((item) => {

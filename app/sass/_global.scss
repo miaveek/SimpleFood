@@ -7,14 +7,10 @@ html {
     font-size: 8px;
   }
 
-  @include ma("desktop") {
+  @include mq("desktop") {
     font-size: 10px;
   }
 }
-
-// * {
-//   outline: 1px solid red;
-// }
 
 body {
   @extend %Rubik-400;

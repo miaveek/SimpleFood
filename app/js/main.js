@@ -1,21 +1,40 @@
+//Navigation
 //Scrol to sections
-const categoryNavigation = document.querySelectorAll(".categories__navigation-link");
-
 const scrollTo = (container) => {
   document.querySelector(container).addEventListener("click", function (e) {
     e.preventDefault();
-    if (e.target.closest("a").hasAttribute("href")) {
-      const id = e.target.closest("a").getAttribute("href");
-
-      document.querySelector(id).scrollIntoView({ behavior: "smooth" });
-    }
+    const id = e.target.closest("a").getAttribute("href");
+    document.querySelector(id).scrollIntoView({ behavior: "smooth" });
     body.classList.remove("mobile__bg");
     mobileNav.style.transform = "translateX(-100%)";
   });
 };
-scrollTo(".nav");
 
+//mobile Navigation
+const mobileBtn = document.querySelector(".nav__btn-mmenu");
+const body = document.querySelector("body");
+const mobileNav = document.querySelector(".mobile");
+const mobileClose = document.querySelector(".mobile__close");
+
+mobileBtn.addEventListener("click", (e) => {
+  body.classList.add("mobile__bg");
+  mobileNav.style.transform = "translateX(0)";
+});
+
+mobileClose.addEventListener("click", (e) => {
+  body.classList.remove("mobile__bg");
+  mobileNav.style.transform = "translateX(-100%)";
+});
+
+body.addEventListener("click", (e) => {
+  if (e.target.classList == "mobile__bg") {
+    body.classList.remove("mobile__bg");
+    mobileNav.style.transform = "translateX(-100%)";
+  }
+});
+scrollTo(".more-details");
 //chengeActive btn in categories navigation
+const categoryNavigation = document.querySelectorAll(".categories__navigation-link");
 categoryNavigation.forEach((item) => {
   item.addEventListener("click", (e) => {
     e.preventDefault();
@@ -29,11 +48,12 @@ categoryNavigation.forEach((item) => {
     );
   });
 });
+
 //mixitup init
 if (document.querySelector(".categories__product-list")) {
   const mixer = mixitup(".categories__product-list");
 }
-
+//Index page Slider
 //Slider
 const slider = function () {
   //vars
@@ -111,6 +131,9 @@ const slider = function () {
     }
   });
 };
+if (document.querySelector(".testimonials__slider")) {
+  slider();
+}
 //Swiper slider
 let swiper;
 const createSwipper = () => {
@@ -216,11 +239,6 @@ if (document.querySelector(".recommendations__swiper")) {
   });
 }
 
-//////////////////////////////////////////////////
-if (document.querySelector(".testimonials__slider")) {
-  slider();
-}
-
 const filtersBtn = document.querySelector(".catalog__filters-btn");
 const filtersClose = document.querySelector(".catalog__close-btn");
 const filters = document.querySelector(".catalog__filters");
@@ -244,29 +262,6 @@ if (filtersClose) {
   });
 }
 
-//////////////////////////////////////////////////
-
-const mobileBtn = document.querySelector(".nav__btn-mmenu");
-const body = document.querySelector("body");
-const mobileNav = document.querySelector(".mobile");
-const mobileClose = document.querySelector(".mobile__close");
-
-mobileBtn.addEventListener("click", (e) => {
-  body.classList.add("mobile__bg");
-  mobileNav.style.transform = "translateX(0)";
-});
-
-mobileClose.addEventListener("click", (e) => {
-  body.classList.remove("mobile__bg");
-  mobileNav.style.transform = "translateX(-100%)";
-});
-
-body.addEventListener("click", (e) => {
-  if (e.target.classList == "mobile__bg") {
-    body.classList.remove("mobile__bg");
-    mobileNav.style.transform = "translateX(-100%)";
-  }
-});
 //Range slider
 let $range = $(".catalog__price-slider"),
   $inputFrom = $(".catalog__price-from"),
@@ -343,31 +338,37 @@ $(".review__rate").rateYo(rateYoOptions);
 $(".review__form-ratepick").rateYo(rateYoOptions);
 
 Fancybox.bind("[data-fancybox]");
-//product plus minus btn events
-const currValue = document.querySelector(".product__plus-minus-input");
-document.querySelector(".product__plus").addEventListener("click", () => {
-  currValue.value = parseInt(currValue.value) + 1;
-});
-document.querySelector(".product__minus").addEventListener("click", () => {
-  if (currValue.value > 1) currValue.value = parseInt(currValue.value) - 1;
-});
-//product tabs events
-const tabs = document.querySelectorAll(".product__tabs-tab");
-const tabsBtns = document.querySelectorAll(".product__tabs-headbtn");
-const tabsNav = document
-  .querySelector(".product__tabs-head")
-  .addEventListener("click", (e) => {
-    const dataAttr = e.target.dataset.tab;
-    console.log(e.target.dataset.tab);
-    if (e.target.closest(".product__tabs-headbtn").classList == "product__tabs-headbtn") {
-      tabsBtns.forEach((tab) => {
-        tab.classList.remove("product__tabs-headbtn--active");
-      });
-      e.target.classList.add("product__tabs-headbtn--active");
-      tabs.forEach((tab) => {
-        tab.style.display = "none";
-      });
+if (document.querySelector(".product")) {
+  //product plus minus btn events
+  const currValue = document.querySelector(".product__plus-minus-input");
 
-      document.querySelector(`.${dataAttr}`).style.display = "block";
-    }
+  document.querySelector(".product__plus").addEventListener("click", () => {
+    currValue.value = parseInt(currValue.value) + 1;
   });
+  document.querySelector(".product__minus").addEventListener("click", () => {
+    if (currValue.value > 1) currValue.value = parseInt(currValue.value) - 1;
+  });
+  //product tabs events
+  const tabs = document.querySelectorAll(".product__tabs-tab");
+  const tabsBtns = document.querySelectorAll(".product__tabs-headbtn");
+  const tabsNav = document
+    .querySelector(".product__tabs-head")
+    .addEventListener("click", (e) => {
+      const dataAttr = e.target.dataset.tab;
+      console.log(e.target.dataset.tab);
+
+      if (
+        e.target.closest(".product__tabs-headbtn").classList == "product__tabs-headbtn"
+      ) {
+        tabsBtns.forEach((tab) => {
+          tab.classList.remove("product__tabs-headbtn--active");
+        });
+        e.target.classList.add("product__tabs-headbtn--active");
+        tabs.forEach((tab) => {
+          tab.style.display = "none";
+        });
+
+        document.querySelector(`.${dataAttr}`).style.display = "block";
+      }
+    });
+}

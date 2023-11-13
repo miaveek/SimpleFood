@@ -53,89 +53,23 @@ categoryNavigation.forEach((item) => {
 if (document.querySelector(".categories__product-list")) {
   const mixer = mixitup(".categories__product-list");
 }
-//Index page Slider
-//Slider
-const slider = function () {
-  //vars
-  const btnLeft = document.querySelector(".testimonials__prev");
-  const btnRight = document.querySelector(".testimonials__next");
-  const slides = document.querySelectorAll(".testimonials__slide");
-  const slider = document.querySelector(".testimonials");
-  const dotContainer = document.querySelector(".testimonials__dots");
-  let curSlide = 0;
-  const maxSlide = slides.length;
-  //Functions
-  const createDots = function () {
-    slides.forEach((_, i) => {
-      dotContainer.insertAdjacentHTML(
-        "beforeend",
-        `<li class="testimonials__dot" data-slide="${i}"></li>`
-      );
-    });
-  };
 
-  const activetaDot = function (slide) {
-    document
-      .querySelectorAll(".testimonials__dot")
-      .forEach((dot) => dot.classList.remove("testimonials__dot--active"));
-    document
-      .querySelector(`.testimonials__dot[data-slide="${slide}"]`)
-      .classList.add("testimonials__dot--active");
-  };
-  const goToSlide = function (slide) {
-    slides.forEach((s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`));
-  };
-
-  //Next slide
-  const nextSlide = function () {
-    if (curSlide === maxSlide - 1) {
-      curSlide = 0;
-    } else {
-      curSlide++;
-    }
-    goToSlide(curSlide);
-    activetaDot(curSlide);
-  };
-  const prevSlide = function () {
-    if (curSlide === 0) {
-      // curSlide = maxSlide - 1;
-    } else {
-      curSlide--;
-    }
-    goToSlide(curSlide);
-    activetaDot(0);
-  };
-  const init = function () {
-    goToSlide(0);
-    createDots();
-    activetaDot(curSlide);
-  };
-  init();
-  //Event handlers
-  btnRight.addEventListener("click", nextSlide);
-  btnLeft.addEventListener("click", prevSlide);
-
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "ArrowLeft") {
-      prevSlide();
-    }
-    if (e.key === "ArrowRight") {
-      nextSlide();
-    }
-  });
-  dotContainer.addEventListener("click", function (e) {
-    if (e.target.classList.contains("testimonials__dot")) {
-      const { slide } = e.target.dataset;
-      goToSlide(slide);
-      activetaDot(slide);
-    }
-  });
-};
-if (document.querySelector(".testimonials__slider")) {
-  slider();
-}
 //Swiper slider
 let swiper;
+
+const testimonialsSwiper = new Swiper({
+  navigation: {
+    nextEl: ".testimonials__next",
+    prevEl: ".testimonials__prev",
+  },
+  pagination: {
+    el: ".testimonials__dots",
+    clickable: true,
+  },
+});
+
+testimonialsSwiper.init(".testimonials__slider");
+
 const createSwipper = () => {
   swiper = new Swiper({
     pagination: {

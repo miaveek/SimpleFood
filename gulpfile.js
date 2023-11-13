@@ -2,7 +2,7 @@ const { src, dest, watch, parallel, series } = require("gulp");
 const autoPrefixer = require("gulp-autoprefixer");
 const concat = require("gulp-concat");
 const imagemin = require("gulp-imagemin");
-const sass = require("gulp-sass")(require("sass"));
+const scss = require("gulp-sass")(require("sass"));
 const uglify = require("gulp-uglify");
 const browserSync = require("browser-sync").create();
 const del = require("del");
@@ -13,9 +13,10 @@ const svgSprite = require("gulp-svg-sprite");
 const cheerio = require("gulp-cheerio");
 const replace = require("gulp-replace");
 const fileInclude = require("gulp-file-include");
+
 function styles() {
   return src("app/sass/*.scss")
-    .pipe(sass({ outputStyle: "compressed" }))
+    .pipe(scss({ outputStyle: "compressed" }))
     .pipe(concat("style.min.css"))
     .pipe(autoPrefixer({ overrideBrowserslist: ["last 10 versions"], grid: true }))
     .pipe(dest("app/css"))

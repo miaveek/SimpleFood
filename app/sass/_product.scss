@@ -193,11 +193,7 @@
       stroke: $white;
       stroke-width: 0.2rem;
     }
-    &:hover {
-      svg {
-        stroke: #ff6838;
-      }
-    }
+    @extend %animanion-btn;
   }
 
   & .primary-btn {

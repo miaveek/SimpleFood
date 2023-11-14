@@ -208,8 +208,8 @@
   &__message {
     display: flex;
     font-style: italic;
-    padding-right: 2rem;
-
+    padding: 0 4rem;
+    position: relative;
     @include mq("phone") {
       margin-bottom: 2rem;
       font-size: 1.4rem;
@@ -224,17 +224,19 @@
     &:after {
       content: "";
       display: block;
-      width: 10rem;
-      height: 3rem;
-      background-image: url("../images/icons/icon-quote-open.svg");
+      position: absolute;
+      width: 2.4rem;
+      height: 2rem;
+
+      background-image: url("../images/quote.png");
       background-repeat: no-repeat;
       background-size: cover;
     }
     &:before {
-      margin-right: 2rem;
+      left: 0;
     }
     &:after {
-      margin-left: 4rem;
+      right: 0;
       align-self: end;
       transform: rotate(180deg);
     }

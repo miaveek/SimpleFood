@@ -151,7 +151,7 @@
   &__btn {
     @include mq("phone") {
       font-size: 2rem;
-      padding: 0;
+      padding: 1.2rem;
     }
   }
 }

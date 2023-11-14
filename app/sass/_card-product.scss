@@ -1,14 +1,16 @@
 .card-product {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
   padding: 2rem 1.5rem;
   border-radius: 5px;
-  font-size: 1.5rem;
   box-shadow: 0 0 0 1px $silver-200;
   background-color: $white;
   transition: box-shadow 0.4s;
+  &__link {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-size: 1.5rem;
+  }
 
   &:hover {
     @extend %orange-box-shadow;

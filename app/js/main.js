@@ -9,12 +9,19 @@ const scrollTo = (container) => {
     mobileNav.style.transform = "translateX(-100%)";
   });
 };
-
+if (document.querySelector(".hero")) {
+  scrollTo(".more-details");
+}
 //mobile Navigation
 const mobileBtn = document.querySelector(".nav__btn-mmenu");
 const body = document.querySelector("body");
 const mobileNav = document.querySelector(".mobile");
 const mobileClose = document.querySelector(".mobile__close");
+
+const closeNavigation = () => {
+  body.classList.remove("mobile__bg");
+  mobileNav.style.transform = "translateX(-100%)";
+};
 
 mobileBtn.addEventListener("click", (e) => {
   body.classList.add("mobile__bg");
@@ -22,17 +29,15 @@ mobileBtn.addEventListener("click", (e) => {
 });
 
 mobileClose.addEventListener("click", (e) => {
-  body.classList.remove("mobile__bg");
-  mobileNav.style.transform = "translateX(-100%)";
+  closeNavigation();
 });
 
 body.addEventListener("click", (e) => {
   if (e.target.classList == "mobile__bg") {
-    body.classList.remove("mobile__bg");
-    mobileNav.style.transform = "translateX(-100%)";
+    closeNavigation();
   }
 });
-scrollTo(".more-details");
+
 //chengeActive btn in categories navigation
 const categoryNavigation = document.querySelectorAll(".categories__navigation-link");
 categoryNavigation.forEach((item) => {
@@ -55,8 +60,7 @@ if (document.querySelector(".categories__product-list")) {
 }
 
 //Swiper slider
-let swiper;
-
+//testimonials Swiper slider init
 const testimonialsSwiper = new Swiper({
   navigation: {
     nextEl: ".testimonials__next",
@@ -70,6 +74,8 @@ const testimonialsSwiper = new Swiper({
 
 testimonialsSwiper.init(".testimonials__slider");
 
+//mobile restaurants Swiper slider init
+let swiper;
 const createSwipper = () => {
   swiper = new Swiper({
     pagination: {
@@ -101,6 +107,8 @@ const initeSwiper = (container) => {
   });
 };
 initeSwiper(".my-swiper");
+
+//catalog swiper slider inite
 initeSwiper(".catalog-swiper");
 
 if (document.querySelector(".product__img-swiper")) {
@@ -129,6 +137,8 @@ if (document.querySelector(".product__img-swiper")) {
     });
   });
 }
+
+//recomendations swiper slider
 let sw;
 if (document.querySelector(".recommendations__swiper")) {
   const swInit = () => {
@@ -172,7 +182,7 @@ if (document.querySelector(".recommendations__swiper")) {
     }
   });
 }
-
+//catalod filters
 const filtersBtn = document.querySelector(".catalog__filters-btn");
 const filtersClose = document.querySelector(".catalog__close-btn");
 const filters = document.querySelector(".catalog__filters");
@@ -229,9 +239,8 @@ function updateInputs(data) {
 }
 
 $inputFrom.on("input", function () {
-  var val = $(this).prop("value");
+  let val = $(this).prop("value");
 
-  // validate
   if (val < min) {
     val = min;
   } else if (val > to) {

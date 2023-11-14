@@ -75,3 +75,6 @@ a {
 address {
   font-style: normal;
 }
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}

@@ -103,6 +103,7 @@ $breakpoints: (
   &:active svg,
   &:focus svg {
     fill: $orange-900;
+    stroke: $orange-900;
   }
 }
 

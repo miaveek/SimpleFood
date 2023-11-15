@@ -74,7 +74,7 @@ const testimonialsSwiper = new Swiper({
 
 testimonialsSwiper.init(".testimonials__slider");
 
-//mobile restaurants Swiper slider init
+//mobile restaurants Swiper init
 let swiper;
 const createSwipper = () => {
   swiper = new Swiper({
@@ -106,11 +106,11 @@ const initeSwiper = (container) => {
     }
   });
 };
-initeSwiper(".my-swiper");
+initeSwiper(".restaurants-swiper");
 
-//catalog swiper slider inite
+//catalog swiper inite
 initeSwiper(".catalog-swiper");
-
+//product image swiper init
 if (document.querySelector(".product__img-swiper")) {
   swiper = new Swiper(".product__img-swiper", {
     pagination: {
@@ -145,11 +145,13 @@ if (document.querySelector(".recommendations__swiper")) {
     sw = new Swiper({
       slidesPerView: 2,
       spaceBetween: 10,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
       breakpoints: {
+        300: {
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+        },
         600: {
           slidesPerView: 3,
           spaceBetween: 15,
@@ -182,18 +184,16 @@ if (document.querySelector(".recommendations__swiper")) {
     }
   });
 }
-//catalod filters
+
+//catalog filters
 const filtersBtn = document.querySelector(".catalog__filters-btn");
 const filtersClose = document.querySelector(".catalog__close-btn");
 const filters = document.querySelector(".catalog__filters");
-let flag = false;
 
 if (filtersBtn) {
   filtersBtn.addEventListener("click", (e) => {
     e.preventDefault();
     e.stopPropagation();
-
-    flag = !flag;
     filters.style.transform = "translateX(0)";
   });
 }
@@ -202,7 +202,6 @@ if (filtersClose) {
   filtersClose.addEventListener("click", (e) => {
     e.preventDefault();
     filters.style.transform = "translateX(-100%)";
-    flag = !flag;
   });
 }
 
@@ -275,11 +274,11 @@ const rateYoOptions = {
   ratedFill: "#FFB800",
   normalFill: "#C1C1C1",
 };
-
+//rateYo plugin init
 $(".product__rate").rateYo(rateYoOptions);
 $(".review__rate").rateYo(rateYoOptions);
 $(".review__form-ratepick").rateYo(rateYoOptions);
-
+//Fanybox init
 Fancybox.bind("[data-fancybox]");
 if (document.querySelector(".product")) {
   //product plus minus btn events
